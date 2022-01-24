@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CLValueList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.model.clvalue</a> &gt; <span class="el_source">CLValueList.java</span></div><h1>CLValueList.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.model.clvalue;
+
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.syntifi.casper.sdk.exception.CLValueDecodeException;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
+import com.syntifi.casper.sdk.model.clvalue.cltype.AbstractCLTypeWithChildren;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeData;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeList;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Casper List CLValue implementation
+ * 
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @see AbstractCLValue
+ * @since 0.0.1
+ */
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+public class CLValueList extends AbstractCLValue&lt;List&lt;? extends AbstractCLValue&lt;?, ?&gt;&gt;, CLTypeList&gt; {
+<span class="fc" id="L36">    @JsonProperty(&quot;cl_type&quot;)</span>
+    private CLTypeList clType = new CLTypeList();
+
+<span class="fc" id="L39">    public CLValueList(List&lt;? extends AbstractCLValue&lt;?, ?&gt;&gt; value) {</span>
+<span class="fc" id="L40">        this.setValue(value);</span>
+<span class="fc" id="L41">        setListType();</span>
+<span class="fc" id="L42">    }</span>
+
+    @Override
+    public void encode(CLValueEncoder clve)
+            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+<span class="fc" id="L47">        setListType();</span>
+
+        // List length is written first
+<span class="fc" id="L50">        CLValueI32 length = new CLValueI32(getValue().size());</span>
+<span class="fc" id="L51">        length.encode(clve);</span>
+<span class="fc" id="L52">        setBytes(length.getBytes());</span>
+
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (AbstractCLValue&lt;?, ?&gt; child : getValue()) {</span>
+<span class="fc" id="L55">            child.encode(clve);</span>
+<span class="fc" id="L56">            setBytes(getBytes() + child.getBytes());</span>
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">    }</span>
+
+    @Override
+    public void decode(CLValueDecoder clvd)
+            throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
+<span class="fc" id="L63">        CLTypeData childrenType = getClType().getListType().getClTypeData();</span>
+
+        // List length is sent first
+<span class="fc" id="L66">        CLValueI32 length = new CLValueI32();</span>
+<span class="fc" id="L67">        length.decode(clvd);</span>
+<span class="fc" id="L68">        setBytes(length.getBytes());</span>
+
+<span class="fc" id="L70">        List&lt;AbstractCLValue&lt;?, ?&gt;&gt; list = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        for (int i = 0; i &lt; length.getValue(); i++) {</span>
+<span class="fc" id="L72">            AbstractCLValue&lt;?, ?&gt; child = CLTypeData.createCLValueFromCLTypeData(childrenType);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            if (child.getClType() instanceof AbstractCLTypeWithChildren) {</span>
+<span class="fc" id="L74">                ((AbstractCLTypeWithChildren) child.getClType())</span>
+<span class="fc" id="L75">                        .setChildTypes(((AbstractCLTypeWithChildren) clType.getListType()).getChildTypes());</span>
+            }
+<span class="fc" id="L77">            child.decode(clvd);</span>
+<span class="fc" id="L78">            setBytes(getBytes() + child.getBytes());</span>
+<span class="fc" id="L79">            list.add(child);</span>
+        }
+
+<span class="fc" id="L82">        setValue(list);</span>
+<span class="fc" id="L83">    }</span>
+
+    protected void setListType() {
+<span class="fc" id="L86">        clType.setListType(getValue().get(0).getClType());</span>
+<span class="fc" id="L87">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
