@@ -1,8 +1,9 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
+title: Casper Java 8+ SDK
+menu_item: true
+menu_title: Home
 layout: default
+order: 1
 ---
 This project implements the SDK to interact with a Casper Node. It wraps the Json-RPC requests and maps the results to Java objects. 
 
