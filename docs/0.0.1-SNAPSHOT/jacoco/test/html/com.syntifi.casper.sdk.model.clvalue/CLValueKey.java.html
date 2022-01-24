@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CLValueKey.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.model.clvalue</a> &gt; <span class="el_source">CLValueKey.java</span></div><h1>CLValueKey.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.model.clvalue;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
+import com.syntifi.casper.sdk.exception.CLValueDecodeException;
+import com.syntifi.casper.sdk.exception.NoSuchKeyTagException;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeKey;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
+import com.syntifi.casper.sdk.model.key.Key;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Casper Key CLValue implementation
+ * 
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @see AbstractCLValue
+ * @since 0.0.1
+ */
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+public class CLValueKey extends AbstractCLValue&lt;Key, CLTypeKey&gt; {
+<span class="fc" id="L33">    private CLTypeKey clType = new CLTypeKey();</span>
+
+    @JsonSetter(&quot;cl_type&quot;)
+    @ExcludeFromJacocoGeneratedReport
+	protected void setJsonClType(CLTypeKey clType) {
+        this.clType = clType;
+    }
+
+    @JsonGetter(&quot;cl_type&quot;)
+    @ExcludeFromJacocoGeneratedReport
+	protected String getJsonClType() {
+        return this.getClType().getTypeName();
+    }
+
+<span class="fc" id="L47">    public CLValueKey(Key value) {</span>
+<span class="fc" id="L48">        this.setValue(value);</span>
+<span class="fc" id="L49">    }</span>
+
+    @Override
+    public void encode(CLValueEncoder clve) throws IOException {
+<span class="fc" id="L53">        clve.writeKey(this);</span>
+<span class="fc" id="L54">    }</span>
+
+    @Override
+    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+        try {
+<span class="fc" id="L59">            clvd.readKey(this);</span>
+<span class="nc" id="L60">        } catch (NoSuchKeyTagException e) {</span>
+<span class="nc" id="L61">            throw new CLValueDecodeException(&quot;Error decoding CLValueKey&quot;, e);</span>
+<span class="fc" id="L62">        }</span>
+<span class="fc" id="L63">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
