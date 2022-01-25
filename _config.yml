@@ -8,4 +8,4 @@ description: >
 
 baseurl:          '/casper-sdk'
 
-remote_theme:     oak3dev/architect
+remote_theme:     oak/architect
