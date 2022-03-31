@@ -13,6 +13,7 @@ com.syntifi.casper.sdk.model.clvalue
 com.syntifi.casper.sdk.model.clvalue.cltype
 com.syntifi.casper.sdk.model.clvalue.encdec
 com.syntifi.casper.sdk.model.clvalue.encdec.interfaces
+com.syntifi.casper.sdk.model.common
 com.syntifi.casper.sdk.model.contract
 com.syntifi.casper.sdk.model.deploy
 com.syntifi.casper.sdk.model.deploy.executabledeploy

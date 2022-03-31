@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -143,6 +143,29 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="StatusData.StatusDataBuilder.html" title="class in com.syntifi.casper.sdk.model.status">StatusData.StatusDataBuilder</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -160,6 +183,19 @@ extends java.lang.Object</pre>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">StatusData</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,com.syntifi.casper.sdk.model.status.MinimalBlockInfo,com.syntifi.casper.sdk.model.status.NextUpgrade,com.syntifi.casper.sdk.model.key.PublicKey,java.util.List,java.lang.String,java.lang.String,java.lang.String)">StatusData</a></span>&#8203;(java.lang.String&nbsp;apiVersion,
+          java.lang.String&nbsp;buildVersion,
+          java.lang.String&nbsp;chainSpecName,
+          <a href="MinimalBlockInfo.html" title="class in com.syntifi.casper.sdk.model.status">MinimalBlockInfo</a>&nbsp;lastAddedBlockInfo,
+          <a href="NextUpgrade.html" title="class in com.syntifi.casper.sdk.model.status">NextUpgrade</a>&nbsp;nextUpgrade,
+          <a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;publicKey,
+          java.util.List&lt;<a href="../peer/PeerEntry.html" title="class in com.syntifi.casper.sdk.model.peer">PeerEntry</a>&gt;&nbsp;peers,
+          java.lang.String&nbsp;roundLength,
+          java.lang.String&nbsp;uptime,
+          java.lang.String&nbsp;startStateRootHash)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -172,159 +208,144 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canEqual(java.lang.Object)">canEqual</a></span>&#8203;(java.lang.Object&nbsp;other)</code></th>
+<td class="colFirst"><code>static <a href="StatusData.StatusDataBuilder.html" title="class in com.syntifi.casper.sdk.model.status">StatusData.StatusDataBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getApiVersion()">getApiVersion</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The RPC API version</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBuildVersion()">getBuildVersion</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The compiled node version</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChainSpecName()">getChainSpecName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The chainspec name</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="MinimalBlockInfo.html" title="class in com.syntifi.casper.sdk.model.status">MinimalBlockInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastAddedBlockInfo()">getLastAddedBlockInfo</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="NextUpgrade.html" title="class in com.syntifi.casper.sdk.model.status">NextUpgrade</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextUpgrade()">getNextUpgrade</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../peer/PeerEntry.html" title="class in com.syntifi.casper.sdk.model.peer">PeerEntry</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeers()">getPeers</a></span>()</code></th>
 <td class="colLast">
 <div class="block">List of</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPublicKey()">getPublicKey</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRoundLength()">getRoundLength</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The next round length if this node is a validator</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStartStateRootHash()">getStartStateRootHash</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The state root hash used at the start of the current session</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUptime()">getUptime</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Time passed since the node has started</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i13" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setApiVersion(java.lang.String)">setApiVersion</a></span>&#8203;(java.lang.String&nbsp;apiVersion)</code></th>
 <td class="colLast">
 <div class="block">The RPC API version</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBuildVersion(java.lang.String)">setBuildVersion</a></span>&#8203;(java.lang.String&nbsp;buildVersion)</code></th>
 <td class="colLast">
 <div class="block">The compiled node version</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChainSpecName(java.lang.String)">setChainSpecName</a></span>&#8203;(java.lang.String&nbsp;chainSpecName)</code></th>
 <td class="colLast">
 <div class="block">The chainspec name</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastAddedBlockInfo(com.syntifi.casper.sdk.model.status.MinimalBlockInfo)">setLastAddedBlockInfo</a></span>&#8203;(<a href="MinimalBlockInfo.html" title="class in com.syntifi.casper.sdk.model.status">MinimalBlockInfo</a>&nbsp;lastAddedBlockInfo)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNextUpgrade(com.syntifi.casper.sdk.model.status.NextUpgrade)">setNextUpgrade</a></span>&#8203;(<a href="NextUpgrade.html" title="class in com.syntifi.casper.sdk.model.status">NextUpgrade</a>&nbsp;nextUpgrade)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeers(java.util.List)">setPeers</a></span>&#8203;(java.util.List&lt;<a href="../peer/PeerEntry.html" title="class in com.syntifi.casper.sdk.model.peer">PeerEntry</a>&gt;&nbsp;peers)</code></th>
 <td class="colLast">
 <div class="block">List of</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPublicKey(com.syntifi.casper.sdk.model.key.PublicKey)">setPublicKey</a></span>&#8203;(<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;publicKey)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRoundLength(java.lang.String)">setRoundLength</a></span>&#8203;(java.lang.String&nbsp;roundLength)</code></th>
 <td class="colLast">
 <div class="block">The next round length if this node is a validator</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStartStateRootHash(java.lang.String)">setStartStateRootHash</a></span>&#8203;(java.lang.String&nbsp;startStateRootHash)</code></th>
 <td class="colLast">
 <div class="block">The state root hash used at the start of the current session</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUptime(java.lang.String)">setUptime</a></span>&#8203;(java.lang.String&nbsp;uptime)</code></th>
 <td class="colLast">
 <div class="block">Time passed since the node has started</div>
 </td>
-</tr>
-<tr id="i23" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -332,7 +353,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -350,6 +371,24 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,com.syntifi.casper.sdk.model.status.MinimalBlockInfo,com.syntifi.casper.sdk.model.status.NextUpgrade,com.syntifi.casper.sdk.model.key.PublicKey,java.util.List,java.lang.String,java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>StatusData</h4>
+<pre>public&nbsp;StatusData&#8203;(java.lang.String&nbsp;apiVersion,
+                  java.lang.String&nbsp;buildVersion,
+                  java.lang.String&nbsp;chainSpecName,
+                  <a href="MinimalBlockInfo.html" title="class in com.syntifi.casper.sdk.model.status">MinimalBlockInfo</a>&nbsp;lastAddedBlockInfo,
+                  <a href="NextUpgrade.html" title="class in com.syntifi.casper.sdk.model.status">NextUpgrade</a>&nbsp;nextUpgrade,
+                  <a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;publicKey,
+                  java.util.List&lt;<a href="../peer/PeerEntry.html" title="class in com.syntifi.casper.sdk.model.peer">PeerEntry</a>&gt;&nbsp;peers,
+                  java.lang.String&nbsp;roundLength,
+                  java.lang.String&nbsp;uptime,
+                  java.lang.String&nbsp;startStateRootHash)</pre>
+</li>
+</ul>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
@@ -369,6 +408,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="builder()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>builder</h4>
+<pre class="methodSignature">public static&nbsp;<a href="StatusData.StatusDataBuilder.html" title="class in com.syntifi.casper.sdk.model.status">StatusData.StatusDataBuilder</a>&nbsp;builder()</pre>
+</li>
+</ul>
 <a id="getApiVersion()">
 <!--   -->
 </a>
@@ -588,59 +636,11 @@ extends java.lang.Object</pre>
 <a id="setStartStateRootHash(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>setStartStateRootHash</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setStartStateRootHash&#8203;(java.lang.String&nbsp;startStateRootHash)</pre>
 <div class="block">The state root hash used at the start of the current session</div>
-</li>
-</ul>
-<a id="equals(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>equals</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="canEqual(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>canEqual</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;canEqual&#8203;(java.lang.Object&nbsp;other)</pre>
-</li>
-</ul>
-<a id="hashCode()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashCode</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="toString()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
 </li>
 </ul>
 </li>
@@ -694,7 +694,7 @@ extends java.lang.Object</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
