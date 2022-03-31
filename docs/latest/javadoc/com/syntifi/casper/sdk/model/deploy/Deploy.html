@@ -137,7 +137,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Deploy</span>
 extends java.lang.Object
 implements <a href="../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></pre>
-<div class="block">A deploy; an item containing a smart contract along with the requester's
+<div class="block">Deploy an item containing a smart contract along with the requesters'
  signature(s)</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -358,10 +358,10 @@ implements <a href="../clvalue/encdec/interfaces/EncodableValue.html" title="int
 <dd><code>clve</code> - the encoder to be used</dd>
 <dd><code>encodeType</code> - append encoded type?</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
-<dd><code><a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
-<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown if failed to encode a cl value</dd>
+<dd><code><a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code> - thrown if it could not instantiate a type</dd>
+<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
 </dl>
 </li>
 </ul>

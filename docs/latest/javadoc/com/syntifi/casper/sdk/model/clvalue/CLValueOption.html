@@ -327,9 +327,9 @@ extends <a href="AbstractCLValue.html" title="class in com.syntifi.casper.sdk.mo
 <dd><code>clve</code> - the encoder to be used</dd>
 <dd><code>encodeType</code> - append encoded type?</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
-<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
+<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown if failed to encode a cl value</dd>
 </dl>
 </li>
 </ul>
@@ -350,10 +350,10 @@ extends <a href="AbstractCLValue.html" title="class in com.syntifi.casper.sdk.mo
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clvd</code> - the decoder to be used</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></code></dd>
-<dd><code><a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
-<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code><a href="../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></code> - thrown if failed to decode a cl value</dd>
+<dd><code><a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code> - thrown if it could not instantiate a type</dd>
+<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
 </dl>
 </li>
 </ul>

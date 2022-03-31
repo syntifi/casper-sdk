@@ -142,7 +142,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">CLValueUnit</span>
 extends <a href="AbstractCLValue.html" title="class in com.syntifi.casper.sdk.model.clvalue">AbstractCLValue</a>&lt;java.lang.Object,&#8203;<a href="cltype/CLTypeUnit.html" title="class in com.syntifi.casper.sdk.model.clvalue.cltype">CLTypeUnit</a>&gt;</pre>
 <div class="block">Casper Unit CLValue implementation
- 
+ <p>
  Unit is singleton value without additional semantics and serializes to an
  empty byte array.</div>
 <dl>
@@ -334,9 +334,9 @@ protected&nbsp;java.lang.String&nbsp;getJsonClType()</pre>
 <dd><code>clve</code> - the encoder to be used</dd>
 <dd><code>encodeType</code> - append encoded type?</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
-<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
+<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown if failed to encode a cl value</dd>
 </dl>
 </li>
 </ul>
@@ -355,8 +355,8 @@ protected&nbsp;java.lang.String&nbsp;getJsonClType()</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clvd</code> - the decoder to be used</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code><a href="../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></code> - thrown if failed to decode a cl value</dd>
 </dl>
 </li>
 </ul>
