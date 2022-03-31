@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModuleBytes.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.model.deploy.executabledeploy</a> &gt; <span class="el_source">ModuleBytes.java</span></div><h1>ModuleBytes.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.model.deploy.executabledeploy;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
+import com.syntifi.casper.sdk.model.deploy.NamedArg;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * Abstract Executable Deploy Item containing the ModuleBytes of the contract.
+ *
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @see ExecutableDeployItem
+ * @since 0.0.1
+ */
+@Getter
+<span class="fc" id="L28">@Setter</span>
+<span class="pc" id="L29">@Builder</span>
+<span class="fc" id="L30">@AllArgsConstructor</span>
+<span class="fc" id="L31">@NoArgsConstructor</span>
+@JsonTypeName(&quot;ModuleBytes&quot;)
+public class ModuleBytes implements ExecutableDeployItem {
+
+    /**
+     * Module bytes
+     */
+    @JsonProperty(&quot;module_bytes&quot;)
+<span class="fc" id="L39">    private String bytes;</span>
+
+    /**
+     * @see NamedArg
+     */
+<span class="fc" id="L44">    private List&lt;NamedArg&lt;?&gt;&gt; args;</span>
+
+
+    /**
+     * {@link ExecutableDeployItem} order 0
+     */
+    @Override
+    public byte getOrder() {
+<span class="fc" id="L52">        return 0x0;</span>
+    }
+
+    /**
+     * Implements the ModuleBytes encoder
+     */
+    @Override
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+<span class="fc" id="L60">        clve.write(getOrder());</span>
+<span class="fc" id="L61">        clve.writeString(getBytes());</span>
+<span class="fc" id="L62">        clve.writeInt(args.size());</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        for (NamedArg&lt;?&gt; namedArg : args) {</span>
+<span class="fc" id="L64">            namedArg.encode(clve, encodeType);</span>
+<span class="fc" id="L65">        }</span>
+<span class="fc" id="L66">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
