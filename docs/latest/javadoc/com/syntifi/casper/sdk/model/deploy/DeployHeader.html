@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -129,9 +129,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></code></dd>
+</dl>
 <hr>
 <pre>public class <span class="typeNameLabel">DeployHeader</span>
-extends java.lang.Object</pre>
+extends java.lang.Object
+implements <a href="../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></pre>
 <div class="block">The header portion of a [`Deploy`](struct.Deploy.html).</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -143,6 +148,29 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DeployHeader.DeployHeaderBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy">DeployHeader.DeployHeaderBuilder</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -160,6 +188,16 @@ extends java.lang.Object</pre>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">DeployHeader</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.syntifi.casper.sdk.model.key.PublicKey,com.syntifi.casper.sdk.model.common.Digest,java.lang.String,java.util.List,java.lang.Long,java.util.Date,com.syntifi.casper.sdk.model.common.Ttl)">DeployHeader</a></span>&#8203;(<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;account,
+            <a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&nbsp;bodyHash,
+            java.lang.String&nbsp;chainName,
+            java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;&nbsp;dependencies,
+            java.lang.Long&nbsp;gasPrice,
+            java.util.Date&nbsp;timeStamp,
+            <a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a>&nbsp;ttl)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -172,21 +210,24 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canEqual(java.lang.Object)">canEqual</a></span>&#8203;(java.lang.Object&nbsp;other)</code></th>
+<td class="colFirst"><code>static <a href="DeployHeader.DeployHeaderBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy">DeployHeader.DeployHeaderBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">encode</a></span>&#8203;(<a href="../clvalue/encdec/CLValueEncoder.html" title="class in com.syntifi.casper.sdk.model.clvalue.encdec">CLValueEncoder</a>&nbsp;clve,
+      boolean&nbsp;encodeType)</code></th>
+<td class="colLast">
+<div class="block">Implements DeployHearder encoder</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a></code></td>
@@ -194,7 +235,7 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBodyHash()">getBodyHash</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Body hash</div>
@@ -208,14 +249,14 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDependencies()">getDependencies</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Dependencies</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>java.math.BigInteger</code></td>
+<td class="colFirst"><code>java.lang.Long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGasPrice()">getGasPrice</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gas price</div>
@@ -229,68 +270,58 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTtl()">getTtl</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Human-readable duration</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAccount(com.syntifi.casper.sdk.model.key.PublicKey)">setAccount</a></span>&#8203;(<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;account)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBodyHash(java.lang.String)">setBodyHash</a></span>&#8203;(java.lang.String&nbsp;bodyHash)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBodyHash(com.syntifi.casper.sdk.model.common.Digest)">setBodyHash</a></span>&#8203;(<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&nbsp;bodyHash)</code></th>
 <td class="colLast">
 <div class="block">Body hash</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChainName(java.lang.String)">setChainName</a></span>&#8203;(java.lang.String&nbsp;chainName)</code></th>
 <td class="colLast">
 <div class="block">Chain name</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDependencies(java.util.List)">setDependencies</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;dependencies)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDependencies(java.util.List)">setDependencies</a></span>&#8203;(java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;&nbsp;dependencies)</code></th>
 <td class="colLast">
 <div class="block">Dependencies</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGasPrice(java.math.BigInteger)">setGasPrice</a></span>&#8203;(java.math.BigInteger&nbsp;gasPrice)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGasPrice(java.lang.Long)">setGasPrice</a></span>&#8203;(java.lang.Long&nbsp;gasPrice)</code></th>
 <td class="colLast">
 <div class="block">Gas price</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStamp(java.util.Date)">setTimeStamp</a></span>&#8203;(java.util.Date&nbsp;timeStamp)</code></th>
 <td class="colLast">
 <div class="block">Timestamp formatted as per RFC 3339</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTtl(java.lang.String)">setTtl</a></span>&#8203;(java.lang.String&nbsp;ttl)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTtl(com.syntifi.casper.sdk.model.common.Ttl)">setTtl</a></span>&#8203;(<a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a>&nbsp;ttl)</code></th>
 <td class="colLast">
 <div class="block">Human-readable duration</div>
 </td>
-</tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -298,7 +329,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -316,6 +347,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(com.syntifi.casper.sdk.model.key.PublicKey,com.syntifi.casper.sdk.model.common.Digest,java.lang.String,java.util.List,java.lang.Long,java.util.Date,com.syntifi.casper.sdk.model.common.Ttl)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DeployHeader</h4>
+<pre>public&nbsp;DeployHeader&#8203;(<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;account,
+                    <a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&nbsp;bodyHash,
+                    java.lang.String&nbsp;chainName,
+                    java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;&nbsp;dependencies,
+                    java.lang.Long&nbsp;gasPrice,
+                    java.util.Date&nbsp;timeStamp,
+                    <a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a>&nbsp;ttl)</pre>
+</li>
+</ul>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
@@ -335,6 +381,42 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>encode</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;encode&#8203;(<a href="../clvalue/encdec/CLValueEncoder.html" title="class in com.syntifi.casper.sdk.model.clvalue.encdec">CLValueEncoder</a>&nbsp;clve,
+                   boolean&nbsp;encodeType)
+            throws java.io.IOException,
+                   <a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a>,
+                   <a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a>,
+                   <a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></pre>
+<div class="block">Implements DeployHearder encoder</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../clvalue/encdec/interfaces/EncodableValue.html#encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">encode</a></code>&nbsp;in interface&nbsp;<code><a href="../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clve</code> - the encoder to be used</dd>
+<dd><code>encodeType</code> - append encoded type?</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+<dd><code><a href="../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code><a href="../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
+<dd><code><a href="../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="builder()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>builder</h4>
+<pre class="methodSignature">public static&nbsp;<a href="DeployHeader.DeployHeaderBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy">DeployHeader.DeployHeaderBuilder</a>&nbsp;builder()</pre>
+</li>
+</ul>
 <a id="getAccount()">
 <!--   -->
 </a>
@@ -354,7 +436,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getBodyHash</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getBodyHash()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&nbsp;getBodyHash()</pre>
 <div class="block">Body hash</div>
 </li>
 </ul>
@@ -374,7 +456,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDependencies</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;getDependencies()</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;&nbsp;getDependencies()</pre>
 <div class="block">Dependencies</div>
 </li>
 </ul>
@@ -384,7 +466,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getGasPrice</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigInteger&nbsp;getGasPrice()</pre>
+<pre class="methodSignature">public&nbsp;java.lang.Long&nbsp;getGasPrice()</pre>
 <div class="block">Gas price</div>
 </li>
 </ul>
@@ -404,7 +486,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTtl</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getTtl()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a>&nbsp;getTtl()</pre>
 <div class="block">Human-readable duration</div>
 </li>
 </ul>
@@ -421,13 +503,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="setBodyHash(java.lang.String)">
+<a id="setBodyHash(com.syntifi.casper.sdk.model.common.Digest)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setBodyHash</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setBodyHash&#8203;(java.lang.String&nbsp;bodyHash)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setBodyHash&#8203;(<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&nbsp;bodyHash)</pre>
 <div class="block">Body hash</div>
 </li>
 </ul>
@@ -447,17 +529,17 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setDependencies</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setDependencies&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;dependencies)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setDependencies&#8203;(java.util.List&lt;<a href="../common/Digest.html" title="class in com.syntifi.casper.sdk.model.common">Digest</a>&gt;&nbsp;dependencies)</pre>
 <div class="block">Dependencies</div>
 </li>
 </ul>
-<a id="setGasPrice(java.math.BigInteger)">
+<a id="setGasPrice(java.lang.Long)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setGasPrice</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setGasPrice&#8203;(java.math.BigInteger&nbsp;gasPrice)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setGasPrice&#8203;(java.lang.Long&nbsp;gasPrice)</pre>
 <div class="block">Gas price</div>
 </li>
 </ul>
@@ -471,62 +553,14 @@ extends java.lang.Object</pre>
 <div class="block">Timestamp formatted as per RFC 3339</div>
 </li>
 </ul>
-<a id="setTtl(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTtl</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setTtl&#8203;(java.lang.String&nbsp;ttl)</pre>
-<div class="block">Human-readable duration</div>
-</li>
-</ul>
-<a id="equals(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>equals</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="canEqual(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>canEqual</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;canEqual&#8203;(java.lang.Object&nbsp;other)</pre>
-</li>
-</ul>
-<a id="hashCode()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashCode</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="toString()">
+<a id="setTtl(com.syntifi.casper.sdk.model.common.Ttl)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>toString</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
+<h4>setTtl</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setTtl&#8203;(<a href="../common/Ttl.html" title="class in com.syntifi.casper.sdk.model.common">Ttl</a>&nbsp;ttl)</pre>
+<div class="block">Human-readable duration</div>
 </li>
 </ul>
 </li>
@@ -580,7 +614,7 @@ extends java.lang.Object</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

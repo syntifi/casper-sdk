@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -143,6 +143,29 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Bid.BidBuilder.html" title="class in com.syntifi.casper.sdk.model.bid">Bid.BidBuilder</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -160,6 +183,16 @@ extends java.lang.Object</pre>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Bid</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.syntifi.casper.sdk.model.uref.URef,int,java.util.Map,boolean,java.math.BigInteger,com.syntifi.casper.sdk.model.key.PublicKey,com.syntifi.casper.sdk.model.bid.VestingSchedule)">Bid</a></span>&#8203;(<a href="../uref/URef.html" title="class in com.syntifi.casper.sdk.model.uref">URef</a>&nbsp;bondingPurse,
+   int&nbsp;delegationRate,
+   java.util.Map&lt;<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;&nbsp;delegators,
+   boolean&nbsp;inactive,
+   java.math.BigInteger&nbsp;stakedAmount,
+   <a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;validatorPublicKey,
+   <a href="VestingSchedule.html" title="class in com.syntifi.casper.sdk.model.bid">VestingSchedule</a>&nbsp;vestingSchedule)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -172,149 +205,134 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canEqual(java.lang.Object)">canEqual</a></span>&#8203;(java.lang.Object&nbsp;other)</code></th>
+<td class="colFirst"><code>static <a href="Bid.BidBuilder.html" title="class in com.syntifi.casper.sdk.model.bid">Bid.BidBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../uref/URef.html" title="class in com.syntifi.casper.sdk.model.uref">URef</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBondingPurse()">getBondingPurse</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The purse that was used for bonding.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDelegationRate()">getDelegationRate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Delegation rate</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDelegators()">getDelegators</a></span>()</code></th>
 <td class="colLast">
 <div class="block">This validator's delegators, indexed by their public keys</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJsonDelegators()">getJsonDelegators</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJsonStakedAmount()">getJsonStakedAmount</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.math.BigInteger</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStakedAmount()">getStakedAmount</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The amount of tokens staked by a validator (not including delegators).</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValidatorPublicKey()">getValidatorPublicKey</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Validator PublicKey</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="VestingSchedule.html" title="class in com.syntifi.casper.sdk.model.bid">VestingSchedule</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVestingSchedule()">getVestingSchedule</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Vesting schedule for a genesis validator.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInactive()">isInactive</a></span>()</code></th>
 <td class="colLast">
 <div class="block">`true` if validator has been \"evicted\"</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBondingPurse(com.syntifi.casper.sdk.model.uref.URef)">setBondingPurse</a></span>&#8203;(<a href="../uref/URef.html" title="class in com.syntifi.casper.sdk.model.uref">URef</a>&nbsp;bondingPurse)</code></th>
 <td class="colLast">
 <div class="block">The purse that was used for bonding.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDelegationRate(int)">setDelegationRate</a></span>&#8203;(int&nbsp;delegationRate)</code></th>
 <td class="colLast">
 <div class="block">Delegation rate</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDelegators(java.util.Map)">setDelegators</a></span>&#8203;(java.util.Map&lt;<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;&nbsp;delegators)</code></th>
 <td class="colLast">
 <div class="block">This validator's delegators, indexed by their public keys</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInactive(boolean)">setInactive</a></span>&#8203;(boolean&nbsp;inactive)</code></th>
 <td class="colLast">
 <div class="block">`true` if validator has been \"evicted\"</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setJsonDelegators(java.util.Map)">setJsonDelegators</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;&nbsp;node)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setJsonStakedAmount(java.lang.String)">setJsonStakedAmount</a></span>&#8203;(java.lang.String&nbsp;value)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStakedAmount(java.math.BigInteger)">setStakedAmount</a></span>&#8203;(java.math.BigInteger&nbsp;stakedAmount)</code></th>
 <td class="colLast">
 <div class="block">The amount of tokens staked by a validator (not including delegators).</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValidatorPublicKey(com.syntifi.casper.sdk.model.key.PublicKey)">setValidatorPublicKey</a></span>&#8203;(<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;validatorPublicKey)</code></th>
 <td class="colLast">
 <div class="block">Validator PublicKey</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVestingSchedule(com.syntifi.casper.sdk.model.bid.VestingSchedule)">setVestingSchedule</a></span>&#8203;(<a href="VestingSchedule.html" title="class in com.syntifi.casper.sdk.model.bid">VestingSchedule</a>&nbsp;vestingSchedule)</code></th>
 <td class="colLast">
 <div class="block">Vesting schedule for a genesis validator.</div>
 </td>
-</tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -322,7 +340,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +358,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(com.syntifi.casper.sdk.model.uref.URef,int,java.util.Map,boolean,java.math.BigInteger,com.syntifi.casper.sdk.model.key.PublicKey,com.syntifi.casper.sdk.model.bid.VestingSchedule)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Bid</h4>
+<pre>public&nbsp;Bid&#8203;(<a href="../uref/URef.html" title="class in com.syntifi.casper.sdk.model.uref">URef</a>&nbsp;bondingPurse,
+           int&nbsp;delegationRate,
+           java.util.Map&lt;<a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>,&#8203;<a href="Delegator.html" title="class in com.syntifi.casper.sdk.model.bid">Delegator</a>&gt;&nbsp;delegators,
+           boolean&nbsp;inactive,
+           java.math.BigInteger&nbsp;stakedAmount,
+           <a href="../key/PublicKey.html" title="class in com.syntifi.casper.sdk.model.key">PublicKey</a>&nbsp;validatorPublicKey,
+           <a href="VestingSchedule.html" title="class in com.syntifi.casper.sdk.model.bid">VestingSchedule</a>&nbsp;vestingSchedule)</pre>
+</li>
+</ul>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
@@ -404,6 +437,15 @@ protected&nbsp;java.lang.String&nbsp;getJsonStakedAmount()</pre>
 <h4>setJsonStakedAmount</h4>
 <pre class="methodSignature"><a href="../../annotation/ExcludeFromJacocoGeneratedReport.html" title="annotation in com.syntifi.casper.sdk.annotation">@ExcludeFromJacocoGeneratedReport</a>
 protected&nbsp;void&nbsp;setJsonStakedAmount&#8203;(java.lang.String&nbsp;value)</pre>
+</li>
+</ul>
+<a id="builder()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>builder</h4>
+<pre class="methodSignature">public static&nbsp;<a href="Bid.BidBuilder.html" title="class in com.syntifi.casper.sdk.model.bid">Bid.BidBuilder</a>&nbsp;builder()</pre>
 </li>
 </ul>
 <a id="getBondingPurse()">
@@ -539,59 +581,11 @@ protected&nbsp;void&nbsp;setJsonStakedAmount&#8203;(java.lang.String&nbsp;value)
 <a id="setVestingSchedule(com.syntifi.casper.sdk.model.bid.VestingSchedule)">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>setVestingSchedule</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setVestingSchedule&#8203;(<a href="VestingSchedule.html" title="class in com.syntifi.casper.sdk.model.bid">VestingSchedule</a>&nbsp;vestingSchedule)</pre>
 <div class="block">Vesting schedule for a genesis validator. `None` if non-genesis validator.</div>
-</li>
-</ul>
-<a id="equals(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>equals</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="canEqual(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>canEqual</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;canEqual&#8203;(java.lang.Object&nbsp;other)</pre>
-</li>
-</ul>
-<a id="hashCode()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashCode</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="toString()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
 </li>
 </ul>
 </li>
@@ -645,7 +639,7 @@ protected&nbsp;void&nbsp;setJsonStakedAmount&#8203;(java.lang.String&nbsp;value)
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

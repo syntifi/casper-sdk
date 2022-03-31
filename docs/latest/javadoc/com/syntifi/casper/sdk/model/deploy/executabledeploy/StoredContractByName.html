@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="ExecutableDeployItem.html" title="interface in com.syntifi.casper.sdk.model.deploy.executabledeploy">ExecutableDeployItem</a></code></dd>
+<dd><code><a href="../../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></code>, <code><a href="ExecutableDeployItem.html" title="interface in com.syntifi.casper.sdk.model.deploy.executabledeploy">ExecutableDeployItem</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">StoredContractByName</span>
@@ -150,6 +150,29 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="StoredContractByName.StoredContractByNameBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy.executabledeploy">StoredContractByName.StoredContractByNameBuilder</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -167,6 +190,12 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">StoredContractByName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.util.List)">StoredContractByName</a></span>&#8203;(java.lang.String&nbsp;name,
+                    java.lang.String&nbsp;entryPoint,
+                    java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;&nbsp;args)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -179,24 +208,27 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canEqual(java.lang.Object)">canEqual</a></span>&#8203;(java.lang.Object&nbsp;other)</code></th>
+<td class="colFirst"><code>static <a href="StoredContractByName.StoredContractByNameBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy.executabledeploy">StoredContractByName.StoredContractByNameBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">encode</a></span>&#8203;(<a href="../../clvalue/encdec/CLValueEncoder.html" title="class in com.syntifi.casper.sdk.model.clvalue.encdec">CLValueEncoder</a>&nbsp;clve,
+      boolean&nbsp;encodeType)</code></th>
+<td class="colLast">
+<div class="block">Implements the StoredContractByHash encoder</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?,&#8203;?&gt;&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArgs()">getArgs</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -215,13 +247,15 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrder()">getOrder</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><a href="ExecutableDeployItem.html" title="interface in com.syntifi.casper.sdk.model.deploy.executabledeploy"><code>ExecutableDeployItem</code></a> order 2</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setArgs(java.util.List)">setArgs</a></span>&#8203;(java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?,&#8203;?&gt;&gt;&nbsp;args)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setArgs(java.util.List)">setArgs</a></span>&#8203;(java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;&nbsp;args)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -238,18 +272,13 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <div class="block">Contract name</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -267,6 +296,17 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>StoredContractByName</h4>
+<pre>public&nbsp;StoredContractByName&#8203;(java.lang.String&nbsp;name,
+                            java.lang.String&nbsp;entryPoint,
+                            java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;&nbsp;args)</pre>
+</li>
+</ul>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
@@ -286,27 +326,54 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getArgs()">
+<a id="getOrder()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getArgs</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?,&#8203;?&gt;&gt;&nbsp;getArgs()</pre>
+<h4>getOrder</h4>
+<pre class="methodSignature">public&nbsp;byte&nbsp;getOrder()</pre>
+<div class="block"><a href="ExecutableDeployItem.html" title="interface in com.syntifi.casper.sdk.model.deploy.executabledeploy"><code>ExecutableDeployItem</code></a> order 2</div>
 <dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy"><code>NamedArg</code></a></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="ExecutableDeployItem.html#getOrder()">getOrder</a></code>&nbsp;in interface&nbsp;<code><a href="ExecutableDeployItem.html" title="interface in com.syntifi.casper.sdk.model.deploy.executabledeploy">ExecutableDeployItem</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="getEntryPoint()">
+<a id="encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getEntryPoint</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getEntryPoint()</pre>
-<div class="block">Entry Point</div>
+<h4>encode</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;encode&#8203;(<a href="../../clvalue/encdec/CLValueEncoder.html" title="class in com.syntifi.casper.sdk.model.clvalue.encdec">CLValueEncoder</a>&nbsp;clve,
+                   boolean&nbsp;encodeType)
+            throws java.io.IOException,
+                   <a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a>,
+                   <a href="../../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a>,
+                   <a href="../../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></pre>
+<div class="block">Implements the StoredContractByHash encoder</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../clvalue/encdec/interfaces/EncodableValue.html#encode(com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder,boolean)">encode</a></code>&nbsp;in interface&nbsp;<code><a href="../../clvalue/encdec/interfaces/EncodableValue.html" title="interface in com.syntifi.casper.sdk.model.clvalue.encdec.interfaces">EncodableValue</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clve</code> - the encoder to be used</dd>
+<dd><code>encodeType</code> - append encoded type?</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code><a href="../../../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
+<dd><code><a href="../../../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="builder()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>builder</h4>
+<pre class="methodSignature">public static&nbsp;<a href="StoredContractByName.StoredContractByNameBuilder.html" title="class in com.syntifi.casper.sdk.model.deploy.executabledeploy">StoredContractByName.StoredContractByNameBuilder</a>&nbsp;builder()</pre>
 </li>
 </ul>
 <a id="getName()">
@@ -319,27 +386,27 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <div class="block">Contract name</div>
 </li>
 </ul>
-<a id="setArgs(java.util.List)">
+<a id="getEntryPoint()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setArgs</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setArgs&#8203;(java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?,&#8203;?&gt;&gt;&nbsp;args)</pre>
+<h4>getEntryPoint</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getEntryPoint()</pre>
+<div class="block">Entry Point</div>
+</li>
+</ul>
+<a id="getArgs()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getArgs</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;&nbsp;getArgs()</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy"><code>NamedArg</code></a></dd>
 </dl>
-</li>
-</ul>
-<a id="setEntryPoint(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setEntryPoint</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setEntryPoint&#8203;(java.lang.String&nbsp;entryPoint)</pre>
-<div class="block">Entry Point</div>
 </li>
 </ul>
 <a id="setName(java.lang.String)">
@@ -352,51 +419,26 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <div class="block">Contract name</div>
 </li>
 </ul>
-<a id="equals(java.lang.Object)">
+<a id="setEntryPoint(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>equals</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
+<h4>setEntryPoint</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setEntryPoint&#8203;(java.lang.String&nbsp;entryPoint)</pre>
+<div class="block">Entry Point</div>
 </li>
 </ul>
-<a id="canEqual(java.lang.Object)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>canEqual</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;canEqual&#8203;(java.lang.Object&nbsp;other)</pre>
-</li>
-</ul>
-<a id="hashCode()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hashCode</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
-<a id="toString()">
+<a id="setArgs(java.util.List)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>toString</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<h4>setArgs</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setArgs&#8203;(java.util.List&lt;<a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy">NamedArg</a>&lt;?&gt;&gt;&nbsp;args)</pre>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../NamedArg.html" title="class in com.syntifi.casper.sdk.model.deploy"><code>NamedArg</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -451,7 +493,7 @@ implements <a href="ExecutableDeployItem.html" title="interface in com.syntifi.c
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

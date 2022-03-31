@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -270,90 +270,118 @@ extends java.io.ByteArrayOutputStream</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeBigInteger(java.math.BigInteger)">writeBigInteger</a></span>&#8203;(java.math.BigInteger&nbsp;bigInteger)</code></th>
+<td class="colLast">
+<div class="block">Writes a BigInteger to the CLValue byte buffer</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeBool(com.syntifi.casper.sdk.model.clvalue.CLValueBool)">writeBool</a></span>&#8203;(<a href="../CLValueBool.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueBool</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a boolean value to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeByteArray(com.syntifi.casper.sdk.model.clvalue.CLValueByteArray)">writeByteArray</a></span>&#8203;(<a href="../CLValueByteArray.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueByteArray</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a byte array value to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeI32(com.syntifi.casper.sdk.model.clvalue.CLValueI32)">writeI32</a></span>&#8203;(<a href="../CLValueI32.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI32</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes an Integer/I32 value to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeI64(com.syntifi.casper.sdk.model.clvalue.CLValueI64)">writeI64</a></span>&#8203;(<a href="../CLValueI64.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI64</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a Long/I64 value to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeInt(java.lang.Integer)">writeInt</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Writes an Integet value to byte buffer</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeKey(com.syntifi.casper.sdk.model.clvalue.CLValueKey)">writeKey</a></span>&#8203;(<a href="../CLValueKey.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueKey</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a Tag/Key Hex string to CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeLong(java.lang.Long)">writeLong</a></span>&#8203;(java.lang.Long&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Writes a Long value to byte buffer</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writePublicKey(com.syntifi.casper.sdk.model.clvalue.CLValuePublicKey)">writePublicKey</a></span>&#8203;(<a href="../CLValuePublicKey.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValuePublicKey</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a AlgorithmTag/Key Hex string to CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeString(com.syntifi.casper.sdk.model.clvalue.CLValueString)">writeString</a></span>&#8203;(<a href="../CLValueString.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueString</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a String/String to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeString(java.lang.String)">writeString</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
+<td class="colLast">
+<div class="block">Writes a String to the byte buffer</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU128(com.syntifi.casper.sdk.model.clvalue.CLValueU128)">writeU128</a></span>&#8203;(<a href="../CLValueU128.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU128</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a BigInteger/U128 to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU256(com.syntifi.casper.sdk.model.clvalue.CLValueU256)">writeU256</a></span>&#8203;(<a href="../CLValueU256.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU256</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a BigInteger/U256 to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU32(com.syntifi.casper.sdk.model.clvalue.CLValueU32)">writeU32</a></span>&#8203;(<a href="../CLValueU32.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU32</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes an Unsigned Integer (Long)/U32 value to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU512(com.syntifi.casper.sdk.model.clvalue.CLValueU512)">writeU512</a></span>&#8203;(<a href="../CLValueU512.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU512</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes a BigInteger/U512 to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU64(com.syntifi.casper.sdk.model.clvalue.CLValueU64)">writeU64</a></span>&#8203;(<a href="../CLValueU64.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU64</a>&nbsp;clValue)</code></th>
 <td class="colLast">
 <div class="block">Writes an Unsigned Long (BigInteger)/U64 to the CLValue byte buffer</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeU8(com.syntifi.casper.sdk.model.clvalue.CLValueU8)">writeU8</a></span>&#8203;(<a href="../CLValueU8.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU8</a>&nbsp;clValue)</code></th>
 <td class="colLast">
@@ -573,6 +601,25 @@ extends java.io.ByteArrayOutputStream</pre>
 </dl>
 </li>
 </ul>
+<a id="writeInt(java.lang.Integer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeInt</h4>
+<pre class="methodSignature">public&nbsp;byte[]&nbsp;writeInt&#8203;(java.lang.Integer&nbsp;value)
+                throws java.io.IOException</pre>
+<div class="block">Writes an Integet value to byte buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>byte[]</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
 <a id="writeI64(com.syntifi.casper.sdk.model.clvalue.CLValueI64)">
 <!--   -->
 </a>
@@ -585,6 +632,25 @@ extends java.io.ByteArrayOutputStream</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueI64.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueI64</code></a> value to encode</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a id="writeLong(java.lang.Long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeLong</h4>
+<pre class="methodSignature">public&nbsp;byte[]&nbsp;writeLong&#8203;(java.lang.Long&nbsp;value)
+                 throws java.io.IOException</pre>
+<div class="block">Writes a Long value to byte buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>byte[]</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
 </dl>
@@ -687,6 +753,25 @@ extends java.io.ByteArrayOutputStream</pre>
 </dl>
 </li>
 </ul>
+<a id="writeBigInteger(java.math.BigInteger)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeBigInteger</h4>
+<pre class="methodSignature">public&nbsp;byte[]&nbsp;writeBigInteger&#8203;(java.math.BigInteger&nbsp;bigInteger)
+                       throws java.io.IOException</pre>
+<div class="block">Writes a BigInteger to the CLValue byte buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>bigInteger</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a byte array</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
 <a id="writeString(com.syntifi.casper.sdk.model.clvalue.CLValueString)">
 <!--   -->
 </a>
@@ -704,17 +789,39 @@ extends java.io.ByteArrayOutputStream</pre>
 </dl>
 </li>
 </ul>
+<a id="writeString(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeString</h4>
+<pre class="methodSignature">public&nbsp;byte[]&nbsp;writeString&#8203;(java.lang.String&nbsp;string)
+                   throws java.io.IOException</pre>
+<div class="block">Writes a String to the byte buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>string</code> - to encode</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>byte[]</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
 <a id="writePublicKey(com.syntifi.casper.sdk.model.clvalue.CLValuePublicKey)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>writePublicKey</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;writePublicKey&#8203;(<a href="../CLValuePublicKey.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValuePublicKey</a>&nbsp;clValue)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;writePublicKey&#8203;(<a href="../CLValuePublicKey.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValuePublicKey</a>&nbsp;clValue)
+                    throws java.io.IOException</pre>
 <div class="block">Writes a AlgorithmTag/Key Hex string to CLValue byte buffer</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValuePublicKey.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValuePublicKey</code></a> value to encode</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
 </dl>
 </li>
 </ul>
