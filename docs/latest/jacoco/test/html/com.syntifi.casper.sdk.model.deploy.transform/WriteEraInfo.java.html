@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.syntifi.casper.sdk.model.deploy.EraInfo;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,19 +10,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Writes the given EraInfo to global state.
- * 
- * @see Transform
- * 
+ * An implementation of Transform that Writes the given EraInfo to global state.
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L23">@Setter</span>
-<span class="nc" id="L24">@Builder</span>
-<span class="nc" id="L25">@AllArgsConstructor</span>
-<span class="nc" id="L26">@NoArgsConstructor</span>
+<span class="nc" id="L21">@Setter</span>
+<span class="nc" id="L22">@Builder</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
+<span class="nc" id="L24">@NoArgsConstructor</span>
 @JsonTypeName(&quot;WriteEraInfo&quot;)
 public class WriteEraInfo implements Transform {
 
@@ -31,6 +29,6 @@ public class WriteEraInfo implements Transform {
      * @see EraInfo
      */
     @JsonProperty(&quot;WriteEraInfo&quot;)
-<span class="nc" id="L34">    private EraInfo deployInfo;</span>
+<span class="nc" id="L32">    private EraInfo deployInfo;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.syntifi.casper.sdk.model.key.PublicKey;
 import com.syntifi.casper.sdk.model.key.Signature;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,28 +11,28 @@ import lombok.Setter;
 
 /**
  * Holds the block proof data
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see JsonBlock
  * @since 0.0.1
  */
 @Getter
-<span class="fc" id="L22">@Setter</span>
-<span class="nc" id="L23">@Builder</span>
-<span class="nc" id="L24">@AllArgsConstructor</span>
-<span class="fc" id="L25">@NoArgsConstructor</span>
+<span class="fc" id="L21">@Setter</span>
+<span class="nc" id="L22">@Builder</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
+<span class="fc" id="L24">@NoArgsConstructor</span>
 public class JsonProof {
 
     /**
      * @see PublicKey
      */
     @JsonProperty(&quot;public_key&quot;)
-<span class="fc" id="L32">    private PublicKey publicKey;</span>
+<span class="fc" id="L31">    private PublicKey publicKey;</span>
 
     /**
      * @see Signature
      */
-<span class="fc" id="L37">    private Signature signature;</span>
+<span class="fc" id="L36">    private Signature signature;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

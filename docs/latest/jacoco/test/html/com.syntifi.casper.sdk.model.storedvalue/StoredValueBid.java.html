@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.syntifi.casper.sdk.model.bid.Bid;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -13,21 +12,21 @@ import lombok.Setter;
 
 /**
  * Stored Value for {@link Bid}
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see StoredValue
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L23">@Setter</span>
-<span class="nc" id="L24">@Builder</span>
-<span class="nc" id="L25">@AllArgsConstructor</span>
-<span class="nc" id="L26">@NoArgsConstructor</span>
-<span class="nc bnc" id="L27" title="All 14 branches missed.">@EqualsAndHashCode</span>
+<span class="nc" id="L22">@Setter</span>
+<span class="nc" id="L23">@Builder</span>
+<span class="nc" id="L24">@AllArgsConstructor</span>
+<span class="nc" id="L25">@NoArgsConstructor</span>
+<span class="nc bnc" id="L26" title="All 14 branches missed.">@EqualsAndHashCode</span>
 @JsonTypeName(&quot;Bid&quot;)
 public class StoredValueBid implements StoredValue&lt;Bid&gt; {
     @JsonProperty(&quot;Bid&quot;)
-<span class="nc" id="L31">    public Bid value;</span>
+<span class="nc" id="L30">    public Bid value;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

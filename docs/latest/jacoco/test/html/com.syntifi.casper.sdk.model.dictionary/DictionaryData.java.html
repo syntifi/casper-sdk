@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.syntifi.casper.sdk.model.storedvalue.StoredValue;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,40 +10,40 @@ import lombok.Setter;
 
 /**
  * Dictionary key and stored value
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @since 0.0.1
  */
 @Getter
-<span class="fc" id="L20">@Setter</span>
-<span class="nc" id="L21">@Builder</span>
-<span class="nc" id="L22">@AllArgsConstructor</span>
-<span class="fc" id="L23">@NoArgsConstructor</span>
+<span class="fc" id="L19">@Setter</span>
+<span class="nc" id="L20">@Builder</span>
+<span class="nc" id="L21">@AllArgsConstructor</span>
+<span class="fc" id="L22">@NoArgsConstructor</span>
 public class DictionaryData {
 
     /**
      * The RPC API version
      */
     @JsonProperty(&quot;api_version&quot;)
-<span class="fc" id="L30">    private String apiVersion;</span>
+<span class="fc" id="L29">    private String apiVersion;</span>
 
     /**
      * The key under which the value is stored
      */
     @JsonProperty(&quot;dictionary_key&quot;)
-<span class="fc" id="L36">    private String dictionaryKey;</span>
+<span class="fc" id="L35">    private String dictionaryKey;</span>
 
     /**
      * The merkle proof
      */
     @JsonProperty(&quot;merkle_proof&quot;)
-<span class="fc" id="L42">    private String merkleProof;</span>
+<span class="fc" id="L41">    private String merkleProof;</span>
 
     /**
      * The stored value
      */
     @JsonProperty(&quot;stored_value&quot;)
-<span class="fc" id="L48">    private StoredValue&lt;?&gt; storedValue;</span>
+<span class="fc" id="L47">    private StoredValue&lt;?&gt; storedValue;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

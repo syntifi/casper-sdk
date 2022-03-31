@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,18 +12,17 @@ import lombok.Setter;
  * An implmentation of Transform that gives details about a failed
  * transformation,
  * containing an error message
- * 
- * @see Transform
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L24">@Setter</span>
-<span class="nc" id="L25">@Builder</span>
-<span class="nc" id="L26">@AllArgsConstructor</span>
-<span class="nc" id="L27">@NoArgsConstructor</span>
+<span class="nc" id="L22">@Setter</span>
+<span class="nc" id="L23">@Builder</span>
+<span class="nc" id="L24">@AllArgsConstructor</span>
+<span class="nc" id="L25">@NoArgsConstructor</span>
 @JsonTypeName(&quot;Failure&quot;)
 public class Failure implements Transform {
 
@@ -32,7 +30,6 @@ public class Failure implements Transform {
      * error message
      */
     @JsonProperty(&quot;Failure&quot;)
-<span class="nc" id="L35">    private String failure;</span>
-
+<span class="nc" id="L33">    private String failure;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

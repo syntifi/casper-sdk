@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,19 +9,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Writes the given Account to global state.
- * 
- * @see Transform
- * 
+ * An implementation of Transform that Writes the given Account to global state.
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L22">@Setter</span>
-<span class="nc" id="L23">@Builder</span>
-<span class="nc" id="L24">@AllArgsConstructor</span>
-<span class="nc" id="L25">@NoArgsConstructor</span>
+<span class="nc" id="L20">@Setter</span>
+<span class="nc" id="L21">@Builder</span>
+<span class="nc" id="L22">@AllArgsConstructor</span>
+<span class="nc" id="L23">@NoArgsConstructor</span>
 @JsonTypeName(&quot;WriteAccount&quot;)
 public class WriteAccount implements Transform {
 
@@ -30,6 +28,6 @@ public class WriteAccount implements Transform {
      * Hex-encoded account hash
      */
     @JsonProperty(&quot;WriteAccount&quot;)
-<span class="nc" id="L33">    private String account;</span>
+<span class="nc" id="L31">    private String account;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.syntifi.casper.sdk.service.CasperService;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,18 +10,18 @@ import lombok.Setter;
 /**
  * Identifier class passed to service
  * {@link CasperService#getStateDictionaryItem(String, DictionaryIdentifier)}
- * to Lookup a dictionary item via an Account named key
+ * to look up a dictionary item via an Account named key
  *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L21">@Setter</span>
-<span class="nc" id="L22">@Builder</span>
-<span class="nc" id="L23">@AllArgsConstructor</span>
+<span class="nc" id="L20">@Setter</span>
+<span class="nc" id="L21">@Builder</span>
+<span class="nc" id="L22">@AllArgsConstructor</span>
 public class AccountNamedKeyDictionaryIdentifier implements DictionaryIdentifier {
     @JsonProperty(&quot;AccountNamedKey&quot;)
-<span class="nc" id="L26">    private AccountNamedKey accountNamedKey;</span>
+<span class="nc" id="L25">    private AccountNamedKey accountNamedKey;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

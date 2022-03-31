@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 import com.syntifi.casper.sdk.model.clvalue.cltype.AbstractCLType;
 import com.syntifi.casper.sdk.model.clvalue.cltype.AbstractCLTypeBasic;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,29 +15,29 @@ import lombok.Setter;
 
 /**
  * Parameter to a method
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @since 0.0.1
  */
 @Getter
-<span class="pc" id="L25">@Setter</span>
-<span class="nc" id="L26">@Builder</span>
-<span class="nc" id="L27">@AllArgsConstructor</span>
-<span class="fc" id="L28">@NoArgsConstructor</span>
+<span class="pc" id="L24">@Setter</span>
+<span class="nc" id="L25">@Builder</span>
+<span class="nc" id="L26">@AllArgsConstructor</span>
+<span class="fc" id="L27">@NoArgsConstructor</span>
 public class Parameter {
 
     /**
      * cl_type(CLType) The value of the entry: a casper `Key` type.
      */
     @JsonIgnore
-<span class="nc" id="L35">    private AbstractCLType clType;</span>
+<span class="nc" id="L34">    private AbstractCLType clType;</span>
 
     /**
      * name(String) The name of the entry.
      */
     @JsonProperty(&quot;name&quot;)
-<span class="fc" id="L41">    private String name;</span>
+<span class="fc" id="L40">    private String name;</span>
 
     @JsonSetter(&quot;cl_type&quot;)
     @ExcludeFromJacocoGeneratedReport
@@ -48,7 +47,7 @@ public class Parameter {
 
     /**
      * The accessor for jackson serialization
-     * 
+     *
      * @return String if cl_type is basic type, CLType object if not.
      */
     @JsonGetter(&quot;cl_type&quot;)

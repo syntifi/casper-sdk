@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,18 +10,17 @@ import lombok.Setter;
 
 /**
  * An implmentation of Transform that Adds the given `i32`
- * 
- * @see Transform
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="nc" id="L22">@Setter</span>
-<span class="nc" id="L23">@Builder</span>
-<span class="nc" id="L24">@AllArgsConstructor</span>
-<span class="nc" id="L25">@NoArgsConstructor</span>
+<span class="nc" id="L20">@Setter</span>
+<span class="nc" id="L21">@Builder</span>
+<span class="nc" id="L22">@AllArgsConstructor</span>
+<span class="nc" id="L23">@NoArgsConstructor</span>
 @JsonTypeName(&quot;AddInt32&quot;)
 public class AddInt32 implements Transform {
 
@@ -30,6 +28,6 @@ public class AddInt32 implements Transform {
      * i32
      */
     @JsonProperty(&quot;AddInt32&quot;)
-<span class="nc" id="L33">    private long addInt32;</span>
+<span class="nc" id="L31">    private long addInt32;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
