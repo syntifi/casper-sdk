@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,33 +13,33 @@ import lombok.Setter;
 
 /**
  * CLType for {@link AbstractCLType#MAP}
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLType
  * @since 0.0.1
  */
 @Getter
-<span class="pc bpc" id="L24" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;keyValueTypes&quot; })</span>
-<span class="fc" id="L25">public class CLTypeMap extends AbstractCLType {</span>
+<span class="pc bpc" id="L23" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = {&quot;typeName&quot;, &quot;keyValueTypes&quot;})</span>
+<span class="fc" id="L24">public class CLTypeMap extends AbstractCLType {</span>
     /**
      * Support class for {@link AbstractCLType#MAP} entry types
-     * 
+     *
      * @author Alexandre Carvalho
      * @author Andre Bertolace
      * @see AbstractCLType
      * @since 0.0.1
      */
     @Getter
-<span class="nc" id="L35">    @Setter</span>
-<span class="pc bpc" id="L36" title="15 of 22 branches missed.">    @EqualsAndHashCode</span>
-<span class="fc" id="L37">    @NoArgsConstructor</span>
-<span class="fc" id="L38">    @AllArgsConstructor</span>
+<span class="nc" id="L34">    @Setter</span>
+<span class="pc bpc" id="L35" title="15 of 22 branches missed.">    @EqualsAndHashCode</span>
+<span class="fc" id="L36">    @NoArgsConstructor</span>
+<span class="fc" id="L37">    @AllArgsConstructor</span>
     public static class CLTypeMapEntryType {
         @JsonIgnore
-<span class="fc" id="L41">        private AbstractCLType keyType;</span>
+<span class="fc" id="L40">        private AbstractCLType keyType;</span>
         @JsonIgnore
-<span class="fc" id="L43">        private AbstractCLType valueType;</span>
+<span class="fc" id="L42">        private AbstractCLType valueType;</span>
 
         @JsonSetter(&quot;key&quot;)
         @ExcludeFromJacocoGeneratedReport
@@ -75,10 +74,10 @@ import lombok.Setter;
         }
     }
 
-<span class="fc" id="L78">    private final String typeName = AbstractCLType.MAP;</span>
+<span class="fc" id="L77">    private final String typeName = AbstractCLType.MAP;</span>
 
-<span class="fc" id="L80">    @Setter</span>
+<span class="fc" id="L79">    @Setter</span>
     @JsonProperty(AbstractCLType.MAP)
-<span class="fc" id="L82">    private CLTypeMapEntryType keyValueTypes;</span>
+<span class="fc" id="L81">    private CLTypeMapEntryType keyValueTypes;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

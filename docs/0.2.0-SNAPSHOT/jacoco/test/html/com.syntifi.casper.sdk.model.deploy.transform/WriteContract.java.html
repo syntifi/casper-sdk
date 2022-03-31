@@ -5,31 +5,30 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 /**
- * An implmentation of Transform that specifies any of the enum values
- * - Identity 
+ * An implementation of Transform that specifies any of the enum values
+ * - Identity
  * - WriteContractWasm
  * - WriteContract
  * - WriteContractPackage
- * 
- * @see Transform
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
-<span class="fc" id="L20">@JsonTypeName(&quot;WriteContract&quot;)</span>
+<span class="fc" id="L19">@JsonTypeName(&quot;WriteContract&quot;)</span>
 public enum WriteContract implements Transform {
-<span class="fc" id="L22">    @JsonProperty(&quot;Identity&quot;)</span>
+<span class="fc" id="L21">    @JsonProperty(&quot;Identity&quot;)</span>
     @JsonUnwrapped
-    IDENTITY, 
-<span class="fc" id="L25">    @JsonProperty(&quot;WriteContractWasm&quot;)</span>
+    IDENTITY,
+<span class="fc" id="L24">    @JsonProperty(&quot;WriteContractWasm&quot;)</span>
     @JsonUnwrapped
-    WRITE_CONTRACT_WASM, 
-<span class="fc" id="L28">    @JsonProperty(&quot;WriteContract&quot;)</span>
+    WRITE_CONTRACT_WASM,
+<span class="fc" id="L27">    @JsonProperty(&quot;WriteContract&quot;)</span>
     @JsonUnwrapped
-    WRITE_CONTRACT, 
-<span class="fc" id="L31">    @JsonProperty(&quot;WriteContractPackage&quot;)</span>
+    WRITE_CONTRACT,
+<span class="fc" id="L30">    @JsonProperty(&quot;WriteContractPackage&quot;)</span>
     @JsonUnwrapped
-    WRITE_CONTRACT_PACKAGE;   
+    WRITE_CONTRACT_PACKAGE
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

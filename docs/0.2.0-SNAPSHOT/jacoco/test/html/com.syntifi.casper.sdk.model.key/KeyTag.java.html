@@ -2,33 +2,30 @@
 
 import com.syntifi.casper.sdk.exception.NoSuchKeyTagException;
 import com.syntifi.casper.sdk.model.storedvalue.StoredValueData;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 
- * 
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see StoredValueData
  * @since 0.0.1
  */
-<span class="fc" id="L18">@Getter</span>
-<span class="fc" id="L19">@AllArgsConstructor(access = AccessLevel.PRIVATE)</span>
+<span class="fc" id="L15">@Getter</span>
+<span class="fc" id="L16">@AllArgsConstructor(access = AccessLevel.PRIVATE)</span>
 public enum KeyTag implements Tag {
-<span class="fc" id="L21">    ACCOUNT((byte) 0x00), HASH((byte) 0x01), UREF((byte) 0x02), TRANSFER((byte) 0x03), DEPLOYINFO((byte) 0x04),</span>
-<span class="fc" id="L22">    ERAINFO((byte) 0x05), BALANCE((byte) 0x06), BID((byte) 0x07), WITHDRAW((byte) 0x08);</span>
+<span class="fc" id="L18">    ACCOUNT((byte) 0x00), HASH((byte) 0x01), UREF((byte) 0x02), TRANSFER((byte) 0x03), DEPLOYINFO((byte) 0x04),</span>
+<span class="fc" id="L19">    ERAINFO((byte) 0x05), BALANCE((byte) 0x06), BID((byte) 0x07), WITHDRAW((byte) 0x08);</span>
 
-<span class="fc" id="L24">    private final byte byteTag;</span>
+<span class="fc" id="L21">    private final byte byteTag;</span>
 
     public static KeyTag getByTag(byte tag) throws NoSuchKeyTagException {
-<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        for (KeyTag a : values()) {</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">            if (a.byteTag == tag)</span>
-<span class="fc" id="L29">                return a;</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        for (KeyTag a : values()) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (a.byteTag == tag)</span>
+<span class="fc" id="L26">                return a;</span>
         }
-<span class="nc" id="L31">        throw new NoSuchKeyTagException();</span>
+<span class="nc" id="L28">        throw new NoSuchKeyTagException();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

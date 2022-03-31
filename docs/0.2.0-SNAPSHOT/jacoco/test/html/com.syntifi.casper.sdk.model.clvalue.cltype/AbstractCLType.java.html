@@ -5,13 +5,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 import com.syntifi.casper.sdk.exception.NoSuchTypeException;
 import com.syntifi.casper.sdk.jackson.resolver.CLTypeResolver;
-
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * Basic class for CLType implementation
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLType
@@ -21,7 +20,7 @@ import lombok.Setter;
 @Setter
 @JsonTypeInfo(use = JsonTypeInfo.Id.NONE)
 @JsonTypeResolver(CLTypeResolver.class)
-<span class="fc" id="L24">public abstract class AbstractCLType {</span>
+<span class="fc" id="L23">public abstract class AbstractCLType {</span>
     /**
      * String constants for all CLTypes as defined by the api spec
      */
@@ -52,7 +51,7 @@ import lombok.Setter;
 
     /**
      * Required getter for implementations of CLType
-     * 
+     *
      * @return the CLType name
      */
     @JsonIgnore
@@ -60,11 +59,11 @@ import lombok.Setter;
 
     /**
      * @return the {@link CLTypeData} for the current CLType
-     * @throws NoSuchTypeException
+     * @throws NoSuchTypeException thrown if no cl type data found
      */
     @JsonIgnore
     public CLTypeData getClTypeData() throws NoSuchTypeException {
-<span class="fc" id="L67">        return CLTypeData.getTypeByName(getTypeName());</span>
+<span class="fc" id="L66">        return CLTypeData.getTypeByName(getTypeName());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

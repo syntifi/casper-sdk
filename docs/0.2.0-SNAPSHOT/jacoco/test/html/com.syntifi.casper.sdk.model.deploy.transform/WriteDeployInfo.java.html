@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.syntifi.casper.sdk.model.deploy.DeployInfo;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,20 +10,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Writes the given DeployInfo to global
+ * An implementation of Transform that Writes the given DeployInfo to global
  * state.
- * 
- * @see Transform
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="fc" id="L24">@Setter</span>
-<span class="nc" id="L25">@Builder</span>
-<span class="nc" id="L26">@AllArgsConstructor</span>
-<span class="fc" id="L27">@NoArgsConstructor</span>
+<span class="fc" id="L22">@Setter</span>
+<span class="nc" id="L23">@Builder</span>
+<span class="nc" id="L24">@AllArgsConstructor</span>
+<span class="fc" id="L25">@NoArgsConstructor</span>
 @JsonTypeName(&quot;WriteDeployInfo&quot;)
 public class WriteDeployInfo implements Transform {
 
@@ -32,6 +30,6 @@ public class WriteDeployInfo implements Transform {
      * @see DeployInfo
      */
     @JsonProperty(&quot;WriteDeployInfo&quot;)
-<span class="fc" id="L35">    private DeployInfo deployInfo;</span>
+<span class="fc" id="L33">    private DeployInfo deployInfo;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,21 +11,21 @@ import lombok.Setter;
 
 /**
  * CLType for {@link AbstractCLType#OPTION}
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLType
  * @since 0.0.1
  */
 @Getter
-<span class="fc" id="L22">@NoArgsConstructor</span>
-<span class="pc bpc" id="L23" title="9 of 14 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot; })</span>
+<span class="fc" id="L21">@NoArgsConstructor</span>
+<span class="pc bpc" id="L22" title="9 of 14 branches missed.">@EqualsAndHashCode(callSuper = false, of = {&quot;typeName&quot;})</span>
 public class CLTypeOption extends AbstractCLType {
-<span class="fc" id="L25">    private final String typeName = AbstractCLType.OPTION;</span>
+<span class="fc" id="L24">    private final String typeName = AbstractCLType.OPTION;</span>
 
-<span class="fc" id="L27">    @Setter</span>
+<span class="fc" id="L26">    @Setter</span>
     @JsonIgnore
-<span class="fc" id="L29">    private AbstractCLType childType;</span>
+<span class="fc" id="L28">    private AbstractCLType childType;</span>
 
     @JsonSetter(AbstractCLType.OPTION)
     @ExcludeFromJacocoGeneratedReport

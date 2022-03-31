@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.syntifi.casper.sdk.model.bid.Bid;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,19 +10,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Writes the given Bid to global state.
- * 
- * @see Transform
- * 
+ * An implementation of Transform that Writes the given Bid to global state.
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
+ * @see Transform
  * @since 0.0.1
  */
 @Getter
-<span class="fc" id="L23">@Setter</span>
-<span class="nc" id="L24">@Builder</span>
-<span class="nc" id="L25">@AllArgsConstructor</span>
-<span class="fc" id="L26">@NoArgsConstructor</span>
+<span class="fc" id="L21">@Setter</span>
+<span class="nc" id="L22">@Builder</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
+<span class="fc" id="L24">@NoArgsConstructor</span>
 @JsonTypeName(&quot;WriteBid&quot;)
 public class WriteBid implements Transform {
 
@@ -31,6 +29,6 @@ public class WriteBid implements Transform {
      * @see Bid
      */
     @JsonProperty(&quot;WriteBid&quot;)
-<span class="fc" id="L34">    private Bid bid;</span>
+<span class="fc" id="L32">    private Bid bid;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

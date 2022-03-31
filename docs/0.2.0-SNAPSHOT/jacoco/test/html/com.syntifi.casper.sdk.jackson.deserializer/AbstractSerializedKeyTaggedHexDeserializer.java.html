@@ -15,7 +15,7 @@ import com.syntifi.casper.sdk.model.key.AbstractSerializedKeyTaggedHex;
 import com.syntifi.casper.sdk.model.key.Tag;
 
 /**
- * Customize the mapping of Casper's Hex String preceeded by the crypto
+ * Customize the mapping of Casper's Hex String preceded by the crypto
  * algorithm tag such as PublicKey/Signature
  * 
  * @author Alexandre Carvalho
@@ -35,7 +35,7 @@ import com.syntifi.casper.sdk.model.key.Tag;
 <span class="fc" id="L35">            byte[] bytes = StringByteHelper.hexStringToByteArray(node.asText());</span>
 <span class="fc" id="L36">            this.loadKey(object, bytes);</span>
 <span class="nc" id="L37">        } catch (NoSuchAlgorithmException | NoSuchKeyTagException | InvalidByteStringException e) {</span>
-<span class="nc" id="L38">            throw new DeserializationException(&quot;Problem deserializing Algorithm tagged hexa string&quot;, e);</span>
+<span class="nc" id="L38">            throw new DeserializationException(&quot;Problem deserializing Algorithm tagged hex string&quot;, e);</span>
 <span class="fc" id="L39">        }</span>
 
 <span class="fc" id="L41">        return object;</span>

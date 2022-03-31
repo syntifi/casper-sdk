@@ -4,27 +4,26 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * CLType for {@link AbstractCLType#FIXED_LIST}
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLType
  * @since 0.0.1
  */
 @Getter
-<span class="pc bpc" id="L21" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;listType&quot; })</span>
-<span class="fc" id="L22">public class CLTypeFixedList extends AbstractCLType {</span>
-<span class="fc" id="L23">    private final String typeName = AbstractCLType.FIXED_LIST;</span>
+<span class="pc bpc" id="L20" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = {&quot;typeName&quot;, &quot;listType&quot;})</span>
+<span class="fc" id="L21">public class CLTypeFixedList extends AbstractCLType {</span>
+<span class="fc" id="L22">    private final String typeName = AbstractCLType.FIXED_LIST;</span>
 
-<span class="fc" id="L25">    @Setter</span>
+<span class="fc" id="L24">    @Setter</span>
     @JsonIgnore
-<span class="fc" id="L27">    private AbstractCLType listType;</span>
+<span class="fc" id="L26">    private AbstractCLType listType;</span>
 
     @JsonSetter(AbstractCLType.FIXED_LIST)
     @ExcludeFromJacocoGeneratedReport

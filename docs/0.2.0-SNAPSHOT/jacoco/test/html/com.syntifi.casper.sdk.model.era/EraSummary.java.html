@@ -2,7 +2,6 @@
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.syntifi.casper.sdk.model.storedvalue.StoredValueEraInfo;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,44 +10,42 @@ import lombok.Setter;
 
 /**
  * The summary of an era
- * 
- * 
  */
 @Getter
-<span class="fc" id="L18">@Setter</span>
-<span class="nc" id="L19">@Builder</span>
-<span class="nc" id="L20">@AllArgsConstructor</span>
-<span class="fc" id="L21">@NoArgsConstructor</span>
+<span class="fc" id="L15">@Setter</span>
+<span class="nc" id="L16">@Builder</span>
+<span class="nc" id="L17">@AllArgsConstructor</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
 public class EraSummary {
 
     /**
      * The block hash
      */
     @JsonProperty(&quot;block_hash&quot;)
-<span class="nc" id="L28">    private String blockHash;</span>
+<span class="nc" id="L25">    private String blockHash;</span>
 
     /**
      * The era id
      */
     @JsonProperty(&quot;era_id&quot;)
-<span class="nc" id="L34">    private Long eraId;</span>
+<span class="nc" id="L31">    private Long eraId;</span>
 
     /**
      * The merkle proof
      */
     @JsonProperty(&quot;merkle_proof&quot;)
-<span class="nc" id="L40">    private String merkleProof;</span>
+<span class="nc" id="L37">    private String merkleProof;</span>
 
     /**
      * Hex-encoded hash of the state root
      */
     @JsonProperty(&quot;state_root_hash&quot;)
-<span class="fc" id="L46">    private String stateRootHash;</span>
+<span class="fc" id="L43">    private String stateRootHash;</span>
 
     /**
      * The StoredValue containing era information
      */
     @JsonProperty(&quot;stored_value&quot;)
-<span class="nc" id="L52">    private StoredValueEraInfo storedValue;</span>
+<span class="nc" id="L49">    private StoredValueEraInfo storedValue;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

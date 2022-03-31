@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.syntifi.casper.sdk.model.key.PublicKey;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,19 +10,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-<span class="fc" id="L14">@Setter</span>
-<span class="nc" id="L15">@AllArgsConstructor</span>
-<span class="fc" id="L16">@NoArgsConstructor</span>
-<span class="nc bnc" id="L17" title="All 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+<span class="fc" id="L13">@Setter</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+<span class="fc" id="L15">@NoArgsConstructor</span>
+<span class="nc bnc" id="L16" title="All 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
 @JsonTypeName(&quot;Validator&quot;)
 public class Validator extends SeigniorageAllocation {
 
     /**
      * Validator's public key
-     * 
+     *
      * @see PublicKey
      */
     @JsonProperty(&quot;validator_public_key&quot;)
-<span class="nc" id="L27">    private PublicKey validatorPublicKey;</span>
+<span class="nc" id="L26">    private PublicKey validatorPublicKey;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
