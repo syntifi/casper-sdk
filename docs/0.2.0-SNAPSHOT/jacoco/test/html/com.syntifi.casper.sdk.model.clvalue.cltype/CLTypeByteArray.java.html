@@ -15,12 +15,12 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;length&quot; })
+<span class="pc bpc" id="L18" title="10 of 16 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;length&quot; })</span>
 <span class="fc" id="L19">public class CLTypeByteArray extends AbstractCLType {</span>
 <span class="fc" id="L20">    private final String typeName = AbstractCLType.BYTE_ARRAY;</span>
 
-    @Setter
+<span class="fc" id="L22">    @Setter</span>
     @JsonProperty(AbstractCLType.BYTE_ARRAY)
-    private int length;
+<span class="fc" id="L24">    private int length;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

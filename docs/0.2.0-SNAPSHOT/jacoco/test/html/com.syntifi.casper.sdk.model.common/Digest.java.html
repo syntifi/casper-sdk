@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Digest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.model.common</a> &gt; <span class="el_source">Digest.java</span></div><h1>Digest.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.model.common;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
+import com.syntifi.casper.sdk.model.clvalue.encdec.interfaces.EncodableValue;
+
+import org.bouncycastle.util.encoders.Hex;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Digest for Hex String
+ *
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @since 0.0.1
+ */
+@Getter
+@Setter
+<span class="fc" id="L29">@NoArgsConstructor</span>
+<span class="fc" id="L30">@AllArgsConstructor</span>
+<span class="pc" id="L31">@Builder</span>
+public class Digest implements EncodableValue {
+    @JsonValue
+    private String digest;
+
+    public byte[] getDigest() {
+<span class="fc" id="L37">        return Hex.decode(this.digest);</span>
+    }
+
+    public void setDigest(byte[] hash) {
+<span class="fc" id="L41">        this.digest = Hex.toHexString(hash);</span>
+<span class="fc" id="L42">    }</span>
+
+    public static Digest digestFromBytes(byte[] bytes) {
+<span class="fc" id="L45">        Digest digest = new Digest();</span>
+<span class="fc" id="L46">        digest.setDigest(bytes);</span>
+<span class="fc" id="L47">        return digest;</span>
+    }
+
+    /**
+     * Implements Digest encoder
+     */
+    @Override
+    public void encode(CLValueEncoder clve, boolean encodeType)
+            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+<span class="fc" id="L56">        clve.write(getDigest());</span>
+<span class="fc" id="L57">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

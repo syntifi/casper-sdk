@@ -23,19 +23,19 @@ import lombok.Setter;
 
 /**
  * Casper Tuple1 CLValue implementation
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLValue
  * @since 0.0.1
  */
 @Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+<span class="fc" id="L33">@Setter</span>
+<span class="pc bpc" id="L34" title="10 of 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+<span class="fc" id="L35">@NoArgsConstructor</span>
 public class CLValueTuple1 extends AbstractCLValueWithChildren&lt;Unit&lt;? extends AbstractCLValue&lt;?, ?&gt;&gt;, CLTypeTuple1&gt; {
 <span class="fc" id="L37">    @JsonProperty(&quot;cl_type&quot;)</span>
-    private CLTypeTuple1 clType = new CLTypeTuple1();
+<span class="fc" id="L38">    private CLTypeTuple1 clType = new CLTypeTuple1();</span>
 
 <span class="fc" id="L40">    public CLValueTuple1(Unit&lt;? extends AbstractCLValue&lt;?, ?&gt;&gt; value) {</span>
 <span class="fc" id="L41">        this.setValue(value);</span>
@@ -43,13 +43,13 @@ public class CLValueTuple1 extends AbstractCLValueWithChildren&lt;Unit&lt;? exte
 <span class="fc" id="L43">    }</span>
 
     @Override
-    public void encode(CLValueEncoder clve)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
-<span class="fc" id="L48">        setChildTypes();</span>
-
-<span class="fc" id="L50">        getValue().getValue0().encode(clve);</span>
-
-<span class="fc" id="L52">        setBytes(getValue().getValue0().getBytes());</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+<span class="fc" id="L47">        setChildTypes();</span>
+<span class="fc" id="L48">        getValue().getValue0().encode(clve, false);</span>
+<span class="fc" id="L49">        setBytes(getValue().getValue0().getBytes());</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (encodeType) {</span>
+<span class="nc" id="L51">            this.encodeType(clve);</span>
+        }
 <span class="fc" id="L53">    }</span>
 
     @Override

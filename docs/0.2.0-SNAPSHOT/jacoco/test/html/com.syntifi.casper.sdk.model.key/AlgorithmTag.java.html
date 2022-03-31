@@ -17,11 +17,11 @@ import lombok.Getter;
  * @since 0.0.1
  */
 <span class="fc" id="L19">@Getter</span>
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+<span class="fc" id="L20">@AllArgsConstructor(access = AccessLevel.PRIVATE)</span>
 public enum AlgorithmTag implements Tag {
 <span class="fc" id="L22">    SECP256K1((byte) 0x02), ED25519((byte) 0x01);</span>
 
-    private final byte byteTag;
+<span class="fc" id="L24">    private final byte byteTag;</span>
 
     public static AlgorithmTag getByTag(byte byteTag) throws NoSuchAlgorithmException {
 <span class="pc bpc" id="L27" title="1 of 2 branches missed.">        for (AlgorithmTag a : values()) {</span>

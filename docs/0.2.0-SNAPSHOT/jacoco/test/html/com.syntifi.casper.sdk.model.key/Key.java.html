@@ -9,6 +9,7 @@ import com.syntifi.casper.sdk.exception.NoSuchKeyTagException;
 import com.syntifi.casper.sdk.jackson.deserializer.KeyDeserializer;
 import com.syntifi.casper.sdk.model.clvalue.encdec.StringByteHelper;
 
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -19,22 +20,23 @@ import lombok.NoArgsConstructor;
  * @since 0.0.1
  */
 @JsonDeserialize(using = KeyDeserializer.class)
-@NoArgsConstructor
+<span class="fc" id="L23">@NoArgsConstructor</span>
+<span class="pc bpc" id="L24" title="4 of 8 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
 public class Key extends AbstractSerializedKeyTaggedHex&lt;KeyTag&gt; {
 
     public static Key fromTaggedHexString(String hex) throws NoSuchKeyTagException, InvalidByteStringException {
-<span class="fc" id="L26">        Key object = new Key();</span>
-<span class="fc" id="L27">        byte[] bytes = StringByteHelper.hexStringToByteArray(hex);</span>
-<span class="fc" id="L28">        object.setTag(KeyTag.getByTag(bytes[0]));</span>
-<span class="fc" id="L29">        object.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));</span>
-<span class="fc" id="L30">        return object;</span>
+<span class="fc" id="L28">        Key object = new Key();</span>
+<span class="fc" id="L29">        byte[] bytes = StringByteHelper.hexStringToByteArray(hex);</span>
+<span class="fc" id="L30">        object.setTag(KeyTag.getByTag(bytes[0]));</span>
+<span class="fc" id="L31">        object.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));</span>
+<span class="fc" id="L32">        return object;</span>
     }
 
     @JsonCreator
     public void createKey(String key) throws NoSuchKeyTagException, InvalidByteStringException {
-<span class="nc" id="L35">        Key obj = Key.fromTaggedHexString(key);</span>
-<span class="nc" id="L36">        this.setTag(obj.getTag());</span>
-<span class="nc" id="L37">        this.setKey(obj.getKey());</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L37">        Key obj = Key.fromTaggedHexString(key);</span>
+<span class="nc" id="L38">        this.setTag(obj.getTag());</span>
+<span class="nc" id="L39">        this.setKey(obj.getKey());</span>
+<span class="nc" id="L40">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

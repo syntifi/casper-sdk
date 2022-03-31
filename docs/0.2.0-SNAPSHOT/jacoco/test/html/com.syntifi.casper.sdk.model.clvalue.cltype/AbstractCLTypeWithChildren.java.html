@@ -20,13 +20,13 @@ import lombok.Setter;
  * @author Andre Bertolace
  * @since 0.0.1
  */
-@Setter
+<span class="fc" id="L23">@Setter</span>
 @Getter
-@EqualsAndHashCode(callSuper = false, of = { &quot;childTypes&quot; })
+<span class="pc bpc" id="L25" title="9 of 14 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;childTypes&quot; })</span>
 <span class="fc" id="L26">public abstract class AbstractCLTypeWithChildren extends AbstractCLType {</span>
 
 <span class="fc" id="L28">    @JsonIgnore</span>
-    private List&lt;AbstractCLType&gt; childTypes = new ArrayList&lt;&gt;();
+<span class="fc" id="L29">    private List&lt;AbstractCLType&gt; childTypes = new ArrayList&lt;&gt;();</span>
 
     private List&lt;Object&gt; childTypeObjects;
 

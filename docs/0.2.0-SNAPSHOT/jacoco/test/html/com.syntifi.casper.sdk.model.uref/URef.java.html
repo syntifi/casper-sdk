@@ -12,8 +12,11 @@ import com.syntifi.casper.sdk.model.clvalue.CLValueURef;
 import com.syntifi.casper.sdk.model.clvalue.encdec.StringByteHelper;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * URef is a tuple that contains the address of the URef and the access rights
@@ -26,37 +29,40 @@ import lombok.NoArgsConstructor;
  * @since 0.0.1
  * @see CLValueURef
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+<span class="fc" id="L33">@Setter</span>
+<span class="nc" id="L34">@Builder</span>
+<span class="fc" id="L35">@AllArgsConstructor</span>
+<span class="fc" id="L36">@NoArgsConstructor</span>
+<span class="pc bpc" id="L37" title="10 of 16 branches missed.">@EqualsAndHashCode</span>
 public class URef {
 
     @JsonIgnore
-    byte[] address;
+<span class="fc" id="L41">    byte[] address;</span>
 
     @JsonIgnore
-    URefAccessRight accessRight;
+<span class="fc" id="L44">    URefAccessRight accessRight;</span>
 
     public static URef fromString(String uref)
             throws IOException, DynamicInstanceException, InvalidByteStringException {
-<span class="fc" id="L42">        String[] urefParts = uref.split(&quot;-&quot;);</span>
-<span class="pc bpc" id="L43" title="2 of 4 branches missed.">        if (!urefParts[0].equals(&quot;uref&quot;) || urefParts.length != 3) {</span>
-<span class="nc" id="L44">            throw new IOException(&quot;Not a valid Uref&quot;);</span>
+<span class="fc" id="L48">        String[] urefParts = uref.split(&quot;-&quot;);</span>
+<span class="pc bpc" id="L49" title="2 of 4 branches missed.">        if (!urefParts[0].equals(&quot;uref&quot;) || urefParts.length != 3) {</span>
+<span class="nc" id="L50">            throw new IOException(&quot;Not a valid Uref&quot;);</span>
         }
-<span class="fc" id="L46">        byte[] address = StringByteHelper.hexStringToByteArray(urefParts[1]);</span>
-<span class="fc" id="L47">        byte[] accessRightByte = StringByteHelper.hexStringToByteArray(urefParts[2].substring(1));</span>
-<span class="fc" id="L48">        URefAccessRight accessRight = URefAccessRight</span>
-<span class="fc" id="L49">                .getTypeBySerializationTag(accessRightByte[accessRightByte.length - 1]);</span>
-<span class="fc" id="L50">        return new URef(address, accessRight);</span>
+<span class="fc" id="L52">        byte[] address = StringByteHelper.hexStringToByteArray(urefParts[1]);</span>
+<span class="fc" id="L53">        byte[] accessRightByte = StringByteHelper.hexStringToByteArray(urefParts[2].substring(1));</span>
+<span class="fc" id="L54">        URefAccessRight accessRight = URefAccessRight</span>
+<span class="fc" id="L55">                .getTypeBySerializationTag(accessRightByte[accessRightByte.length - 1]);</span>
+<span class="fc" id="L56">        return new URef(address, accessRight);</span>
 
     }
 
     @JsonCreator
     public void createURef(String uref) throws IOException, DynamicInstanceException, InvalidByteStringException {
-<span class="nc" id="L56">        URef obj = URef.fromString(uref);</span>
-<span class="nc" id="L57">        this.accessRight = obj.getAccessRight();</span>
-<span class="nc" id="L58">        this.address = obj.getAddress();</span>
-<span class="nc" id="L59">    }</span>
+<span class="nc" id="L62">        URef obj = URef.fromString(uref);</span>
+<span class="nc" id="L63">        this.accessRight = obj.getAccessRight();</span>
+<span class="nc" id="L64">        this.address = obj.getAddress();</span>
+<span class="nc" id="L65">    }</span>
 
     @JsonValue
     @ExcludeFromJacocoGeneratedReport

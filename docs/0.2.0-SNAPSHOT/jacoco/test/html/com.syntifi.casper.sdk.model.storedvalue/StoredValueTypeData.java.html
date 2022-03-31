@@ -15,7 +15,7 @@ import lombok.Getter;
  * @since 0.0.1
  */
 <span class="fc" id="L17">@Getter</span>
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+<span class="fc" id="L18">@AllArgsConstructor(access = AccessLevel.PRIVATE)</span>
 public enum StoredValueTypeData {
 <span class="fc" id="L20">    STORED_VALUE_CLVALUE(&quot;CLValue&quot;, StoredValueCLValue.class),</span>
 <span class="fc" id="L21">    STORED_VALUE_ACCOUNT(&quot;Account&quot;, StoredValueAccount.class),</span>
@@ -27,8 +27,8 @@ public enum StoredValueTypeData {
 <span class="fc" id="L27">    STORED_VALUE_BID(&quot;Bid&quot;, StoredValueBid.class),</span>
 <span class="fc" id="L28">    STORED_VALUE_WITHDRAW(&quot;Withdraw&quot;, StoredValueWithdraw.class);</span>
 
-    private final String name;
-    private final Class&lt;?&gt; clazz;
+<span class="nc" id="L30">    private final String name;</span>
+<span class="fc" id="L31">    private final Class&lt;?&gt; clazz;</span>
 
     /**
      * Retrieve Transform implementation class from Transform name

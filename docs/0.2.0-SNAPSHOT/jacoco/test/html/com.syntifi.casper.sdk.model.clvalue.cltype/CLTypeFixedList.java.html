@@ -18,13 +18,13 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;listType&quot; })
+<span class="pc bpc" id="L21" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;listType&quot; })</span>
 <span class="fc" id="L22">public class CLTypeFixedList extends AbstractCLType {</span>
 <span class="fc" id="L23">    private final String typeName = AbstractCLType.FIXED_LIST;</span>
 
-    @Setter
+<span class="fc" id="L25">    @Setter</span>
     @JsonIgnore
-    private AbstractCLType listType;
+<span class="fc" id="L27">    private AbstractCLType listType;</span>
 
     @JsonSetter(AbstractCLType.FIXED_LIST)
     @ExcludeFromJacocoGeneratedReport

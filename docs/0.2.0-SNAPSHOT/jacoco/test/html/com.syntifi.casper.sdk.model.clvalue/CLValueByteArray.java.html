@@ -6,6 +6,9 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 import com.syntifi.casper.sdk.exception.CLValueDecodeException;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
 import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeByteArray;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
@@ -23,26 +26,29 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@Setter
-@NoArgsConstructor
+<span class="fc" id="L29">@Setter</span>
+<span class="fc" id="L30">@NoArgsConstructor</span>
 public class CLValueByteArray extends AbstractCLValue&lt;byte[], CLTypeByteArray&gt; {
-<span class="fc" id="L29">    @JsonProperty(&quot;cl_type&quot;)</span>
-    private CLTypeByteArray clType = new CLTypeByteArray();
+<span class="fc" id="L32">    @JsonProperty(&quot;cl_type&quot;)</span>
+<span class="fc" id="L33">    private CLTypeByteArray clType = new CLTypeByteArray();</span>
 
-<span class="fc" id="L32">    public CLValueByteArray(byte[] value) {</span>
-<span class="fc" id="L33">        this.setValue(value);</span>
-<span class="fc" id="L34">        this.clType.setLength(value.length);</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L35">    public CLValueByteArray(byte[] value) {</span>
+<span class="fc" id="L36">        this.setValue(value);</span>
+<span class="fc" id="L37">        this.clType.setLength(value.length);</span>
+<span class="fc" id="L38">    }</span>
 
     @Override
-    public void encode(CLValueEncoder clve) throws IOException {
-<span class="fc" id="L39">        clve.writeByteArray(this);</span>
-<span class="fc" id="L40">    }</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+<span class="fc" id="L42">        clve.writeByteArray(this);</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (encodeType) {</span>
+<span class="nc" id="L44">            this.encodeType(clve);</span>
+        }
+<span class="fc" id="L46">    }</span>
 
     @Override
     public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
-<span class="fc" id="L44">        clvd.readByteArray(this, this.getClType().getLength());</span>
-<span class="fc" id="L45">    }</span>
+<span class="fc" id="L50">        clvd.readByteArray(this, this.getClType().getLength());</span>
+<span class="fc" id="L51">    }</span>
 
     @Override
     @ExcludeFromJacocoGeneratedReport
