@@ -30,13 +30,13 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+<span class="fc" id="L33">@Setter</span>
+<span class="pc bpc" id="L34" title="10 of 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+<span class="fc" id="L35">@NoArgsConstructor</span>
 public class CLValueTuple2
         extends AbstractCLValueWithChildren&lt;Pair&lt;? extends AbstractCLValue&lt;?, ?&gt;, ? extends AbstractCLValue&lt;?, ?&gt;&gt;, CLTypeTuple2&gt; {
 <span class="fc" id="L38">    @JsonProperty(&quot;cl_type&quot;)</span>
-    private CLTypeTuple2 clType = new CLTypeTuple2();
+<span class="fc" id="L39">    private CLTypeTuple2 clType = new CLTypeTuple2();</span>
 
 <span class="fc" id="L41">    public CLValueTuple2(Pair&lt;? extends AbstractCLValue&lt;?, ?&gt;, ? extends AbstractCLValue&lt;?, ?&gt;&gt; value) {</span>
 <span class="fc" id="L42">        this.setValue(value);</span>
@@ -44,14 +44,14 @@ public class CLValueTuple2
 <span class="fc" id="L44">    }</span>
 
     @Override
-    public void encode(CLValueEncoder clve)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
-<span class="fc" id="L49">        setChildTypes();</span>
-
-<span class="fc" id="L51">        getValue().getValue0().encode(clve);</span>
-<span class="fc" id="L52">        getValue().getValue1().encode(clve);</span>
-
-<span class="fc" id="L54">        setBytes(getValue().getValue0().getBytes() + getValue().getValue1().getBytes());</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+<span class="fc" id="L48">        setChildTypes();</span>
+<span class="fc" id="L49">        getValue().getValue0().encode(clve, false);</span>
+<span class="fc" id="L50">        getValue().getValue1().encode(clve, false);</span>
+<span class="fc" id="L51">        setBytes(getValue().getValue0().getBytes() + getValue().getValue1().getBytes());</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (encodeType) {</span>
+<span class="nc" id="L53">            this.encodeType(clve);</span>
+        }
 <span class="fc" id="L55">    }</span>
 
     @Override

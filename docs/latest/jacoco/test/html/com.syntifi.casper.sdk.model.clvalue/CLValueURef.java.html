@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 import com.syntifi.casper.sdk.exception.CLValueDecodeException;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
 import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
 import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeURef;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
@@ -24,7 +26,7 @@ import lombok.Setter;
  * representation of the URef is 33 bytes long. The first 32 bytes are the byte
  * representation of the URef address, and the last byte contains the bits
  * corresponding to the access rights of the URef.
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLValue
@@ -32,47 +34,50 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@Setter
-@NoArgsConstructor
+<span class="nc" id="L37">@Setter</span>
+<span class="fc" id="L38">@NoArgsConstructor</span>
 public class CLValueURef extends AbstractCLValue&lt;URef, CLTypeURef&gt; {
-<span class="fc" id="L38">    private CLTypeURef clType = new CLTypeURef();</span>
+<span class="fc" id="L40">    private CLTypeURef clType = new CLTypeURef();</span>
 
-    @JsonSetter(&quot;cl_type&quot;)
-    @ExcludeFromJacocoGeneratedReport
-	protected void setJsonClType(CLTypeURef clType) {
-        this.clType = clType;
-    }
+<span class="fc" id="L42">    public CLValueURef(URef value) {</span>
+<span class="fc" id="L43">        this.setValue(value);</span>
+<span class="fc" id="L44">    }</span>
 
     @JsonGetter(&quot;cl_type&quot;)
     @ExcludeFromJacocoGeneratedReport
-	protected String getJsonClType() {
+    protected String getJsonClType() {
         return this.getClType().getTypeName();
     }
 
-<span class="fc" id="L52">    public CLValueURef(URef value) {</span>
-<span class="fc" id="L53">        this.setValue(value);</span>
-<span class="fc" id="L54">    }</span>
+    @JsonSetter(&quot;cl_type&quot;)
+    @ExcludeFromJacocoGeneratedReport
+    protected void setJsonClType(CLTypeURef clType) {
+        this.clType = clType;
+    }
 
     @Override
-    public void encode(CLValueEncoder clve) throws IOException {
-<span class="fc" id="L58">        URef uref = this.getValue();</span>
-<span class="fc" id="L59">        byte[] urefByte = new byte[uref.getAddress().length + 1];</span>
-<span class="fc" id="L60">        System.arraycopy(uref.getAddress(), 0, urefByte, 0, uref.getAddress().length);</span>
-<span class="fc" id="L61">        urefByte[32] = uref.getAccessRight().serializationTag; </span>
-<span class="fc" id="L62">        setBytes(StringByteHelper.convertBytesToHex(urefByte));</span>
-<span class="fc" id="L63">    }</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+<span class="fc" id="L60">        URef uref = this.getValue();</span>
+<span class="fc" id="L61">        byte[] urefByte = new byte[uref.getAddress().length + 1];</span>
+<span class="fc" id="L62">        System.arraycopy(uref.getAddress(), 0, urefByte, 0, uref.getAddress().length);</span>
+<span class="fc" id="L63">        urefByte[32] = uref.getAccessRight().serializationTag;</span>
+<span class="fc" id="L64">        setBytes(StringByteHelper.convertBytesToHex(urefByte));</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (encodeType) {</span>
+<span class="nc" id="L66">            this.encodeType(clve);</span>
+        }
+<span class="fc" id="L68">    }</span>
 
     @Override
     public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException, DynamicInstanceException {
-<span class="fc" id="L67">        URef uref = new URef();</span>
-<span class="fc" id="L68">        CLValueByteArray clValueByteArray = new CLValueByteArray(new byte[32]);</span>
-<span class="fc" id="L69">        clValueByteArray.decode(clvd);</span>
-<span class="fc" id="L70">        uref.setAddress(clValueByteArray.getValue());</span>
-<span class="fc" id="L71">        CLValueU8 serializationTag = new CLValueU8((byte) 0);</span>
-<span class="fc" id="L72">        serializationTag.decode(clvd);</span>
-<span class="fc" id="L73">        uref.setAccessRight(URefAccessRight.getTypeBySerializationTag(serializationTag.getValue()));</span>
-<span class="fc" id="L74">        setValue(uref);</span>
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L72">        URef uref = new URef();</span>
+<span class="fc" id="L73">        CLValueByteArray clValueByteArray = new CLValueByteArray(new byte[32]);</span>
+<span class="fc" id="L74">        clValueByteArray.decode(clvd);</span>
+<span class="fc" id="L75">        uref.setAddress(clValueByteArray.getValue());</span>
+<span class="fc" id="L76">        CLValueU8 serializationTag = new CLValueU8((byte) 0);</span>
+<span class="fc" id="L77">        serializationTag.decode(clvd);</span>
+<span class="fc" id="L78">        uref.setAccessRight(URefAccessRight.getTypeBySerializationTag(serializationTag.getValue()));</span>
+<span class="fc" id="L79">        setValue(uref);</span>
+<span class="fc" id="L80">    }</span>
 
     @ExcludeFromJacocoGeneratedReport
     @Override
@@ -94,9 +99,7 @@ public class CLValueURef extends AbstractCLValue&lt;URef, CLTypeURef&gt; {
             return false;
         final Object thisClType = this.getClType();
         final Object otherClType = other.getClType();
-        if (thisClType == null ? otherClType != null : !thisClType.equals(otherClType))
-            return false;
-        return true;
+        return thisClType == null ? otherClType == null : thisClType.equals(otherClType);
     }
 
     @ExcludeFromJacocoGeneratedReport

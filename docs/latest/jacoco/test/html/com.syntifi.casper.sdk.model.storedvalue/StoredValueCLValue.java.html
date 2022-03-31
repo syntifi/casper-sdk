@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StoredValueCLValue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.model.storedvalue</a> &gt; <span class="el_source">StoredValueCLValue.java</span></div><h1>StoredValueCLValue.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.model.storedvalue;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.syntifi.casper.sdk.model.clvalue.AbstractCLValue;
+import com.syntifi.casper.sdk.model.clvalue.cltype.AbstractCLType;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Stored Value for {@link AbstractCLType}
+ * 
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @see StoredValue
+ * @since 0.0.1
+ */
+@Getter
+<span class="fc" id="L23">@Setter</span>
+<span class="nc" id="L24">@Builder</span>
+<span class="nc" id="L25">@AllArgsConstructor</span>
+<span class="fc" id="L26">@NoArgsConstructor</span>
+@JsonTypeName(&quot;CLValue&quot;)
+public class StoredValueCLValue implements StoredValue&lt;AbstractCLValue&lt;?, ?&gt;&gt; {
+    @JsonProperty(&quot;CLValue&quot;)
+<span class="fc" id="L30">    private AbstractCLValue&lt;?, ?&gt; value;</span>
+
+    @Override
+    public boolean equals(final Object o) {
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L35">            return true;</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (!(o instanceof StoredValueCLValue))</span>
+<span class="nc" id="L37">            return false;</span>
+<span class="fc" id="L38">        final StoredValueCLValue other = (StoredValueCLValue) o;</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (!other.canEqual((Object) this))</span>
+<span class="nc" id="L40">            return false;</span>
+<span class="fc" id="L41">        final Object this$value = this.getValue();</span>
+<span class="fc" id="L42">        final Object other$value = other.getValue();</span>
+<span class="pc bpc" id="L43" title="4 of 6 branches missed.">        if (this$value == null ? other$value != null : !this$value.equals(other$value))</span>
+<span class="nc" id="L44">            return false;</span>
+<span class="fc" id="L45">        return true;</span>
+    }
+
+    protected boolean canEqual(final Object other) {
+<span class="fc" id="L49">        return other instanceof StoredValueCLValue;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L54">        final int PRIME = 59;</span>
+<span class="nc" id="L55">        int result = 1;</span>
+<span class="nc" id="L56">        final Object $value = this.getValue();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        result = result * PRIME + ($value == null ? 43 : $value.hashCode());</span>
+<span class="nc" id="L58">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

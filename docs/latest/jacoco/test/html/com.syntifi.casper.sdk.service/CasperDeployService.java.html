@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CasperDeployService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">casper-sdk</a> &gt; <a href="index.source.html" class="el_package">com.syntifi.casper.sdk.service</a> &gt; <span class="el_source">CasperDeployService.java</span></div><h1>CasperDeployService.java</h1><pre class="source lang-java linenums">package com.syntifi.casper.sdk.service;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.GeneralSecurityException;
+import java.util.*;
+
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.InvalidByteStringException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
+import com.syntifi.casper.sdk.model.clvalue.CLValueOption;
+import com.syntifi.casper.sdk.model.clvalue.CLValuePublicKey;
+import com.syntifi.casper.sdk.model.clvalue.CLValueU512;
+import com.syntifi.casper.sdk.model.clvalue.CLValueU64;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeOption;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypePublicKey;
+import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeU512;
+import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
+import com.syntifi.casper.sdk.model.common.Digest;
+import com.syntifi.casper.sdk.model.common.Ttl;
+import com.syntifi.casper.sdk.model.deploy.Approval;
+import com.syntifi.casper.sdk.model.deploy.Deploy;
+import com.syntifi.casper.sdk.model.deploy.DeployHeader;
+import com.syntifi.casper.sdk.model.deploy.NamedArg;
+import com.syntifi.casper.sdk.model.deploy.executabledeploy.ModuleBytes;
+import com.syntifi.casper.sdk.model.deploy.executabledeploy.Transfer;
+import com.syntifi.casper.sdk.model.key.PublicKey;
+import com.syntifi.casper.sdk.model.key.Signature;
+import com.syntifi.crypto.key.AbstractPrivateKey;
+
+import com.syntifi.crypto.key.hash.Blake2b;
+import org.bouncycastle.crypto.digests.Blake2bDigest;
+import org.jetbrains.annotations.NotNull;
+
+/**
+ * Deploy Service class implementing the process to generate deploys
+ *
+ * @author Alexandre Carvalho
+ * @author Andre Bertolace
+ * @since 0.2.0
+ */
+<span class="nc" id="L43">public class CasperDeployService {</span>
+
+    /**
+     * Method to generate a Transfer deploy
+     *
+     * @param fromPrivateKey sender private Key
+     * @param toPublicKey    receiver public key
+     * @param amount         amount to transfer
+     * @param chainName      network name
+     * @return Deploy
+     * @throws IOException
+     * @throws CLValueEncodeException
+     * @throws DynamicInstanceException
+     * @throws NoSuchTypeException
+     * @throws GeneralSecurityException
+     * @throws InvalidByteStringException
+     */
+    public static Deploy buildTransferDeploy(AbstractPrivateKey fromPrivateKey,
+                                             PublicKey toPublicKey, BigInteger amount, String chainName)
+            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException,
+            GeneralSecurityException, InvalidByteStringException {
+<span class="nc" id="L64">        long id = Math.abs(new Random().nextInt());</span>
+<span class="nc" id="L65">        BigInteger paymentAmount = BigInteger.valueOf(25000000000L);</span>
+<span class="nc" id="L66">        long gasPrice = 1L;</span>
+        Ttl ttl = Ttl
+<span class="nc" id="L68">                .builder()</span>
+<span class="nc" id="L69">                .ttl(&quot;30m&quot;)</span>
+<span class="nc" id="L70">                .build();</span>
+<span class="nc" id="L71">        return CasperDeployService.buildTransferDeploy(fromPrivateKey,</span>
+<span class="nc" id="L72">                toPublicKey, amount, chainName, id, paymentAmount,</span>
+<span class="nc" id="L73">                gasPrice, ttl, new Date(), new ArrayList&lt;&gt;());</span>
+    }
+
+
+    /**
+     * @param fromPrivateKey private key of the sender
+     * @param toPublicKey    public key of the receiver
+     * @param amount         amount to transfer
+     * @param id             id field in the request to tag the transaction
+     * @param paymentAmount, the number of motes paying to the execution engine
+     * @param gasPrice       gasPrice for native transfers can be set to 1
+     * @param ttl            time to live in milliseconds (default value is 1800000
+     *                       ms (30 minutes))
+     * @return Deploy
+     * @throws NoSuchTypeException
+     * @throws DynamicInstanceException
+     * @throws CLValueEncodeException
+     * @throws IOException
+     * @throws GeneralSecurityException
+     * @throws InvalidByteStringException
+     */
+    public static Deploy buildTransferDeploy(AbstractPrivateKey fromPrivateKey, PublicKey toPublicKey,
+                                             BigInteger amount, String chainName, Long id, BigInteger paymentAmount,
+                                             Long gasPrice, Ttl ttl, Date date, List&lt;Digest&gt; dependencies)
+            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException,
+            GeneralSecurityException, InvalidByteStringException {
+
+<span class="fc" id="L100">        List&lt;NamedArg&lt;?&gt;&gt; transferArgs = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L101">        NamedArg&lt;CLTypeU512&gt; amountNamedArg = new NamedArg&lt;&gt;(&quot;amount&quot;,</span>
+                new CLValueU512(amount));
+<span class="fc" id="L103">        transferArgs.add(amountNamedArg);</span>
+<span class="fc" id="L104">        NamedArg&lt;CLTypePublicKey&gt; publicKeyNamedArg = new NamedArg&lt;&gt;(&quot;target&quot;,</span>
+                new CLValuePublicKey(toPublicKey));
+<span class="fc" id="L106">        transferArgs.add(publicKeyNamedArg);</span>
+<span class="fc" id="L107">        CLValueOption idArg = new CLValueOption(Optional.of(</span>
+<span class="fc" id="L108">                new CLValueU64(BigInteger.valueOf(682008))));</span>
+<span class="fc" id="L109">        NamedArg&lt;CLTypeOption&gt; idNamedArg = new NamedArg&lt;&gt;(&quot;id&quot;, idArg);</span>
+<span class="fc" id="L110">        transferArgs.add(idNamedArg);</span>
+
+        Transfer session = Transfer
+<span class="fc" id="L113">                .builder()</span>
+<span class="fc" id="L114">                .args(transferArgs)</span>
+<span class="fc" id="L115">                .build();</span>
+<span class="fc" id="L116">        List&lt;NamedArg&lt;?&gt;&gt; paymentArgs = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L117">        NamedArg&lt;CLTypeU512&gt; paymentArg = new NamedArg&lt;&gt;(&quot;amount&quot;,</span>
+                new CLValueU512(paymentAmount));
+<span class="fc" id="L119">        paymentArgs.add(paymentArg);</span>
+
+        ModuleBytes payment = ModuleBytes
+<span class="fc" id="L122">                .builder()</span>
+<span class="fc" id="L123">                .args(paymentArgs)</span>
+<span class="fc" id="L124">                .bytes(&quot;&quot;)</span>
+<span class="fc" id="L125">                .build();</span>
+<span class="fc" id="L126">        CLValueEncoder clve = new CLValueEncoder();</span>
+<span class="fc" id="L127">        payment.encode(clve, true);</span>
+<span class="fc" id="L128">        session.encode(clve, true);</span>
+<span class="fc" id="L129">        byte[] sessionAnPaymentHash = Blake2b.digest(clve.toByteArray(), 32);</span>
+<span class="fc" id="L130">        clve.flush();</span>
+<span class="fc" id="L131">        clve.reset();</span>
+
+<span class="fc" id="L133">        PublicKey fromPublicKey = PublicKey.fromAbstractPublicKey(fromPrivateKey.derivePublicKey());</span>
+
+        DeployHeader deployHeader = DeployHeader
+<span class="fc" id="L136">                .builder()</span>
+<span class="fc" id="L137">                .account(fromPublicKey)</span>
+<span class="fc" id="L138">                .ttl(ttl)</span>
+<span class="fc" id="L139">                .timeStamp(date)</span>
+<span class="fc" id="L140">                .gasPrice(gasPrice)</span>
+<span class="fc" id="L141">                .bodyHash(Digest.digestFromBytes(sessionAnPaymentHash))</span>
+<span class="fc" id="L142">                .chainName(chainName)</span>
+<span class="fc" id="L143">                .dependencies(dependencies)</span>
+<span class="fc" id="L144">                .build();</span>
+<span class="fc" id="L145">        deployHeader.encode(clve, true);</span>
+<span class="fc" id="L146">        byte[] headerHash = Blake2b.digest(clve.toByteArray(), 32);</span>
+
+<span class="fc" id="L148">        Signature signature = Signature.sign(fromPrivateKey, headerHash);</span>
+
+<span class="fc" id="L150">        List&lt;Approval&gt; approvals = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L151">        approvals.add(Approval.builder()</span>
+<span class="fc" id="L152">                .signer(PublicKey.fromAbstractPublicKey(fromPrivateKey.derivePublicKey()))</span>
+<span class="fc" id="L153">                .signature(signature)</span>
+<span class="fc" id="L154">                .build());</span>
+
+<span class="fc" id="L156">        return Deploy.builder()</span>
+<span class="fc" id="L157">                .hash(Digest.digestFromBytes(headerHash))</span>
+<span class="fc" id="L158">                .header(deployHeader)</span>
+<span class="fc" id="L159">                .payment(payment)</span>
+<span class="fc" id="L160">                .session(session)</span>
+<span class="fc" id="L161">                .approvals(approvals)</span>
+<span class="fc" id="L162">                .build();</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

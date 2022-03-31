@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 import com.syntifi.casper.sdk.exception.CLValueDecodeException;
+import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
 import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypePublicKey;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
@@ -26,11 +29,11 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+<span class="nc" id="L32">@Setter</span>
+<span class="pc bpc" id="L33" title="10 of 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+<span class="fc" id="L34">@NoArgsConstructor</span>
 public class CLValuePublicKey extends AbstractCLValue&lt;PublicKey, CLTypePublicKey&gt; {
-<span class="fc" id="L33">    private CLTypePublicKey clType = new CLTypePublicKey();</span>
+<span class="fc" id="L36">    private CLTypePublicKey clType = new CLTypePublicKey();</span>
 
     @JsonSetter(&quot;cl_type&quot;)
     @ExcludeFromJacocoGeneratedReport
@@ -44,22 +47,25 @@ public class CLValuePublicKey extends AbstractCLValue&lt;PublicKey, CLTypePublic
         return this.getClType().getTypeName();
     }
 
-<span class="fc" id="L47">    public CLValuePublicKey(PublicKey value) {</span>
-<span class="fc" id="L48">        this.setValue(value);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L50">    public CLValuePublicKey(PublicKey value) {</span>
+<span class="fc" id="L51">        this.setValue(value);</span>
+<span class="fc" id="L52">    }</span>
 
     @Override
-    public void encode(CLValueEncoder clve) throws IOException {
-<span class="fc" id="L53">        clve.writePublicKey(this);</span>
-<span class="fc" id="L54">    }</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+<span class="fc" id="L56">        clve.writePublicKey(this);</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (encodeType) {</span>
+<span class="fc" id="L58">            this.encodeType(clve);</span>
+        }
+<span class="fc" id="L60">    }</span>
 
     @Override
     public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         try {
-<span class="fc" id="L59">            clvd.readPublicKey(this);</span>
-<span class="nc" id="L60">        } catch (NoSuchAlgorithmException e) {</span>
-<span class="nc" id="L61">            throw new CLValueDecodeException(&quot;Error decoding CLValuePublicKey&quot;, e);</span>
-<span class="fc" id="L62">        }</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L65">            clvd.readPublicKey(this);</span>
+<span class="nc" id="L66">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L67">            throw new CLValueDecodeException(&quot;Error decoding CLValuePublicKey&quot;, e);</span>
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

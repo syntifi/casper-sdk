@@ -8,10 +8,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 import com.syntifi.casper.sdk.exception.CLValueDecodeException;
 import com.syntifi.casper.sdk.exception.CLValueEncodeException;
+import com.syntifi.casper.sdk.exception.DynamicInstanceException;
+import com.syntifi.casper.sdk.exception.NoSuchTypeException;
 import com.syntifi.casper.sdk.model.clvalue.cltype.CLTypeU512;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.syntifi.casper.sdk.model.clvalue.encdec.CLValueEncoder;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,11 +29,12 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+<span class="nc" id="L32">@Setter</span>
+<span class="pc bpc" id="L33" title="10 of 16 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+<span class="nc" id="L34">@AllArgsConstructor</span>
+<span class="fc" id="L35">@NoArgsConstructor</span>
 public class CLValueU512 extends AbstractCLValue&lt;BigInteger, CLTypeU512&gt; {
-<span class="fc" id="L33">    private CLTypeU512 clType = new CLTypeU512();</span>
+<span class="pc" id="L37">    private CLTypeU512 clType = new CLTypeU512();</span>
 
     @JsonSetter(&quot;cl_type&quot;)
     @ExcludeFromJacocoGeneratedReport
@@ -44,18 +48,21 @@ public class CLValueU512 extends AbstractCLValue&lt;BigInteger, CLTypeU512&gt; {
         return this.getClType().getTypeName();
     }
 
-<span class="fc" id="L47">    public CLValueU512(BigInteger value) {</span>
-<span class="fc" id="L48">        this.setValue(value);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L51">    public CLValueU512(BigInteger value) {</span>
+<span class="fc" id="L52">        this.setValue(value);</span>
+<span class="fc" id="L53">    }</span>
 
     @Override
-    public void encode(CLValueEncoder clve) throws IOException, CLValueEncodeException {
-<span class="fc" id="L53">        clve.writeU512(this);</span>
-<span class="fc" id="L54">    }</span>
+    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, NoSuchTypeException {
+<span class="fc" id="L57">        clve.writeU512(this);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (encodeType) {</span>
+<span class="fc" id="L59">            this.encodeType(clve);</span>
+        }
+<span class="fc" id="L61">    }</span>
 
     @Override
     public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
-<span class="fc" id="L58">        clvd.readU512(this);</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L65">        clvd.readU512(this);</span>
+<span class="fc" id="L66">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

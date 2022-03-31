@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.syntifi.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +21,8 @@ import lombok.Setter;
  * @since 0.0.1
  */
 @Getter
-@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;okErrTypes&quot; })
-<span class="fc" id="L26">public class CLTypeResult extends AbstractCLType {</span>
+<span class="pc bpc" id="L24" title="15 of 22 branches missed.">@EqualsAndHashCode(callSuper = false, of = { &quot;typeName&quot;, &quot;okErrTypes&quot; })</span>
+<span class="fc" id="L25">public class CLTypeResult extends AbstractCLType {</span>
 
     /**
      * Support class for {@link AbstractCLType#RESULT} ok/err types
@@ -33,14 +32,16 @@ import lombok.Setter;
      * @see AbstractCLType
      * @since 0.0.1
      */
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public class CLTypeResultOkErrTypes {
+    @Getter
+<span class="nc" id="L36">    @Setter</span>
+<span class="pc bpc" id="L37" title="15 of 22 branches missed.">    @EqualsAndHashCode</span>
+<span class="fc" id="L38">    @NoArgsConstructor</span>
+<span class="fc" id="L39">    @AllArgsConstructor</span>
+    public static class CLTypeResultOkErrTypes {
         @JsonIgnore
-        private AbstractCLType okClType;
+<span class="fc" id="L42">        private AbstractCLType okClType;</span>
         @JsonIgnore
-        private AbstractCLType errClType;
+<span class="fc" id="L44">        private AbstractCLType errClType;</span>
 
         @JsonSetter(&quot;ok&quot;)
         @ExcludeFromJacocoGeneratedReport
@@ -75,10 +76,10 @@ import lombok.Setter;
         }
     }
 
-<span class="fc" id="L78">    private final String typeName = AbstractCLType.RESULT;</span>
+<span class="fc" id="L79">    private final String typeName = AbstractCLType.RESULT;</span>
 
-    @Setter
+<span class="fc" id="L81">    @Setter</span>
     @JsonProperty(AbstractCLType.RESULT)
-    private CLTypeResultOkErrTypes okErrTypes;
+<span class="fc" id="L83">    private CLTypeResultOkErrTypes okErrTypes;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

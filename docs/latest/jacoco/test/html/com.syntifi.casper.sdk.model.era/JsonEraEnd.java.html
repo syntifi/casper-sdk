@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * Casper block root Era data
  * 
@@ -11,18 +17,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Andre Bertolace
  * @since 0.0.1
  */
-<span class="fc" id="L14">public class JsonEraEnd {</span>
+
+@Getter
+<span class="fc" id="L22"> @Setter</span>
+<span class="nc" id="L23">@Builder</span>
+<span class="nc" id="L24">@AllArgsConstructor</span>
+<span class="fc" id="L25">@NoArgsConstructor</span>
+public class JsonEraEnd {
     
     /**
      * @see JsonEraReport
      */
     @JsonProperty(&quot;era_report&quot;)
-    private JsonEraReport eraReport;
+<span class="fc" id="L32">    private JsonEraReport eraReport;</span>
 
     /**
      * @see JsonValidatorWeight
      */
     @JsonProperty(&quot;next_era_validator_weights&quot;)
-    private List&lt;ValidatorWeight&gt; nextEraValidatorWeights;
+<span class="fc" id="L38">    private List&lt;ValidatorWeight&gt; nextEraValidatorWeights;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
