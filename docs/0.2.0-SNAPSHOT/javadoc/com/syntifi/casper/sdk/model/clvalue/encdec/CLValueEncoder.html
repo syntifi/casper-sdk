@@ -308,7 +308,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <td class="colFirst"><code>byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeInt(java.lang.Integer)">writeInt</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
 <td class="colLast">
-<div class="block">Writes an Integet value to byte buffer</div>
+<div class="block">Writes an Integer value to byte buffer</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -532,7 +532,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueBool.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueBool</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -563,7 +563,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueByteArray.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueByteArray</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -580,7 +580,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueI32.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueI32</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -597,7 +597,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueU32.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueU32</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -609,14 +609,14 @@ extends java.io.ByteArrayOutputStream</pre>
 <h4>writeInt</h4>
 <pre class="methodSignature">public&nbsp;byte[]&nbsp;writeInt&#8203;(java.lang.Integer&nbsp;value)
                 throws java.io.IOException</pre>
-<div class="block">Writes an Integet value to byte buffer</div>
+<div class="block">Writes an Integer value to byte buffer</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - </dd>
+<dd><code>value</code> - the value to write</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>byte[]</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -633,7 +633,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueI64.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueI64</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -648,11 +648,11 @@ extends java.io.ByteArrayOutputStream</pre>
 <div class="block">Writes a Long value to byte buffer</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - </dd>
+<dd><code>value</code> - the value to write</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>byte[]</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -670,8 +670,8 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueU64.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueU64</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown when a clvalue encoding throws an error</dd>
 </dl>
 </li>
 </ul>
@@ -689,8 +689,8 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueU128.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueU128</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown when a clvalue encoding throws an error</dd>
 </dl>
 </li>
 </ul>
@@ -708,8 +708,8 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueU256.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueU256</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown when a clvalue encoding throws an error</dd>
 </dl>
 </li>
 </ul>
@@ -727,8 +727,8 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueU512.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueU512</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown when a clvalue encoding throws an error</dd>
 </dl>
 </li>
 </ul>
@@ -746,10 +746,10 @@ extends java.io.ByteArrayOutputStream</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../AbstractCLValue.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>AbstractCLValue</code></a> value to encode</dd>
-<dd><code>clValue</code> - <a href="../cltype/CLTypeData.html" title="enum in com.syntifi.casper.sdk.model.clvalue.cltype"><code>CLTypeData</code></a> CLTypeData of BigInteger</dd>
+<dd><code>type</code> - <a href="../cltype/CLTypeData.html" title="enum in com.syntifi.casper.sdk.model.clvalue.cltype"><code>CLTypeData</code></a> CLTypeData of BigInteger</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
+<dd><code><a href="../../../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown when a clvalue encoding throws an error</dd>
 </dl>
 </li>
 </ul>
@@ -764,11 +764,11 @@ extends java.io.ByteArrayOutputStream</pre>
 <div class="block">Writes a BigInteger to the CLValue byte buffer</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>bigInteger</code> - </dd>
+<dd><code>bigInteger</code> - the biginteger to write</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a byte array</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -785,7 +785,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - <a href="../CLValueString.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueString</code></a> value to encode</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>
@@ -804,7 +804,7 @@ extends java.io.ByteArrayOutputStream</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>byte[]</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - thrown when an error occurs while writing bytes</dd>
 </dl>
 </li>
 </ul>

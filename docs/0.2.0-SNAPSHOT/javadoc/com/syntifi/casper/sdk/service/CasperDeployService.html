@@ -259,8 +259,7 @@ extends java.lang.Object</pre>
                                          <a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a>,
                                          <a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a>,
                                          <a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a>,
-                                         java.security.GeneralSecurityException,
-                                         <a href="../exception/InvalidByteStringException.html" title="class in com.syntifi.casper.sdk.exception">InvalidByteStringException</a></pre>
+                                         java.security.GeneralSecurityException</pre>
 <div class="block">Method to generate a Transfer deploy</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -271,12 +270,11 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Deploy</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
-<dd><code><a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
-<dd><code><a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
-<dd><code>java.security.GeneralSecurityException</code></dd>
-<dd><code><a href="../exception/InvalidByteStringException.html" title="class in com.syntifi.casper.sdk.exception">InvalidByteStringException</a></code></dd>
+<dd><code><a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
+<dd><code><a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code> - thrown if it could not instantiate a type</dd>
+<dd><code><a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown if failed to encode a cl value</dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code>java.security.GeneralSecurityException</code> - thrown when an error occurs with cryptographic keys</dd>
 </dl>
 </li>
 </ul>
@@ -300,8 +298,7 @@ extends java.lang.Object</pre>
                                          <a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a>,
                                          <a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a>,
                                          <a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a>,
-                                         java.security.GeneralSecurityException,
-                                         <a href="../exception/InvalidByteStringException.html" title="class in com.syntifi.casper.sdk.exception">InvalidByteStringException</a></pre>
+                                         java.security.GeneralSecurityException</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromPrivateKey</code> - private key of the sender</dd>
@@ -315,12 +312,11 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Deploy</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code></dd>
-<dd><code><a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code></dd>
-<dd><code><a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code></dd>
-<dd><code>java.io.IOException</code></dd>
-<dd><code>java.security.GeneralSecurityException</code></dd>
-<dd><code><a href="../exception/InvalidByteStringException.html" title="class in com.syntifi.casper.sdk.exception">InvalidByteStringException</a></code></dd>
+<dd><code><a href="../exception/NoSuchTypeException.html" title="class in com.syntifi.casper.sdk.exception">NoSuchTypeException</a></code> - thrown if type not found</dd>
+<dd><code><a href="../exception/DynamicInstanceException.html" title="class in com.syntifi.casper.sdk.exception">DynamicInstanceException</a></code> - thrown if it could not instantiate a type</dd>
+<dd><code><a href="../exception/CLValueEncodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueEncodeException</a></code> - thrown if failed to encode a cl value</dd>
+<dd><code>java.io.IOException</code> - thrown if an IO error occurs</dd>
+<dd><code>java.security.GeneralSecurityException</code> - thrown when an error occurs with cryptographic keys</dd>
 </dl>
 </li>
 </ul>

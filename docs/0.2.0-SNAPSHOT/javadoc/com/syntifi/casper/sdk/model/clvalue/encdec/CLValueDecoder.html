@@ -247,7 +247,7 @@ extends java.io.ByteArrayInputStream</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readByteArray(com.syntifi.casper.sdk.model.clvalue.CLValueByteArray,int)">readByteArray</a></span>&#8203;(<a href="../CLValueByteArray.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueByteArray</a>&nbsp;clValue,
              int&nbsp;length)</code></th>
 <td class="colLast">
-<div class="block">Reads a byteArrayy into a clvalue</div>
+<div class="block">Reads a byteArray into a clvalue</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -261,7 +261,7 @@ extends java.io.ByteArrayInputStream</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readI32(com.syntifi.casper.sdk.model.clvalue.CLValueI32)">readI32</a></span>&#8203;(<a href="../CLValueI32.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI32</a>&nbsp;clValue)</code></th>
 <td class="colLast">
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.</div>
 </td>
@@ -270,7 +270,7 @@ extends java.io.ByteArrayInputStream</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readI64(com.syntifi.casper.sdk.model.clvalue.CLValueI64)">readI64</a></span>&#8203;(<a href="../CLValueI64.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI64</a>&nbsp;clValue)</code></th>
 <td class="colLast">
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.</div>
 </td>
@@ -337,7 +337,7 @@ extends java.io.ByteArrayInputStream</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readU8(com.syntifi.casper.sdk.model.clvalue.CLValueU8)">readU8</a></span>&#8203;(<a href="../CLValueU8.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU8</a>&nbsp;clValue)</code></th>
 <td class="colLast">
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.</div>
 </td>
@@ -436,10 +436,10 @@ extends java.io.ByteArrayInputStream</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;readU8&#8203;(<a href="../CLValueU8.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueU8</a>&nbsp;clValue)
             throws java.io.IOException,
                    <a href="../../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></pre>
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.
- 
+ <p>
  E.g. 7u8 serializes as 0x07</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -460,7 +460,7 @@ extends java.io.ByteArrayInputStream</pre>
                           int&nbsp;length)
                    throws <a href="../../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a>,
                           java.io.IOException</pre>
-<div class="block">Reads a byteArrayy into a clvalue</div>
+<div class="block">Reads a byteArray into a clvalue</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clValue</code> - target <a href="../CLValueByteArray.html" title="class in com.syntifi.casper.sdk.model.clvalue"><code>CLValueByteArray</code></a></dd>
@@ -480,10 +480,10 @@ extends java.io.ByteArrayInputStream</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;readI32&#8203;(<a href="../CLValueI32.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI32</a>&nbsp;clValue)
              throws java.io.IOException,
                     <a href="../../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></pre>
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.
- 
+ <p>
  E.g. 7u32 serializes as 0x07000000 E.g. 1024u32 serializes as 0x00040000</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -523,10 +523,10 @@ extends java.io.ByteArrayInputStream</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;readI64&#8203;(<a href="../CLValueI64.html" title="class in com.syntifi.casper.sdk.model.clvalue">CLValueI64</a>&nbsp;clValue)
              throws java.io.IOException,
                     <a href="../../../exception/CLValueDecodeException.html" title="class in com.syntifi.casper.sdk.exception">CLValueDecodeException</a></pre>
-<div class="block">Numeric values consisting of 64 bits or less serialize in the two’s
+<div class="block">Numeric values consisting of 64 bits or fewer serialize in the two’s
  complement representation with little-endian byte order, and the appropriate
  number of bytes for the bit-width.
- 
+ <p>
  E.g. 7u8 serializes as 0x07 E.g. 7u32 serializes as 0x07000000 E.g. 1024u32
  serializes as 0x00040000</div>
 <dl>
@@ -630,7 +630,7 @@ extends java.io.ByteArrayInputStream</pre>
  chosen as small as possible to represent the given number. This is done to
  reduce the serialization size when small numbers are represented within a
  wide data type.
- 
+ <p>
  E.g. U512::from(7) serializes as 0x0107 E.g. U512::from(1024) serializes as
  0x020004 E.g. U512::from("123456789101112131415") serializes as
  0x0957ff1ada959f4eb106</div>
