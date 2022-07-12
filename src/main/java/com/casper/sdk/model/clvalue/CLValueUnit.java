@@ -1,19 +1,15 @@
 package com.casper.sdk.model.clvalue;
 
+import com.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
+import com.casper.sdk.exception.NoSuchTypeException;
 import com.casper.sdk.model.clvalue.cltype.CLTypeUnit;
 import com.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.casper.sdk.model.clvalue.encdec.CLValueEncoder;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.casper.sdk.annotation.ExcludeFromJacocoGeneratedReport;
-import com.casper.sdk.exception.CLValueDecodeException;
-import com.casper.sdk.exception.CLValueEncodeException;
-import com.casper.sdk.exception.NoSuchTypeException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.IOException;
 
 /**
  * Casper Unit CLValue implementation

@@ -1,22 +1,12 @@
 package com.casper.sdk.model.deploy;
 
+import com.casper.sdk.exception.CLValueEncodeException;
+import com.casper.sdk.exception.NoSuchTypeException;
+import com.casper.sdk.model.clvalue.*;
 import com.casper.sdk.model.clvalue.cltype.AbstractCLType;
 import com.casper.sdk.model.clvalue.encdec.CLValueEncoder;
 import com.casper.sdk.model.clvalue.encdec.interfaces.EncodableValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.casper.sdk.exception.CLValueEncodeException;
-import com.casper.sdk.exception.DynamicInstanceException;
-import com.casper.sdk.exception.NoSuchTypeException;
-import com.casper.sdk.model.clvalue.AbstractCLValue;
-import com.casper.sdk.model.clvalue.CLValueI32;
-import com.casper.sdk.model.clvalue.CLValueI64;
-import com.casper.sdk.model.clvalue.CLValueOption;
-import com.casper.sdk.model.clvalue.CLValuePublicKey;
-import com.casper.sdk.model.clvalue.CLValueU128;
-import com.casper.sdk.model.clvalue.CLValueU256;
-import com.casper.sdk.model.clvalue.CLValueU32;
-import com.casper.sdk.model.clvalue.CLValueU512;
-import com.casper.sdk.model.clvalue.CLValueU64;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
