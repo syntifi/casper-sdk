@@ -52,7 +52,7 @@ public abstract class AbstractJsonTests {
      * @param json json string to prettify
      * @return prettified json
      * @throws JsonMappingException thrown if a mapping error occurs
-     * @throws JsonProcessingException thrown if a json procesing error
+     * @throws JsonProcessingException thrown if a json processing error
      */
     protected String getPrettyJson(String json) throws JsonMappingException, JsonProcessingException {
         Object jsonObject = OBJECT_MAPPER.readValue(json, Object.class);
@@ -65,7 +65,7 @@ public abstract class AbstractJsonTests {
      * @param jsonObject object to serialize and prettify
      * @return prettified json
      * @throws JsonMappingException thrown if a mapping error occurs
-     * @throws JsonProcessingException thrown if a json procesing error
+     * @throws JsonProcessingException thrown if a json processing error
      */
     protected String getPrettyJson(Object jsonObject) throws JsonMappingException, JsonProcessingException {
         return OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);

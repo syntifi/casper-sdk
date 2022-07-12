@@ -52,8 +52,7 @@ public abstract class AbstractSerializedKeyTaggedHex<T extends Tag> implements E
      * Implements TaggedHEx encoder
      */
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException {
         clve.write(getTag().getByteTag());
         clve.write(getKey());
     }

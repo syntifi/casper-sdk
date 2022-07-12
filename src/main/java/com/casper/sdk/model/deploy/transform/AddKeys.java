@@ -12,7 +12,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * An implmentation of Transform that Adds the given collection of named keys.
+ * An implementation of Transform that Adds the given collection of named keys.
  *
  * @author Alexandre Carvalho
  * @author Andre Bertolace

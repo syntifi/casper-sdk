@@ -49,8 +49,7 @@ public class Ttl implements EncodableValue {
      * Implements EncodableValue
      */
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException {
         clve.writeLong(getTtl());
     }
 }

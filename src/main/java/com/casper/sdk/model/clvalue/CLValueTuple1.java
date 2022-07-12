@@ -1,15 +1,15 @@
 package com.casper.sdk.model.clvalue;
 
+import com.casper.sdk.exception.CLValueDecodeException;
+import com.casper.sdk.exception.CLValueEncodeException;
+import com.casper.sdk.exception.DynamicInstanceException;
+import com.casper.sdk.exception.NoSuchTypeException;
 import com.casper.sdk.model.clvalue.cltype.AbstractCLTypeWithChildren;
 import com.casper.sdk.model.clvalue.cltype.CLTypeData;
 import com.casper.sdk.model.clvalue.cltype.CLTypeTuple1;
 import com.casper.sdk.model.clvalue.encdec.CLValueDecoder;
 import com.casper.sdk.model.clvalue.encdec.CLValueEncoder;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.casper.sdk.exception.CLValueDecodeException;
-import com.casper.sdk.exception.CLValueEncodeException;
-import com.casper.sdk.exception.DynamicInstanceException;
-import com.casper.sdk.exception.NoSuchTypeException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +17,6 @@ import lombok.Setter;
 import org.javatuples.Unit;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**

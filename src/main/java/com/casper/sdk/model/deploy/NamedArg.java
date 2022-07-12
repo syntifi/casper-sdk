@@ -52,7 +52,7 @@ public class NamedArg<P extends AbstractCLType> implements EncodableValue {
 
     @Override
     public void encode(final CLValueEncoder clve, final boolean encodeType)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+            throws IOException, CLValueEncodeException, NoSuchTypeException {
         clve.writeString(type);
         if (clValue instanceof CLValueI32 || clValue instanceof CLValueU32) {
             clve.writeInt(32 / 8);

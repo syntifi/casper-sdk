@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Adds the given `u128`
+ * An implementation of Transform that Adds the given `u128`
  * 
  * @see Transform
  * 

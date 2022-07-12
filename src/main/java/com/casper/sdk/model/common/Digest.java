@@ -49,8 +49,7 @@ public class Digest implements EncodableValue {
      * Implements Digest encoder
      */
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType)
-            throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException {
         clve.write(getDigest());
     }
 }

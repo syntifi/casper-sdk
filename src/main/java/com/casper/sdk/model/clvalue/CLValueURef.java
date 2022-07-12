@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Casper Boolean CLURef implementation URef is a tuple that contains the
@@ -55,7 +56,7 @@ public class CLValueURef extends AbstractCLValue<URef, CLTypeURef> {
     }
 
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws NoSuchTypeException, CLValueEncodeException {
         URef uref = this.getValue();
         byte[] urefByte = new byte[uref.getAddress().length + 1];
         System.arraycopy(uref.getAddress(), 0, urefByte, 0, uref.getAddress().length);
@@ -90,15 +91,15 @@ public class CLValueURef extends AbstractCLValue<URef, CLTypeURef> {
             return false;
         final Object thisBytes = this.getBytes();
         final Object otherBytes = other.getBytes();
-        if (thisBytes == null ? otherBytes != null : !thisBytes.equals(otherBytes))
+        if (!Objects.equals(thisBytes, otherBytes))
             return false;
         final URef thisValue = this.getValue();
         final URef otherValue = other.getValue();
-        if (thisValue == null ? otherValue != null : !(thisValue.equals(otherValue)))
+        if (!Objects.equals(thisValue, otherValue))
             return false;
         final Object thisClType = this.getClType();
         final Object otherClType = other.getClType();
-        return thisClType == null ? otherClType == null : thisClType.equals(otherClType);
+        return Objects.equals(thisClType, otherClType);
     }
 
     @ExcludeFromJacocoGeneratedReport

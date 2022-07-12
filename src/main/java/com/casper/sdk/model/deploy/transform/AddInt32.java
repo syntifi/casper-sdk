@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that Adds the given `i32`
+ * An implementation of Transform that Adds the given `i32`
  *
  * @author Alexandre Carvalho
  * @author Andre Bertolace

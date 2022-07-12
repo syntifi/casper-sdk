@@ -49,7 +49,7 @@ public class CLValueKey extends AbstractCLValue<Key, CLTypeKey> {
     }
 
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws NoSuchTypeException {
         clve.writeKey(this);
         if (encodeType) {
             this.encodeType(clve);

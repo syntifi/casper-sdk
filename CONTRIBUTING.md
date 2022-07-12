@@ -30,7 +30,7 @@ main tree or given feedback for changes that would be required.
 - Don't put submodule updates in your pull request unless they are to landed
   commits.
 
-- If your patch is not getting reviewed or you need a specific person to review
+- If your patch is not getting reviewed, or you need a specific person to review
   it, you can @-reply a reviewer asking for a review in the pull request or a
   comment.
 

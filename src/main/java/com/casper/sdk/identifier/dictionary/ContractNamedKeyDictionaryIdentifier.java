@@ -10,7 +10,7 @@ import lombok.Setter;
 /**
  * Identifier class passed to service
  * {@link CasperService#getStateDictionaryItem(String, DictionaryIdentifier)}
- * to Lookup a dictionary item via a Contract named keys for dictionary item
+ * to Look up a dictionary item via a Contract named keys for dictionary item
  * calls
  *
  * @author Alexandre Carvalho

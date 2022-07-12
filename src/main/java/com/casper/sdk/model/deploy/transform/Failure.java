@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * An implmentation of Transform that gives details about a failed
+ * An implementation of Transform that gives details about a failed
  * transformation,
  * containing an error message
  *

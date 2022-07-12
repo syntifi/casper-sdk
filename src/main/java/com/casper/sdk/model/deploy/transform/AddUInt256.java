@@ -13,7 +13,7 @@ import lombok.Setter;
 import java.math.BigInteger;
 
 /**
- * An implmentation of Transform that Adds the given `u256`
+ * An implementation of Transform that Adds the given `u256`
  *
  * @author Alexandre Carvalho
  * @author Andre Bertolace

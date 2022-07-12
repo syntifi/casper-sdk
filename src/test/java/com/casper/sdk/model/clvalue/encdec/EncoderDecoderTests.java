@@ -55,7 +55,7 @@ public class EncoderDecoderTests {
         @Getter
         private final Class<?>[] supportTypes;
 
-        TestData(String name, T value, String hexEncodedValue, Class<?>[] supportTypes) {
+        TestData(final String name, T value, final String hexEncodedValue, final Class<?>[] supportTypes) {
             this.name = name;
             this.value = value;
             this.hexEncodedValue = hexEncodedValue;

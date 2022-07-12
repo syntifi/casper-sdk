@@ -51,7 +51,7 @@ public class CLValueUnit extends AbstractCLValue<Object, CLTypeUnit> {
     }
 
     @Override
-    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws NoSuchTypeException {
         setBytes(UNITY_EMPTY_VALUE);
         if (encodeType) {
             this.encodeType(clve);
@@ -59,7 +59,7 @@ public class CLValueUnit extends AbstractCLValue<Object, CLTypeUnit> {
     }
 
     @Override
-    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) {
         setBytes(UNITY_EMPTY_VALUE);
     }
 }

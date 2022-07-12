@@ -75,7 +75,7 @@ public class DeployHeader implements EncodableValue {
     private Ttl ttl;
 
     /**
-     * Implements DeployHearder encoder
+     * Implements DeployHeader encoder
      */
     @Override
     public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {

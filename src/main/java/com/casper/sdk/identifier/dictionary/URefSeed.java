@@ -2,11 +2,7 @@ package com.casper.sdk.identifier.dictionary;
 
 import com.casper.sdk.model.uref.URef;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * Seed URef for dictionary item calls

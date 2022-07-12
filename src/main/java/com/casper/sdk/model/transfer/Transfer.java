@@ -40,7 +40,7 @@ public class Transfer {
     private String from;
 
     /**
-     * Amount transfered
+     * Amount transferred
      */
     @JsonIgnore
     private BigInteger amount;

@@ -1,16 +1,7 @@
 package com.casper.sdk.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.io.IOException;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import com.casper.sdk.identifier.block.HashBlockIdentifier;
+import com.casper.sdk.identifier.block.HeightBlockIdentifier;
 import com.casper.sdk.model.account.AccountData;
 import com.casper.sdk.model.auction.AuctionData;
 import com.casper.sdk.model.block.JsonBlock;
@@ -26,21 +17,23 @@ import com.casper.sdk.model.era.EraInfoData;
 import com.casper.sdk.model.key.AlgorithmTag;
 import com.casper.sdk.model.key.PublicKey;
 import com.casper.sdk.model.peer.PeerData;
-import com.casper.sdk.model.status.StatusData;
-import com.casper.sdk.identifier.block.HashBlockIdentifier;
-import com.casper.sdk.identifier.block.HeightBlockIdentifier;
 import com.casper.sdk.model.stateroothash.StateRootHashData;
+import com.casper.sdk.model.status.StatusData;
 import com.casper.sdk.model.storedvalue.StoredValueAccount;
 import com.casper.sdk.model.storedvalue.StoredValueContract;
 import com.casper.sdk.model.storedvalue.StoredValueData;
 import com.casper.sdk.model.transfer.Transfer;
 import com.casper.sdk.model.transfer.TransferData;
-
-import org.json.JSONException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for {@link CasperService}
@@ -53,43 +46,43 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
     private static final Logger LOGGER = LoggerFactory.getLogger(CasperServiceTests.class);
 
     /**
-     * Test if get block matches requested by height
+     * Test if the get block matches requested by height
      */
     @Test
     void testIfBlockReturnedMatchesRequestedByHeight() {
-        int blocks_to_check = 3;
+        final int blocks_to_check = 3;
         for (int i = 0; i < blocks_to_check; i++) {
-            JsonBlockData result = casperServiceMainnet.getBlock(new HeightBlockIdentifier(i));
+            final JsonBlockData result = casperServiceMainnet.getBlock(new HeightBlockIdentifier(i));
             assertEquals(result.getBlock().getHeader().getHeight(), i);
         }
     }
 
     /**
-     * Test if get block matches requested by hash
+     * Test if the get block matches requested by hash
      */
     @Test
     void testIfBlockReturnedMatchesRequestedByHash() {
-        int blocks_to_check = 3;
+        final int blocks_to_check = 3;
         for (int i = 0; i < blocks_to_check; i++) {
             LOGGER.debug(String.format("Testing with block height %d", i));
-            JsonBlockData resultByHeight = casperServiceMainnet.getBlock(new HeightBlockIdentifier(i));
-            String hash = resultByHeight.getBlock().getHash();
-            JsonBlockData resultByHash = casperServiceMainnet.getBlock(new HashBlockIdentifier(hash));
+            final JsonBlockData resultByHeight = casperServiceMainnet.getBlock(new HeightBlockIdentifier(i));
+            final String hash = resultByHeight.getBlock().getHash();
+            final JsonBlockData resultByHash = casperServiceMainnet.getBlock(new HashBlockIdentifier(hash));
 
             assertEquals(resultByHash.getBlock().getHash(), hash);
         }
     }
 
     /**
-     * Test if get public key serialization is correct
+     * Test if the get public key serialization is correct
      */
     @Test
     void testFirstBlocksPublicKeySerialization() {
-        JsonBlockData result = casperServiceMainnet.getBlock(new HeightBlockIdentifier(0));
-        PublicKey key = result.getBlock().getBody().getProposer();
+        final JsonBlockData result = casperServiceMainnet.getBlock(new HeightBlockIdentifier(0));
+        final PublicKey key = result.getBlock().getBody().getProposer();
 
-        Assertions.assertEquals(AlgorithmTag.ED25519, key.getTag());
-        Assertions.assertEquals("2bac1d0ff9240ff0b7b06d555815640497861619ca12583ddef434885416e69b",
+        assertEquals(AlgorithmTag.ED25519, key.getTag());
+        assertEquals("2bac1d0ff9240ff0b7b06d555815640497861619ca12583ddef434885416e69b",
                 StringByteHelper.convertBytesToHex(key.getKey()));
     }
 
@@ -98,7 +91,7 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
      */
     @Test
     void retrieveNonEmptyListOfPeers() {
-        PeerData peerData = casperServiceMainnet.getPeerData();
+        final PeerData peerData = casperServiceMainnet.getPeerData();
 
         assertNotNull(peerData);
         assertFalse(peerData.getPeers().isEmpty());
@@ -106,18 +99,18 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void retrieveLastBlock() {
-        JsonBlockData blockData = casperServiceMainnet.getBlock();
+        final JsonBlockData blockData = casperServiceMainnet.getBlock();
 
         assertNotNull(blockData);
     }
 
     @Test
     void getBlockByHash() {
-        JsonBlockData blockData = casperServiceMainnet
+        final JsonBlockData blockData = casperServiceMainnet
                 .getBlock(new HashBlockIdentifier("2fe9630b7790852e4409d815b04ca98f37effcdf9097d317b9b9b8ad658f47c8"));
 
         assertNotNull(blockData);
-        JsonBlock block = blockData.getBlock();
+        final JsonBlock block = blockData.getBlock();
         assertEquals("0000000000000000000000000000000000000000000000000000000000000000",
                 block.getHeader().getParentHash());
         assertEquals(0, block.getHeader().getHeight());
@@ -125,8 +118,8 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void getBlockByHeight() {
-        JsonBlockData blockData = casperServiceMainnet.getBlock(new HeightBlockIdentifier(0));
-        JsonBlock block = blockData.getBlock();
+        final JsonBlockData blockData = casperServiceMainnet.getBlock(new HeightBlockIdentifier(0));
+        final JsonBlock block = blockData.getBlock();
         assertEquals("0000000000000000000000000000000000000000000000000000000000000000",
                 block.getHeader().getParentHash());
         assertEquals("2fe9630b7790852e4409d815b04ca98f37effcdf9097d317b9b9b8ad658f47c8", block.getHash());
@@ -135,18 +128,18 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void retrieveLastBlockTransfers() {
-        TransferData transferData = casperServiceMainnet.getBlockTransfers();
+        final TransferData transferData = casperServiceMainnet.getBlockTransfers();
 
         assertNotNull(transferData);
     }
 
     @Test
     void getTransferByHeight() {
-        TransferData transferData = casperServiceMainnet.getBlockTransfers(new HeightBlockIdentifier(198148));
+        final TransferData transferData = casperServiceMainnet.getBlockTransfers(new HeightBlockIdentifier(198148));
 
         assertNotNull(transferData);
         assertEquals(1, transferData.getTransfers().size());
-        Transfer transaction = transferData.getTransfers().get(0);
+        final Transfer transaction = transferData.getTransfers().get(0);
         assertEquals("c22fab5364c793bb859fd259b808ea4c101be8421b7d638dc8f52490ab3c3539",
                 transaction.getDeployHash());
         assertEquals("account-hash-2363d9065b1ecc26f50f108c22c8f3bbe6a891c81e37e0e454c68370708a6937",
@@ -158,12 +151,12 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void getTransferByHash() {
-        TransferData transferData = casperServiceMainnet.getBlockTransfers(
+        final TransferData transferData = casperServiceMainnet.getBlockTransfers(
                 new HashBlockIdentifier("db9820938ee64c7037f13ea05ab8fe7576215c3a62b02ed35c2564c2138eeb57"));
 
         assertNotNull(transferData);
         assertEquals(1, transferData.getTransfers().size());
-        Transfer transaction = transferData.getTransfers().get(0);
+        final Transfer transaction = transferData.getTransfers().get(0);
         assertEquals("c22fab5364c793bb859fd259b808ea4c101be8421b7d638dc8f52490ab3c3539",
                 transaction.getDeployHash());
         assertEquals("account-hash-2363d9065b1ecc26f50f108c22c8f3bbe6a891c81e37e0e454c68370708a6937",
@@ -175,14 +168,14 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void retrieveLastBlockStateRootHash() {
-        StateRootHashData stateRootData = casperServiceMainnet.getStateRootHash();
+        final StateRootHashData stateRootData = casperServiceMainnet.getStateRootHash();
 
         assertNotNull(stateRootData);
     }
 
     @Test
     void getStateRootHashByHeight() {
-        StateRootHashData stateRootHashData = casperServiceMainnet.getStateRootHash(new HeightBlockIdentifier(0));
+        final StateRootHashData stateRootHashData = casperServiceMainnet.getStateRootHash(new HeightBlockIdentifier(0));
         assertNotNull(stateRootHashData);
         assertEquals("8e22e3983d5ca9bcf9804bd3a6724b8c24effdf317a1d9c05175125a1bf8b679",
                 stateRootHashData.getStateRootHash());
@@ -190,7 +183,7 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void getStateRootHashByHash() {
-        StateRootHashData stateRootHashData = casperServiceMainnet.getStateRootHash(
+        final StateRootHashData stateRootHashData = casperServiceMainnet.getStateRootHash(
                 new HashBlockIdentifier("2fe9630b7790852e4409d815b04ca98f37effcdf9097d317b9b9b8ad658f47c8"));
 
         assertNotNull(stateRootHashData);
@@ -201,10 +194,10 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
     @Test
     void getBlockState() {
         // FIXME: This test fails on mainnet, no root hash.
-        String stateRootHash = "c0eb76e0c3c7a928a0cb43e82eb4fad683d9ad626bcd3b7835a466c0587b0fff";
-        String key = "account-hash-a9efd010c7cee2245b5bad77e70d9beb73c8776cbe4698b2d8fdf6c8433d5ba0";
-        List<String> path = Collections.singletonList("special_value");
-        StoredValueData result = casperServiceTestnet.getStateItem(stateRootHash, key, path);
+        final String stateRootHash = "c0eb76e0c3c7a928a0cb43e82eb4fad683d9ad626bcd3b7835a466c0587b0fff";
+        final String key = "account-hash-a9efd010c7cee2245b5bad77e70d9beb73c8776cbe4698b2d8fdf6c8433d5ba0";
+        final List<String> path = Collections.singletonList("special_value");
+        final StoredValueData result = casperServiceTestnet.getStateItem(stateRootHash, key, path);
 
         assertTrue(result.getStoredValue().getValue() instanceof CLValueString);
         // Should be equal incoming parsed
@@ -214,7 +207,7 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void getDeploy() {
-        DeployData deployData = casperServiceMainnet
+        final DeployData deployData = casperServiceMainnet
                 .getDeploy("614030ac705ed2067fed57d30545b3a4974ffc40a1c32f72e3b7b7442d6c83a3");
 
         assertNotNull(deployData);
@@ -225,13 +218,13 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
                 .getTransform() instanceof WriteCLValue);
         assertTrue(deployData.getDeploy().getPayment() instanceof ModuleBytes);
         assertTrue(deployData.getDeploy().getSession() instanceof StoredContractByHash);
-        String tmp = ((StoredContractByHash) deployData.getDeploy().getSession()).getHash();
+        final String tmp = ((StoredContractByHash) deployData.getDeploy().getSession()).getHash();
         assertEquals("ccb576d6ce6dec84a551e48f0d0b7af89ddba44c7390b690036257a04a3ae9ea", tmp);
     }
 
     @Test
     void getStatus() {
-        StatusData status = casperServiceMainnet.getStatus();
+        final StatusData status = casperServiceMainnet.getStatus();
         assertNotNull(status);
         assertNotNull(status.getLastAddedBlockInfo());
         assertNotNull(status.getStartStateRootHash());
@@ -239,7 +232,7 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
 
     @Test
     void getStateItem_account() {
-        StoredValueData storedValueData = casperServiceMainnet.getStateItem(
+        final StoredValueData storedValueData = casperServiceMainnet.getStateItem(
                 "09ac52260e370ed56bba5283a79b03d524b4f420bf964d7e629b0819dd1be09d",
                 "account-hash-e1431ecb9f20f2a6e6571886b1e2f9dec49ebc6b2d3d640a53530abafba9bfa1", new ArrayList<>());
 
@@ -306,11 +299,6 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
         assertNotNull(eraInfoData.getEraSummary());
         assertEquals("57a4257ccae4dc00fc1b2a0bde545b07937b8cdd18ea5544a70496cd67872d71",
                 eraInfoData.getEraSummary().getStateRootHash());
-
-        // String inputJson =
-        // getPrettyJson(loadJsonFromFile("era-info-samples/era-info-by-switch-block.json"));
-
-        // JSONAssert.assertEquals(inputJson, getPrettyJson(eraInfoData), false);
     }
 
     @Test
@@ -323,27 +311,5 @@ public class CasperServiceTests extends AbstractJsonRpcTests {
         assertEquals("485a33d5c737030432fba0c3b15c1cc6b372fd286677bf9f29d4ab8b1f0c9223",
                 eraInfoData.getEraSummary().getStateRootHash());
 
-        // String inputJson =
-        // getPrettyJson(loadJsonFromFile("era-info-samples/era-info-by-switch-block.json"));
-
-        // JSONAssert.assertEquals(inputJson, getPrettyJson(eraInfoData), false);
     }
-
-    /*
-     * @Test
-     * void getCasperClientExceptionExceptionBlockNotKnown() {
-     * String expectedMessage = "block not known (code: -32001)";
-     * 
-     * BlockIdentifier blockIdentifier = new HashBlockIdentifier(
-     * "abc");
-     * 
-     * EraInfoData test =
-     * casperServiceMainnet.getEraInfoBySwitchBlock(blockIdentifier);
-     * CasperClientException casperClientException =
-     * assertThrows(CasperClientException.class,
-     * () -> casperServiceMainnet.getEraInfoBySwitchBlock(blockIdentifier));
-     * 
-     * assertEquals(expectedMessage, casperClientException.getMessage());
-     * }
-     */
 }
