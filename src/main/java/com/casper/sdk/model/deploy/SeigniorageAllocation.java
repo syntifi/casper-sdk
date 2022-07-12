@@ -44,7 +44,7 @@ public class SeigniorageAllocation {
 
     @JsonProperty("amount")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonAmount(String value) {
+    protected void setJsonAmount(final String value) {
         this.amount = new BigInteger(value, 10);
     }
 }

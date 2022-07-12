@@ -54,7 +54,7 @@ public class AddUInt128 implements Transform {
      */
     @JsonProperty("AddUInt128")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonU128(String value) {
+    protected void setJsonU128(final String value) {
         this.u128 = new BigInteger(value, 10);
     }
 }

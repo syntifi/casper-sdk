@@ -25,6 +25,6 @@ public interface EncodableValue {
      * @throws CLValueEncodeException   thrown if failed to encode a cl value
      * @throws IOException              thrown if an IO error occurs
      */
-    void encode(CLValueEncoder clve, boolean encodeType)
+    void encode(final CLValueEncoder clve, final boolean encodeType)
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException;
 }

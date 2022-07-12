@@ -65,7 +65,7 @@ public class Success implements ExecutionResult {
      */
     @JsonProperty("cost")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonCost(String value) {
+    protected void setJsonCost(final String value) {
         this.cost = new BigInteger(value, 10);
     }
 }

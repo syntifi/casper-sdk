@@ -21,7 +21,8 @@ import java.util.Collection;
  */
 public class CLTypeResolver extends StdTypeResolverBuilder {
     @Override
-    public TypeDeserializer buildTypeDeserializer(final DeserializationConfig config, final JavaType baseType,
+    public TypeDeserializer buildTypeDeserializer(final DeserializationConfig config,
+                                                  final JavaType baseType,
                                                   final Collection<NamedType> subtypes) {
         return new CLTypeDeserializer(baseType, null, _typeProperty, _typeIdVisible, baseType);
     }

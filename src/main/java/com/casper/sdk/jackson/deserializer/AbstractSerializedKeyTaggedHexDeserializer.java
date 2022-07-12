@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 /**
  * Customize the mapping of Casper's Hex String preceded by the crypto
  * algorithm tag such as PublicKey/Signature
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @since 0.0.1
@@ -26,13 +26,13 @@ public abstract class AbstractSerializedKeyTaggedHexDeserializer<T extends Abstr
         extends JsonDeserializer<T> {
 
     @Override
-    public T deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
-        JsonNode node = p.getCodec().readTree(p);
+    public T deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException {
+        final JsonNode node = p.getCodec().readTree(p);
 
-        T object = this.getInstanceOf();
+        final T object = this.getInstanceOf();
 
         try {
-            byte[] bytes = StringByteHelper.hexStringToByteArray(node.asText());
+            final byte[] bytes = StringByteHelper.hexStringToByteArray(node.asText());
             this.loadKey(object, bytes);
         } catch (NoSuchAlgorithmException | NoSuchKeyTagException | InvalidByteStringException e) {
             throw new DeserializationException("Problem deserializing Algorithm tagged hex string", e);
@@ -43,5 +43,5 @@ public abstract class AbstractSerializedKeyTaggedHexDeserializer<T extends Abstr
 
     protected abstract T getInstanceOf();
 
-    protected abstract void loadKey(T key, byte[] bytes) throws NoSuchAlgorithmException, NoSuchKeyTagException;
+    protected abstract void loadKey(final T key, final byte[] bytes) throws NoSuchAlgorithmException, NoSuchKeyTagException;
 }

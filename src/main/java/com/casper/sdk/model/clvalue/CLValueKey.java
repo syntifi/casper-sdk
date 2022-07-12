@@ -34,7 +34,7 @@ public class CLValueKey extends AbstractCLValue<Key, CLTypeKey> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeKey clType) {
+    protected void setJsonClType(final CLTypeKey clType) {
         this.clType = clType;
     }
 
@@ -44,12 +44,12 @@ public class CLValueKey extends AbstractCLValue<Key, CLTypeKey> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueKey(Key value) {
+    public CLValueKey(final Key value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeKey(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -57,7 +57,7 @@ public class CLValueKey extends AbstractCLValue<Key, CLTypeKey> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         try {
             clvd.readKey(this);
         } catch (NoSuchKeyTagException e) {

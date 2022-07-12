@@ -106,42 +106,49 @@ public class CasperDeployService {
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException,
             GeneralSecurityException {
 
-        List<NamedArg<?>> transferArgs = new LinkedList<>();
-        NamedArg<CLTypeU512> amountNamedArg = new NamedArg<>("amount",
-                new CLValueU512(amount));
+        final List<NamedArg<?>> transferArgs = new LinkedList<>();
+        final NamedArg<CLTypeU512> amountNamedArg = new NamedArg<>(
+                "amount",
+                new CLValueU512(amount)
+        );
         transferArgs.add(amountNamedArg);
-        NamedArg<CLTypePublicKey> publicKeyNamedArg = new NamedArg<>("target",
-                new CLValuePublicKey(toPublicKey));
+        final NamedArg<CLTypePublicKey> publicKeyNamedArg = new NamedArg<>(
+                "target",
+                new CLValuePublicKey(toPublicKey)
+        );
         transferArgs.add(publicKeyNamedArg);
-        CLValueOption idArg = new CLValueOption(Optional.of(
-                new CLValueU64(BigInteger.valueOf(682008))));
-        NamedArg<CLTypeOption> idNamedArg = new NamedArg<>("id", idArg);
+        final CLValueOption idArg = new CLValueOption(Optional.of(
+                new CLValueU64(BigInteger.valueOf(682008)))
+        );
+        final NamedArg<CLTypeOption> idNamedArg = new NamedArg<>("id", idArg);
         transferArgs.add(idNamedArg);
 
-        Transfer session = Transfer
+        final Transfer session = Transfer
                 .builder()
                 .args(transferArgs)
                 .build();
-        List<NamedArg<?>> paymentArgs = new LinkedList<>();
-        NamedArg<CLTypeU512> paymentArg = new NamedArg<>("amount",
-                new CLValueU512(paymentAmount));
+        final List<NamedArg<?>> paymentArgs = new LinkedList<>();
+        final NamedArg<CLTypeU512> paymentArg = new NamedArg<>(
+                "amount",
+                new CLValueU512(paymentAmount)
+        );
         paymentArgs.add(paymentArg);
 
-        ModuleBytes payment = ModuleBytes
+        final ModuleBytes payment = ModuleBytes
                 .builder()
                 .args(paymentArgs)
                 .bytes("")
                 .build();
-        CLValueEncoder clve = new CLValueEncoder();
+        final CLValueEncoder clve = new CLValueEncoder();
         payment.encode(clve, true);
         session.encode(clve, true);
-        byte[] sessionAnPaymentHash = Blake2b.digest(clve.toByteArray(), 32);
+        final byte[] sessionAnPaymentHash = Blake2b.digest(clve.toByteArray(), 32);
         clve.flush();
         clve.reset();
 
-        PublicKey fromPublicKey = PublicKey.fromAbstractPublicKey(fromPrivateKey.derivePublicKey());
+        final PublicKey fromPublicKey = PublicKey.fromAbstractPublicKey(fromPrivateKey.derivePublicKey());
 
-        DeployHeader deployHeader = DeployHeader
+        final DeployHeader deployHeader = DeployHeader
                 .builder()
                 .account(fromPublicKey)
                 .ttl(ttl)
@@ -152,11 +159,11 @@ public class CasperDeployService {
                 .dependencies(dependencies)
                 .build();
         deployHeader.encode(clve, true);
-        byte[] headerHash = Blake2b.digest(clve.toByteArray(), 32);
+        final byte[] headerHash = Blake2b.digest(clve.toByteArray(), 32);
 
-        Signature signature = Signature.sign(fromPrivateKey, headerHash);
+        final Signature signature = Signature.sign(fromPrivateKey, headerHash);
 
-        List<Approval> approvals = new LinkedList<>();
+        final List<Approval> approvals = new LinkedList<>();
         approvals.add(Approval.builder()
                 .signer(PublicKey.fromAbstractPublicKey(fromPrivateKey.derivePublicKey()))
                 .signature(signature)
@@ -169,6 +176,5 @@ public class CasperDeployService {
                 .session(session)
                 .approvals(approvals)
                 .build();
-
     }
 }

@@ -112,7 +112,7 @@ public class EntryPoint {
      */
     @JsonSetter("access")
     @SuppressWarnings("unchecked")
-    private void setJsonAccess(Object access) {
+    private void setJsonAccess(final Object access) {
         if (access instanceof String) {
             this.access = EntryPointAccessEnum.PUBLIC;
         } else if (access instanceof List) {
@@ -127,7 +127,7 @@ public class EntryPoint {
      */
     @JsonSetter("ret")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonRet(AbstractCLType clType) {
+    protected void setJsonRet(final AbstractCLType clType) {
         this.ret = clType;
     }
 

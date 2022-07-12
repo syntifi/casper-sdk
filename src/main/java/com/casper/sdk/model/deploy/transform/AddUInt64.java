@@ -52,7 +52,7 @@ public class AddUInt64 implements Transform {
      */
     @JsonProperty("AddUInt64")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonU64(String value) {
+    protected void setJsonU64(final String value) {
         this.u64 = new BigInteger(value, 10);
     }
 }

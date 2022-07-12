@@ -27,7 +27,7 @@ public class CLTypeFixedList extends AbstractCLType {
 
     @JsonSetter(AbstractCLType.FIXED_LIST)
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonValue(AbstractCLType clType) {
+    protected void setJsonValue(final AbstractCLType clType) {
         this.listType = clType;
     }
 

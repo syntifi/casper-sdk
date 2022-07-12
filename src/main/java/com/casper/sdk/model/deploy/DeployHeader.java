@@ -78,7 +78,7 @@ public class DeployHeader implements EncodableValue {
      * Implements DeployHearder encoder
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         account.encode(clve, encodeType);
         clve.writeLong(timeStamp.getTime());
         ttl.encode(clve, encodeType);

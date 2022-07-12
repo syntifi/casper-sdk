@@ -28,7 +28,7 @@ public enum URefAccessRight {
 
     public final byte serializationTag;
 
-    public static URefAccessRight getTypeBySerializationTag(byte serializationTag) throws DynamicInstanceException {
+    public static URefAccessRight getTypeBySerializationTag(final byte serializationTag) throws DynamicInstanceException {
         for (URefAccessRight accessRight : values()) {
             if (accessRight.serializationTag == serializationTag) {
                 return accessRight;

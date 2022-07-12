@@ -63,7 +63,7 @@ public abstract class AbstractCLValue<T, P extends AbstractCLType> implements En
 
     @JsonSetter(value = "bytes")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonBytes(String bytes)
+    protected void setJsonBytes(final String bytes)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
         this.bytes = bytes;
 
@@ -75,12 +75,12 @@ public abstract class AbstractCLValue<T, P extends AbstractCLType> implements En
     @JsonIgnore
     public abstract P getClType();
 
-    public abstract void setClType(P value);
+    public abstract void setClType(final P value);
 
-    public abstract void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException;
+    public abstract void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException;
 
-    public void encodeType(CLValueEncoder clve) throws NoSuchTypeException {
-        byte val = (getClType().getClTypeData().getSerializationTag());
+    public void encodeType(final CLValueEncoder clve) throws NoSuchTypeException {
+        final byte val = (getClType().getClTypeData().getSerializationTag());
         clve.write(val);
     }
 }

@@ -8,11 +8,11 @@ package com.casper.sdk.exception;
  * @since 0.0.1
  */
 public class DynamicInstanceException extends Exception {
-    public DynamicInstanceException(String message) {
+    public DynamicInstanceException(final String message) {
         super(message);
     }
 
-    public DynamicInstanceException(String message, Throwable cause) {
+    public DynamicInstanceException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

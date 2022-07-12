@@ -17,10 +17,10 @@ public class CasperClientExceptionResolver implements ExceptionResolver {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public Throwable resolveException(ObjectNode response) {
+    public Throwable resolveException(final ObjectNode response) {
         try {
-            JsonNode errorNode = response.get("error");
-            CasperClientErrorData error = objectMapper.treeToValue(errorNode, CasperClientErrorData.class);
+            final JsonNode errorNode = response.get("error");
+            final CasperClientErrorData error = objectMapper.treeToValue(errorNode, CasperClientErrorData.class);
             return new CasperClientException(error);
         } catch (JsonProcessingException | IllegalArgumentException e) {
             return new CasperClientException(String.format("Could not extract error, response was: %s", response), e);

@@ -60,7 +60,7 @@ public class StoredContractByName implements ExecutableDeployItem {
      * Implements the StoredContractByHash encoder
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType)
+    public void encode(final CLValueEncoder clve, final boolean encodeType)
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         clve.write(getOrder());
         clve.writeString(getName());

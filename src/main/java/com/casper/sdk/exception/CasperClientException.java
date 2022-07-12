@@ -9,11 +9,11 @@ package com.casper.sdk.exception;
  */
 public class CasperClientException extends RuntimeException {
 
-    public CasperClientException(CasperClientErrorData error) {
+    public CasperClientException(final CasperClientErrorData error) {
         super(String.format("%s (code: %d)", error.getMessage(), error.getCode()));
     }
 
-    public CasperClientException(String message, Throwable cause) {
+    public CasperClientException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

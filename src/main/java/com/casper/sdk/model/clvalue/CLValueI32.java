@@ -44,12 +44,12 @@ public class CLValueI32 extends AbstractCLValue<Integer, CLTypeI32> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueI32(Integer value) {
+    public CLValueI32(final Integer value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeI32(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -57,7 +57,7 @@ public class CLValueI32 extends AbstractCLValue<Integer, CLTypeI32> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readI32(this);
     }
 }

@@ -75,7 +75,7 @@ public class UnbondingPurse {
      */
     @JsonProperty("unbonding_amount")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonUnbondingAmount(String value) {
+    protected void setJsonUnbondingAmount(final String value) {
         this.unbondingAmount = new BigInteger(value, 10);
     }
 }

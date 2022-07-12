@@ -21,7 +21,9 @@ import java.util.Collection;
  */
 public class TransformResolver extends StdTypeResolverBuilder {
     @Override
-    public TypeDeserializer buildTypeDeserializer(final DeserializationConfig config, final JavaType baseType, final Collection<NamedType> subtypes) {
+    public TypeDeserializer buildTypeDeserializer(final DeserializationConfig config,
+                                                  final JavaType baseType,
+                                                  final Collection<NamedType> subtypes) {
         return new TransformDeserializer(baseType, null, _typeProperty, _typeIdVisible, baseType);
     }
 }

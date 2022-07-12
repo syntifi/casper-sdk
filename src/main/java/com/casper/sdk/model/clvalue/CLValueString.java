@@ -32,7 +32,7 @@ public class CLValueString extends AbstractCLValue<String, CLTypeString> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeString clType) {
+    protected void setJsonClType(final CLTypeString clType) {
         this.clType = clType;
     }
 
@@ -42,12 +42,12 @@ public class CLValueString extends AbstractCLValue<String, CLTypeString> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueString(String value) {
+    public CLValueString(final String value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeString(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -55,7 +55,7 @@ public class CLValueString extends AbstractCLValue<String, CLTypeString> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readString(this);
     }
 }

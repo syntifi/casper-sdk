@@ -77,7 +77,7 @@ public class Transfer {
 
     @JsonProperty("amount")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonAmount(String value) {
+    protected void setJsonAmount(final String value) {
         this.amount = new BigInteger(value, 10);
     }
 
@@ -89,7 +89,7 @@ public class Transfer {
 
     @JsonProperty("gas")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonGas(String value) {
+    protected void setJsonGas(final String value) {
         this.gas = new BigInteger(value, 10);
     }
 }

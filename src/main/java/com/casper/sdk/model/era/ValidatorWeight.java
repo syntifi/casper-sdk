@@ -46,7 +46,7 @@ public class ValidatorWeight {
 
     @JsonProperty("weight")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonWeight(String value) {
+    protected void setJsonWeight(final String value) {
         this.weight = new BigInteger(value, 10);
     }
 }

@@ -35,12 +35,12 @@ public class Digest implements EncodableValue {
         return Hex.decode(this.digest);
     }
 
-    public void setDigest(byte[] hash) {
+    public void setDigest(final byte[] hash) {
         this.digest = Hex.toHexString(hash);
     }
 
-    public static Digest digestFromBytes(byte[] bytes) {
-        Digest digest = new Digest();
+    public static Digest digestFromBytes(final byte[] bytes) {
+        final Digest digest = new Digest();
         digest.setDigest(bytes);
         return digest;
     }
@@ -49,7 +49,7 @@ public class Digest implements EncodableValue {
      * Implements Digest encoder
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType)
+    public void encode(final CLValueEncoder clve, final boolean encodeType)
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         clve.write(getDigest());
     }

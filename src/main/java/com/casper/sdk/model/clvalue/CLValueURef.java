@@ -38,7 +38,7 @@ import java.io.IOException;
 public class CLValueURef extends AbstractCLValue<URef, CLTypeURef> {
     private CLTypeURef clType = new CLTypeURef();
 
-    public CLValueURef(URef value) {
+    public CLValueURef(final URef value) {
         this.setValue(value);
     }
 
@@ -50,12 +50,12 @@ public class CLValueURef extends AbstractCLValue<URef, CLTypeURef> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeURef clType) {
+    protected void setJsonClType(final CLTypeURef clType) {
         this.clType = clType;
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         URef uref = this.getValue();
         byte[] urefByte = new byte[uref.getAddress().length + 1];
         System.arraycopy(uref.getAddress(), 0, urefByte, 0, uref.getAddress().length);
@@ -67,7 +67,7 @@ public class CLValueURef extends AbstractCLValue<URef, CLTypeURef> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException, DynamicInstanceException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException, DynamicInstanceException {
         URef uref = new URef();
         CLValueByteArray clValueByteArray = new CLValueByteArray(new byte[32]);
         clValueByteArray.decode(clvd);

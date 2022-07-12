@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 public class NoSuchKeyTagException extends Exception {
-    public NoSuchKeyTagException(String message) {
+    public NoSuchKeyTagException(final String message) {
         super(message);
     }
 
-    public NoSuchKeyTagException(String message, Throwable cause) {
+    public NoSuchKeyTagException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

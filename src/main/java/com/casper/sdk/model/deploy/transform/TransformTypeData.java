@@ -27,7 +27,7 @@ public enum TransformTypeData {
     private final String name;
     private final Class<?> clazz;
 
-    TransformTypeData(String name, Class<?> clazz) {
+    TransformTypeData(final String name, final Class<?> clazz) {
         this.name = name;
         this.clazz = clazz;
     }
@@ -39,7 +39,7 @@ public enum TransformTypeData {
      * @return the class object for the {@link TransformTypeData}
      * @throws NoSuchTypeException if no type is found for given name
      */
-    public static Class<?> getClassByName(String name) throws NoSuchTypeException {
+    public static Class<?> getClassByName(final String name) throws NoSuchTypeException {
         for (TransformTypeData t : values()) {
             if (t.name.equals(name)) {
                 return t.getClazz();

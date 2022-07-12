@@ -42,11 +42,11 @@ public final class StringByteHelper {
      * @return decoded array of bytes
      */
     public static byte[] hexStringToByteArray(String hexString) throws InvalidByteStringException {
-        int len = hexString.length();
+        final int len = hexString.length();
         if (len % 2 != 0) {
             throw new InvalidByteStringException("Hex string must have an even number of hex digits.");
         }
-        byte[] bytes = new byte[len / 2];
+        final byte[] bytes = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
             bytes[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
                     + Character.digit(hexString.charAt(i + 1), 16));
@@ -62,7 +62,7 @@ public final class StringByteHelper {
      * @return hex-encoded value {@link String}
      */
     public static String convertBytesToHex(byte[] bytes) {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         for (byte temp : bytes) {
             result.append(String.format("%02x", temp));
         }

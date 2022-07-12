@@ -21,16 +21,19 @@ import com.casper.sdk.jackson.resolver.CLValueResolver;
  * Core Deserializer for the CLValue property. This deserializer is used by the
  * {@link CLValueResolver} to return the correct CLType object in Java depending
  * on the cl_type sent over json
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
- * @since 0.0.1
  * @see AbstractCLValue
+ * @since 0.0.1
  */
 public abstract class AbstractAnyOfDeserializer extends AsPropertyTypeDeserializer {
 
-    protected AbstractAnyOfDeserializer(final JavaType bt, final TypeIdResolver idRes, final String typePropertyName,
-            final boolean typeIdVisible, JavaType defaultImpl) {
+    protected AbstractAnyOfDeserializer(final JavaType bt,
+                                        final TypeIdResolver idRes,
+                                        final String typePropertyName,
+                                        final boolean typeIdVisible,
+                                        final JavaType defaultImpl) {
         super(bt, idRes, typePropertyName, typeIdVisible, defaultImpl);
     }
 
@@ -41,45 +44,45 @@ public abstract class AbstractAnyOfDeserializer extends AsPropertyTypeDeserializ
     @Override
     public Object deserializeTypedFromObject(final JsonParser jp, final DeserializationContext ctxt)
             throws IOException {
-        JsonNode node = jp.readValueAsTree();
+        final JsonNode node = jp.readValueAsTree();
         Class<?> subType;
-        JsonNode subTypeNode = getTypeNode(node);
+        final JsonNode subTypeNode = getTypeNode(node);
         try {
             String anyOfType = subTypeNode.isObject() ? subTypeNode.fieldNames().next() : subTypeNode.asText();
             subType = getClassByName(anyOfType);
         } catch (NoSuchTypeException e) {
             throw new IOException("Parse error", e);
         }
-        TypeFactory factory = new ObjectMapper().getTypeFactory();
-        JavaType type = factory.constructType(subType);
+        final TypeFactory factory = new ObjectMapper().getTypeFactory();
+        final JavaType type = factory.constructType(subType);
 
         try (JsonParser jsonParser = new TreeTraversingParser(node, jp.getCodec())) {
             if (jsonParser.getCurrentToken() == null) {
                 jsonParser.nextToken();
             }
-            JsonDeserializer<Object> deser = ctxt.findContextualValueDeserializer(type, _property);
+            final JsonDeserializer<Object> deser = ctxt.findContextualValueDeserializer(type, _property);
             return deser.deserialize(jsonParser, ctxt);
         }
     }
 
     /**
      * Returns the node which contains the type key.
-     * 
+     * <p>
      * Override if you have a child node which holds the type information.
-     * 
+     *
      * @param currentNode the current deserialization node
      * @return node which contains the type key.
      */
-    protected JsonNode getTypeNode(JsonNode currentNode) {
+    protected JsonNode getTypeNode(final JsonNode currentNode) {
         return currentNode;
     }
 
     /**
      * Method that returns the instance of the found type
-     * 
+     *
      * @param classType the name of the class type
      * @return {@link Class} of the type
      * @throws NoSuchTypeException thrown if no type for the given classType String
      */
-    protected abstract Class<?> getClassByName(String classType) throws NoSuchTypeException;
+    protected abstract Class<?> getClassByName(final String classType) throws NoSuchTypeException;
 }

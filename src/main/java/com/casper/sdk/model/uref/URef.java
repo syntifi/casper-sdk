@@ -42,23 +42,23 @@ public class URef {
     @JsonIgnore
     URefAccessRight accessRight;
 
-    public static URef fromString(String uref)
+    public static URef fromString(final String uref)
             throws IOException, DynamicInstanceException, InvalidByteStringException {
-        String[] urefParts = uref.split("-");
+        final String[] urefParts = uref.split("-");
         if (!urefParts[0].equals("uref") || urefParts.length != 3) {
             throw new IOException("Not a valid Uref");
         }
-        byte[] address = StringByteHelper.hexStringToByteArray(urefParts[1]);
-        byte[] accessRightByte = StringByteHelper.hexStringToByteArray(urefParts[2].substring(1));
-        URefAccessRight accessRight = URefAccessRight
+        final byte[] address = StringByteHelper.hexStringToByteArray(urefParts[1]);
+        final byte[] accessRightByte = StringByteHelper.hexStringToByteArray(urefParts[2].substring(1));
+        final URefAccessRight accessRight = URefAccessRight
                 .getTypeBySerializationTag(accessRightByte[accessRightByte.length - 1]);
         return new URef(address, accessRight);
 
     }
 
     @JsonCreator
-    public void createURef(String uref) throws IOException, DynamicInstanceException, InvalidByteStringException {
-        URef obj = URef.fromString(uref);
+    public void createURef(final String uref) throws IOException, DynamicInstanceException, InvalidByteStringException {
+        final URef obj = URef.fromString(uref);
         this.accessRight = obj.getAccessRight();
         this.address = obj.getAddress();
     }

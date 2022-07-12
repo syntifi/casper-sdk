@@ -21,9 +21,9 @@ import java.security.GeneralSecurityException;
 @Builder
 public class Signature extends AbstractSerializedKeyTaggedHex<AlgorithmTag> {
 
-    public static Signature sign(AbstractPrivateKey key, byte[] msg) throws GeneralSecurityException {
-        byte[] signatureBytes = key.sign(msg);
-        Signature signature = new Signature();
+    public static Signature sign(final AbstractPrivateKey key, final byte[] msg) throws GeneralSecurityException {
+        final byte[] signatureBytes = key.sign(msg);
+        final Signature signature = new Signature();
         signature.setKey(signatureBytes);
         signature.setTag((key instanceof Secp256k1PrivateKey)
                 ? AlgorithmTag.SECP256K1

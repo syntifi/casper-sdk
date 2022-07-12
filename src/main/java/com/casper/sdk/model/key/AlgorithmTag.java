@@ -22,7 +22,7 @@ public enum AlgorithmTag implements Tag {
 
     private final byte byteTag;
 
-    public static AlgorithmTag getByTag(byte byteTag) throws NoSuchAlgorithmException {
+    public static AlgorithmTag getByTag(final byte byteTag) throws NoSuchAlgorithmException {
         for (AlgorithmTag a : values()) {
             if (a.byteTag == byteTag)
                 return a;

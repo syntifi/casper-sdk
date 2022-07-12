@@ -23,17 +23,17 @@ import java.util.Arrays;
 @EqualsAndHashCode(callSuper = true)
 public class Key extends AbstractSerializedKeyTaggedHex<KeyTag> {
 
-    public static Key fromTaggedHexString(String hex) throws NoSuchKeyTagException, InvalidByteStringException {
-        Key object = new Key();
-        byte[] bytes = StringByteHelper.hexStringToByteArray(hex);
+    public static Key fromTaggedHexString(final String hex) throws NoSuchKeyTagException, InvalidByteStringException {
+        final Key object = new Key();
+        final byte[] bytes = StringByteHelper.hexStringToByteArray(hex);
         object.setTag(KeyTag.getByTag(bytes[0]));
         object.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));
         return object;
     }
 
     @JsonCreator
-    public void createKey(String key) throws NoSuchKeyTagException, InvalidByteStringException {
-        Key obj = Key.fromTaggedHexString(key);
+    public void createKey(final String key) throws NoSuchKeyTagException, InvalidByteStringException {
+        final Key obj = Key.fromTaggedHexString(key);
         this.setTag(obj.getTag());
         this.setKey(obj.getKey());
     }

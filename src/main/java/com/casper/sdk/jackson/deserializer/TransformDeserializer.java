@@ -22,8 +22,11 @@ import com.casper.sdk.jackson.resolver.CLValueResolver;
  */
 public class TransformDeserializer extends AbstractAnyOfDeserializer {
 
-    public TransformDeserializer(final JavaType bt, final TypeIdResolver idRes, final String typePropertyName,
-                                 final boolean typeIdVisible, JavaType defaultImpl) {
+    public TransformDeserializer(final JavaType bt,
+                                 final TypeIdResolver idRes,
+                                 final String typePropertyName,
+                                 final boolean typeIdVisible,
+                                 final JavaType defaultImpl) {
         super(bt, idRes, typePropertyName, typeIdVisible, defaultImpl);
     }
 
@@ -37,7 +40,7 @@ public class TransformDeserializer extends AbstractAnyOfDeserializer {
     }
 
     @Override
-    protected Class<?> getClassByName(String anyOfType) throws NoSuchTypeException {
+    protected Class<?> getClassByName(final String anyOfType) throws NoSuchTypeException {
         return TransformTypeData.getClassByName(anyOfType);
     }
 }

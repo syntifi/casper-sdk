@@ -48,7 +48,7 @@ public class ActivationPoint {
 
     @JsonProperty("era_id")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonEraId(String value) {
+    protected void setJsonEraId(final String value) {
         this.eraId = new BigInteger(value, 10);
     }
 }

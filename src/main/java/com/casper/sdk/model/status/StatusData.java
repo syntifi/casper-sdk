@@ -84,5 +84,4 @@ public class StatusData {
      */
     @JsonProperty("starting_state_root_hash")
     private String startStateRootHash;
-
 }

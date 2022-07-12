@@ -36,7 +36,7 @@ public enum StoredValueTypeData {
      * @return the class object for given name
      * @throws NoSuchTypeException thrown if class type not found
      */
-    public static Class<?> getClassByName(String name) throws NoSuchTypeException {
+    public static Class<?> getClassByName(final String name) throws NoSuchTypeException {
         for (StoredValueTypeData t : values()) {
             if (t.name.equals(name)) {
                 return t.getClazz();

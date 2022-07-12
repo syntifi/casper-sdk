@@ -25,14 +25,14 @@ import java.util.Arrays;
 @NoArgsConstructor
 public class PublicKey extends AbstractSerializedKeyTaggedHex<AlgorithmTag> {
 
-    public static PublicKey fromTaggedHexString(String hex)
+    public static PublicKey fromTaggedHexString(final String hex)
             throws NoSuchAlgorithmException, InvalidByteStringException {
-        byte[] bytes = StringByteHelper.hexStringToByteArray(hex);
+        final byte[] bytes = StringByteHelper.hexStringToByteArray(hex);
         return PublicKey.fromBytes(bytes);
     }
 
-    public static PublicKey fromBytes(byte[] bytes) throws NoSuchAlgorithmException {
-        PublicKey object = new PublicKey();
+    public static PublicKey fromBytes(final byte[] bytes) throws NoSuchAlgorithmException {
+        final PublicKey object = new PublicKey();
         object.setTag(AlgorithmTag.getByTag(bytes[0]));
         object.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));
 

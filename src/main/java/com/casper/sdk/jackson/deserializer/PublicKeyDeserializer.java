@@ -21,7 +21,7 @@ public class PublicKeyDeserializer extends AbstractSerializedKeyTaggedHexDeseria
     }
 
     @Override
-    protected void loadKey(PublicKey key, byte[] bytes) throws NoSuchAlgorithmException {
+    protected void loadKey(final PublicKey key, final byte[] bytes) throws NoSuchAlgorithmException {
         key.setTag(AlgorithmTag.getByTag(bytes[0]));
         key.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));
     }

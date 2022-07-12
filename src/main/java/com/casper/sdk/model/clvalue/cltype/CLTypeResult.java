@@ -44,7 +44,7 @@ public class CLTypeResult extends AbstractCLType {
 
         @JsonSetter("ok")
         @ExcludeFromJacocoGeneratedReport
-        protected void setJsonKey(AbstractCLType clType) {
+        protected void setJsonKey(final AbstractCLType clType) {
             this.okClType = clType;
         }
 
@@ -60,7 +60,7 @@ public class CLTypeResult extends AbstractCLType {
 
         @JsonSetter("err")
         @ExcludeFromJacocoGeneratedReport
-        protected void setJsonValue(AbstractCLType clType) {
+        protected void setJsonValue(final AbstractCLType clType) {
             this.errClType = clType;
         }
 

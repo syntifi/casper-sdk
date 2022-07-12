@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Casper CLValue Encoding methods
- * 
+ *
  * @author Alexandre Carvalho
  * @author Andre Bertolace
  * @see AbstractCLValue
@@ -62,11 +62,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a boolean value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueBool} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public void writeBool(CLValueBool clValue) throws IOException {
+    public void writeBool(final CLValueBool clValue) throws IOException {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.BOOL, Boolean.class.getSimpleName(),
                 clValue.getValue());
 
@@ -82,25 +82,25 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a single byte value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU8} value to encode
      */
-    public void writeU8(CLValueU8 clValue) {
+    public void writeU8(final CLValueU8 clValue) {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.U8, Byte.class.getSimpleName(),
                 clValue.getValue());
 
         this.write(clValue.getValue());
 
-        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[] {clValue.getValue()}));
+        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[]{clValue.getValue()}));
     }
 
     /**
      * Writes a byte array value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueByteArray} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public void writeByteArray(CLValueByteArray clValue) throws IOException {
+    public void writeByteArray(final CLValueByteArray clValue) throws IOException {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.BYTE_ARRAY, byte[].class.getSimpleName(),
                 clValue.getValue());
 
@@ -112,11 +112,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes an Integer/I32 value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueI32} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public void writeI32(CLValueI32 clValue) throws IOException {
+    public void writeI32(final CLValueI32 clValue) throws IOException {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.I32, Integer.class.getSimpleName(),
                 clValue.getValue());
 
@@ -127,11 +127,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes an Unsigned Integer (Long)/U32 value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU32} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public void writeU32(CLValueU32 clValue) throws IOException {
+    public void writeU32(final CLValueU32 clValue) throws IOException {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.U32, Long.class.getSimpleName(),
                 clValue.getValue());
 
@@ -142,12 +142,12 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes an Integer value to byte buffer
-     * 
+     *
      * @param value the value to write
      * @return byte[]
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public byte[] writeInt(Integer value) throws IOException {
+    public byte[] writeInt(final Integer value) throws IOException {
         LOGGER.debug("Writing Java Type {}: {}", Integer.class.getSimpleName(), value);
 
         ByteBuffer intByteBuffer = ByteBuffer.allocate(4).putInt(value);
@@ -162,11 +162,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a Long/I64 value to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueI64} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public void writeI64(CLValueI64 clValue) throws IOException {
+    public void writeI64(final CLValueI64 clValue) throws IOException {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.I64, Long.class.getSimpleName(),
                 clValue.getValue());
 
@@ -182,7 +182,7 @@ public class CLValueEncoder extends ByteArrayOutputStream {
      * @return byte[]
      * @throws IOException thrown when an error occurs while writing bytes
      */
-    public byte[] writeLong(Long value) throws IOException {
+    public byte[] writeLong(final Long value) throws IOException {
         LOGGER.debug("Writing Java Type {}: {}", Long.class.getSimpleName(), value);
 
         ByteBuffer longByteBuffer = ByteBuffer.allocate(8).putLong(value);
@@ -197,12 +197,12 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes an Unsigned Long (BigInteger)/U64 to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU64} value to encode
-     * @throws IOException thrown when an error occurs while writing bytes
+     * @throws IOException            thrown when an error occurs while writing bytes
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
-    public void writeU64(CLValueU64 clValue) throws IOException, CLValueEncodeException {
+    public void writeU64(final CLValueU64 clValue) throws IOException, CLValueEncodeException {
         checkBoundsFor(clValue.getValue(), CLTypeData.U64);
 
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.U64, BigInteger.class.getSimpleName(),
@@ -221,9 +221,9 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a BigInteger/U128 to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU128} value to encode
-     * @throws IOException thrown when an error occurs while writing bytes
+     * @throws IOException            thrown when an error occurs while writing bytes
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
     public void writeU128(CLValueU128 clValue) throws IOException, CLValueEncodeException {
@@ -232,35 +232,35 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a BigInteger/U256 to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU256} value to encode
-     * @throws IOException thrown when an error occurs while writing bytes
+     * @throws IOException            thrown when an error occurs while writing bytes
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
-    public void writeU256(CLValueU256 clValue) throws IOException, CLValueEncodeException {
+    public void writeU256(final CLValueU256 clValue) throws IOException, CLValueEncodeException {
         writeBigInteger(clValue, CLTypeData.U256);
     }
 
     /**
      * Writes a BigInteger/U512 to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueU512} value to encode
-     * @throws IOException thrown when an error occurs while writing bytes
+     * @throws IOException            thrown when an error occurs while writing bytes
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
-    public void writeU512(CLValueU512 clValue) throws IOException, CLValueEncodeException {
+    public void writeU512(final CLValueU512 clValue) throws IOException, CLValueEncodeException {
         writeBigInteger(clValue, CLTypeData.U512);
     }
 
     /**
      * Writes a BigInteger/U128-U256-U512 to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link AbstractCLValue} value to encode
-     * @param type {@link CLTypeData} CLTypeData of BigInteger
-     * @throws IOException thrown when an error occurs while writing bytes
+     * @param type    {@link CLTypeData} CLTypeData of BigInteger
+     * @throws IOException            thrown when an error occurs while writing bytes
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
-    protected void writeBigInteger(AbstractCLValue<BigInteger, ?> clValue, CLTypeData type)
+    protected void writeBigInteger(final AbstractCLValue<BigInteger, ?> clValue, final CLTypeData type)
             throws IOException, CLValueEncodeException {
         checkBoundsFor(clValue.getValue(), type);
 
@@ -270,13 +270,13 @@ public class CLValueEncoder extends ByteArrayOutputStream {
         byte bigIntegerLength = (byte) (Math.ceil(clValue.getValue().bitLength() / 8.0));
         byte[] bigIntegerBytes = writeBigInteger(clValue.getValue());
 
-        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[] { bigIntegerLength })
+        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[]{bigIntegerLength})
                 + StringByteHelper.convertBytesToHex(bigIntegerBytes));
     }
 
     /**
      * Writes a BigInteger to the CLValue byte buffer
-     * 
+     *
      * @param bigInteger the biginteger to write
      * @return a byte array
      * @throws IOException thrown when an error occurs while writing bytes
@@ -284,11 +284,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
     public byte[] writeBigInteger(BigInteger bigInteger) throws IOException {
         LOGGER.debug("Writing Java Type {}: {}", BigInteger.class.getSimpleName(), bigInteger);
 
-        byte bigIntegerLength = (byte) (Math.ceil(bigInteger.bitLength() / 8.0));
+        final byte bigIntegerLength = (byte) (Math.ceil(bigInteger.bitLength() / 8.0));
 
         this.write(bigIntegerLength);
 
-        byte[] byteArray = bigInteger.toByteArray();
+        final byte[] byteArray = bigInteger.toByteArray();
 
         // Removing leading zeroes
         int i = 0;
@@ -300,13 +300,13 @@ public class CLValueEncoder extends ByteArrayOutputStream {
             both = !both;
         }
 
-        byte[] valueByteArray = Arrays.copyOfRange(byteArray, i, bigIntegerLength + i);
+        final byte[] valueByteArray = Arrays.copyOfRange(byteArray, i, bigIntegerLength + i);
 
         StringByteHelper.reverse(valueByteArray);
 
-        ByteBuffer valueByteBuffer = ByteBuffer.allocate(bigIntegerLength).put(valueByteArray);
+        final ByteBuffer valueByteBuffer = ByteBuffer.allocate(bigIntegerLength).put(valueByteArray);
 
-        byte[] bigIntegerBytes = valueByteBuffer.array();
+        final byte[] bigIntegerBytes = valueByteBuffer.array();
 
         this.write(bigIntegerBytes);
 
@@ -315,7 +315,7 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a String/String to the CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueString} value to encode
      * @throws IOException thrown when an error occurs while writing bytes
      */
@@ -323,14 +323,14 @@ public class CLValueEncoder extends ByteArrayOutputStream {
         LOGGER.debug(LOG_BUFFER_WRITE_TYPE_VALUE_MESSAGE_STRING, CLTypeData.STRING, String.class.getSimpleName(),
                 clValue.getValue());
 
-        byte[] stringBytes = writeString(clValue.getValue());
+        final byte[] stringBytes = writeString(clValue.getValue());
 
         clValue.setBytes(StringByteHelper.convertBytesToHex(stringBytes));
     }
 
     /**
      * Writes a String to the byte buffer
-     * 
+     *
      * @param string to encode
      * @return byte[]
      * @throws IOException thrown when an error occurs while writing bytes
@@ -338,17 +338,17 @@ public class CLValueEncoder extends ByteArrayOutputStream {
     public byte[] writeString(String string) throws IOException {
         LOGGER.debug("Writing Java Type {}: {}", String.class.getSimpleName(), string);
 
-        ByteBuffer intByteBuffer = ByteBuffer.allocate(4).putInt(string.length());
+        final ByteBuffer intByteBuffer = ByteBuffer.allocate(4).putInt(string.length());
 
-        byte[] intByteArray = intByteBuffer.array();
+        final byte[] intByteArray = intByteBuffer.array();
 
         StringByteHelper.reverse(intByteArray);
 
-        ByteBuffer stringBuffer = ByteBuffer.allocate(4 + string.length());
+        final ByteBuffer stringBuffer = ByteBuffer.allocate(4 + string.length());
         stringBuffer.put(intByteArray);
         stringBuffer.put(string.getBytes());
 
-        byte[] stringBytes = stringBuffer.array();
+        final byte[] stringBytes = stringBuffer.array();
 
         this.write(stringBytes);
 
@@ -357,11 +357,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a AlgorithmTag/Key Hex string to CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValuePublicKey} value to encode
      */
     public void writePublicKey(CLValuePublicKey clValue) throws IOException {
-        byte[] tag = new byte[] { clValue.getValue().getTag().getByteTag() };
+        final byte[] tag = new byte[]{clValue.getValue().getTag().getByteTag()};
         clValue.setBytes(StringByteHelper.convertBytesToHex(tag)
                 + StringByteHelper.convertBytesToHex(clValue.getValue().getKey()));
         this.write(tag);
@@ -370,11 +370,11 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Writes a Tag/Key Hex string to CLValue byte buffer
-     * 
+     *
      * @param clValue {@link CLValueKey} value to encode
      */
     public void writeKey(CLValueKey clValue) {
-        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[] { clValue.getValue().getTag().getByteTag() })
+        clValue.setBytes(StringByteHelper.convertBytesToHex(new byte[]{clValue.getValue().getTag().getByteTag()})
                 + StringByteHelper.convertBytesToHex(clValue.getValue().getKey()));
     }
 
@@ -388,13 +388,13 @@ public class CLValueEncoder extends ByteArrayOutputStream {
 
     /**
      * Checks if the value is within valid bounds for given CLType
-     * 
+     *
      * @param value the value to check
      * @param type  the cltype to check against
      * @throws CLValueEncodeException thrown when a clvalue encoding throws an error
      */
     private void checkBoundsFor(BigInteger value, CLTypeData type) throws CLValueEncodeException {
-        BigInteger max;
+        final BigInteger max;
         if (type.equals(CLTypeData.U64)) {
             max = MAX_U64;
         } else if (type.equals(CLTypeData.U128)) {

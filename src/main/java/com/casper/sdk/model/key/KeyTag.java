@@ -20,7 +20,7 @@ public enum KeyTag implements Tag {
 
     private final byte byteTag;
 
-    public static KeyTag getByTag(byte tag) throws NoSuchKeyTagException {
+    public static KeyTag getByTag(final byte tag) throws NoSuchKeyTagException {
         for (KeyTag a : values()) {
             if (a.byteTag == tag)
                 return a;

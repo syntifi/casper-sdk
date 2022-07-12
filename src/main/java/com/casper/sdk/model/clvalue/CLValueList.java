@@ -35,17 +35,17 @@ public class CLValueList extends AbstractCLValue<List<? extends AbstractCLValue<
     @JsonProperty("cl_type")
     private CLTypeList clType = new CLTypeList();
 
-    public CLValueList(List<? extends AbstractCLValue<?, ?>> value) {
+    public CLValueList(final List<? extends AbstractCLValue<?, ?>> value) {
         this.setValue(value);
         setListType();
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setListType();
 
         // List length is written first
-        CLValueI32 length = new CLValueI32(getValue().size());
+        final CLValueI32 length = new CLValueI32(getValue().size());
         length.encode(clve, false);
         setBytes(length.getBytes());
 
@@ -61,16 +61,16 @@ public class CLValueList extends AbstractCLValue<List<? extends AbstractCLValue<
     @Override
     public void decode(CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLTypeData childrenType = getClType().getListType().getClTypeData();
+        final CLTypeData childrenType = getClType().getListType().getClTypeData();
 
         // List length is sent first
-        CLValueI32 length = new CLValueI32();
+        final CLValueI32 length = new CLValueI32();
         length.decode(clvd);
         setBytes(length.getBytes());
 
-        List<AbstractCLValue<?, ?>> list = new LinkedList<>();
+        final List<AbstractCLValue<?, ?>> list = new LinkedList<>();
         for (int i = 0; i < length.getValue(); i++) {
-            AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childrenType);
+            final AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childrenType);
             if (child.getClType() instanceof AbstractCLTypeWithChildren) {
                 ((AbstractCLTypeWithChildren) child.getClType())
                         .setChildTypes(((AbstractCLTypeWithChildren) clType.getListType()).getChildTypes());

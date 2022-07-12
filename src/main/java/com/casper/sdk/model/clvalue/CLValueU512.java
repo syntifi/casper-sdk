@@ -36,7 +36,7 @@ public class CLValueU512 extends AbstractCLValue<BigInteger, CLTypeU512> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeU512 clType) {
+    protected void setJsonClType(final CLTypeU512 clType) {
         this.clType = clType;
     }
 
@@ -46,12 +46,12 @@ public class CLValueU512 extends AbstractCLValue<BigInteger, CLTypeU512> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueU512(BigInteger value) {
+    public CLValueU512(final BigInteger value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, CLValueEncodeException, NoSuchTypeException {
         clve.writeU512(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -59,7 +59,7 @@ public class CLValueU512 extends AbstractCLValue<BigInteger, CLTypeU512> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readU512(this);
     }
 }

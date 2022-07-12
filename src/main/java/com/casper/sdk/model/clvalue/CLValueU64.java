@@ -36,7 +36,7 @@ public class CLValueU64 extends AbstractCLValue<BigInteger, CLTypeU64> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeU64 clType) {
+    protected void setJsonClType(final CLTypeU64 clType) {
         this.clType = clType;
     }
 
@@ -46,12 +46,12 @@ public class CLValueU64 extends AbstractCLValue<BigInteger, CLTypeU64> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueU64(BigInteger value) {
+    public CLValueU64(final BigInteger value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         clve.writeU64(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -59,7 +59,7 @@ public class CLValueU64 extends AbstractCLValue<BigInteger, CLTypeU64> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readU64(this);
     }
 }

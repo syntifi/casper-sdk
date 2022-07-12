@@ -32,7 +32,7 @@ public class CLValueU32 extends AbstractCLValue<Long, CLTypeU32> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeU32 clType) {
+    protected void setJsonClType(final CLTypeU32 clType) {
         this.clType = clType;
     }
 
@@ -42,12 +42,12 @@ public class CLValueU32 extends AbstractCLValue<Long, CLTypeU32> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueU32(Long value) {
+    public CLValueU32(final Long value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeU32(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -55,7 +55,7 @@ public class CLValueU32 extends AbstractCLValue<Long, CLTypeU32> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readU32(this);
     }
 }

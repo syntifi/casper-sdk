@@ -32,7 +32,7 @@ public class CLValueU8 extends AbstractCLValue<Byte, CLTypeU8> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeU8 clType) {
+    protected void setJsonClType(final CLTypeU8 clType) {
         this.clType = clType;
     }
 
@@ -42,12 +42,12 @@ public class CLValueU8 extends AbstractCLValue<Byte, CLTypeU8> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueU8(Byte value) {
+    public CLValueU8(final Byte value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeU8(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -55,7 +55,7 @@ public class CLValueU8 extends AbstractCLValue<Byte, CLTypeU8> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readU8(this);
     }
 }

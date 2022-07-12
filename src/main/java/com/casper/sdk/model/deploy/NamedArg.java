@@ -51,26 +51,21 @@ public class NamedArg<P extends AbstractCLType> implements EncodableValue {
     private AbstractCLValue<?, P> clValue;
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType)
+    public void encode(final CLValueEncoder clve, final boolean encodeType)
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         clve.writeString(type);
         if (clValue instanceof CLValueI32 || clValue instanceof CLValueU32) {
             clve.writeInt(32 / 8);
-        }
-        if (clValue instanceof CLValueI64 || clValue instanceof CLValueU64) {
+        } else if (clValue instanceof CLValueI64 || clValue instanceof CLValueU64) {
             clve.writeInt(64 / 8);
-        }
-        if (clValue instanceof CLValueU128 || clValue instanceof CLValueU256 ||
-                clValue instanceof CLValueU512 || clValue instanceof CLValuePublicKey){
-            CLValueEncoder localEncoder = new CLValueEncoder();
+        } else if (clValue instanceof CLValueU128
+                || clValue instanceof CLValueU256
+                || clValue instanceof CLValueU512
+                || clValue instanceof CLValuePublicKey
+                || clValue instanceof CLValueOption) {
+            final CLValueEncoder localEncoder = new CLValueEncoder();
             clValue.encode(localEncoder, false);
-            int size = localEncoder.toByteArray().length;
-            clve.writeInt(size); //removing the CLValue type byte at the end
-        }
-        if (clValue instanceof CLValueOption) {
-            CLValueEncoder localEncoder = new CLValueEncoder();
-            clValue.encode(localEncoder, false);
-            int size = localEncoder.toByteArray().length;
+            final int size = localEncoder.toByteArray().length;
             clve.writeInt(size); //removing the CLValue type byte at the end
         }
         clValue.encode(clve, encodeType);

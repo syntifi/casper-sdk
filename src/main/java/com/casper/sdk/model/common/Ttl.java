@@ -35,13 +35,13 @@ public class Ttl implements EncodableValue {
     private String ttl;
 
     public Long getTtl() {
-        PeriodFormatter formatter = new PeriodFormatterBuilder()
+        final PeriodFormatter formatter = new PeriodFormatterBuilder()
                 .appendDays().appendSuffix("d")
                 .appendHours().appendSuffix("h")
                 .appendMinutes().appendSuffix("m")
                 .toFormatter();
 
-        Period p = formatter.parsePeriod(ttl);
+        final Period p = formatter.parsePeriod(ttl);
         return p.toStandardDuration().getMillis();
     }
 
@@ -49,7 +49,7 @@ public class Ttl implements EncodableValue {
      * Implements EncodableValue
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType)
+    public void encode(final CLValueEncoder clve, final boolean encodeType)
             throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         clve.writeLong(getTtl());
     }

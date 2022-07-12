@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 public class CLValueDecodeException extends Exception {
-    public CLValueDecodeException(String message) {
+    public CLValueDecodeException(final String message) {
         super(message);
     }
 
-    public CLValueDecodeException(String message, Throwable cause) {
+    public CLValueDecodeException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

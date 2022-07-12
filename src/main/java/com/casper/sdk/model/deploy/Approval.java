@@ -43,7 +43,7 @@ public class Approval implements EncodableValue {
      * Implements Approval encoder
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         signer.encode(clve, encodeType);
         signature.encode(clve, encodeType);
     }

@@ -44,14 +44,14 @@ public class CLValueOption extends AbstractCLValue<Optional<AbstractCLValue<?, ?
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
-        Optional<AbstractCLValue<?, ?>> value = getValue();
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+        final Optional<AbstractCLValue<?, ?>> value = getValue();
 
-        CLValueBool isPresent = new CLValueBool(value.isPresent() && value.get().getValue() != null);
+        final CLValueBool isPresent = new CLValueBool(value.isPresent() && value.get().getValue() != null);
         isPresent.encode(clve, false);
         setBytes(isPresent.getBytes());
 
-        Optional<AbstractCLValue<?, ?>> child = getValue();
+        final Optional<AbstractCLValue<?, ?>> child = getValue();
 
         if (child.isPresent() && child.get().getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child.get().getClType())
@@ -70,15 +70,15 @@ public class CLValueOption extends AbstractCLValue<Optional<AbstractCLValue<?, ?
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLValueBool isPresent = new CLValueBool();
+        final CLValueBool isPresent = new CLValueBool();
         isPresent.decode(clvd);
         setBytes(isPresent.getBytes());
 
-        CLTypeData childTypeData = clType.getChildType().getClTypeData();
+        final CLTypeData childTypeData = clType.getChildType().getClTypeData();
 
-        AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childTypeData);
+        final AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childTypeData);
 
         if (child.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child.getClType())
@@ -89,7 +89,6 @@ public class CLValueOption extends AbstractCLValue<Optional<AbstractCLValue<?, ?
 
         if (isPresent.getValue().equals(Boolean.TRUE)) {
             child.decode(clvd);
-
             setBytes(getBytes() + child.getBytes());
         }
     }

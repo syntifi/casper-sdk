@@ -56,7 +56,7 @@ public class ModuleBytes implements ExecutableDeployItem {
      * Implements the ModuleBytes encoder
      */
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, CLValueEncodeException, DynamicInstanceException, NoSuchTypeException {
         clve.write(getOrder());
         clve.writeString(getBytes());
         clve.writeInt(args.size());

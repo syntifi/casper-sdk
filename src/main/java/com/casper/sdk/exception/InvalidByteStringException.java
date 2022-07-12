@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 public class InvalidByteStringException extends CLValueDecodeException {
-    public InvalidByteStringException(String message) {
+    public InvalidByteStringException(final String message) {
         super(message);
     }
 
-    public InvalidByteStringException(String message, Throwable cause) {
+    public InvalidByteStringException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

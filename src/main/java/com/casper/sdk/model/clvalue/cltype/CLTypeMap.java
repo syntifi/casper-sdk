@@ -43,7 +43,7 @@ public class CLTypeMap extends AbstractCLType {
 
         @JsonSetter("key")
         @ExcludeFromJacocoGeneratedReport
-        protected void setJsonKey(AbstractCLType clType) {
+        protected void setJsonKey(final AbstractCLType clType) {
             this.keyType = clType;
         }
 
@@ -59,7 +59,7 @@ public class CLTypeMap extends AbstractCLType {
 
         @JsonSetter("value")
         @ExcludeFromJacocoGeneratedReport
-        protected void setJsonValue(AbstractCLType clType) {
+        protected void setJsonValue(final AbstractCLType clType) {
             this.valueType = clType;
         }
 

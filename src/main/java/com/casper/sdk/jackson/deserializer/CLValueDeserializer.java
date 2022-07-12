@@ -22,8 +22,11 @@ import com.casper.sdk.jackson.resolver.CLValueResolver;
  */
 public class CLValueDeserializer extends AbstractAnyOfDeserializer {
 
-    public CLValueDeserializer(final JavaType bt, final TypeIdResolver idRes, final String typePropertyName,
-                               final boolean typeIdVisible, JavaType defaultImpl) {
+    public CLValueDeserializer(final JavaType bt,
+                               final TypeIdResolver idRes,
+                               final String typePropertyName,
+                               final boolean typeIdVisible,
+                               final JavaType defaultImpl) {
         super(bt, idRes, typePropertyName, typeIdVisible, defaultImpl);
     }
 
@@ -37,12 +40,12 @@ public class CLValueDeserializer extends AbstractAnyOfDeserializer {
     }
 
     @Override
-    protected JsonNode getTypeNode(JsonNode currentNode) {
+    protected JsonNode getTypeNode(final JsonNode currentNode) {
         return currentNode.get("cl_type");
     }
 
     @Override
-    protected Class<?> getClassByName(String anyOfType) throws NoSuchTypeException {
+    protected Class<?> getClassByName(final String anyOfType) throws NoSuchTypeException {
         return CLTypeData.getClassByName(anyOfType);
     }
 }

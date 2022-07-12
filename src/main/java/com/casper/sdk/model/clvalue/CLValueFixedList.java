@@ -36,13 +36,13 @@ public class CLValueFixedList extends AbstractCLValue<List<? extends AbstractCLV
     @JsonProperty("cl_type")
     private CLTypeFixedList clType = new CLTypeFixedList();
 
-    public CLValueFixedList(List<? extends AbstractCLValue<?, ?>> value) {
+    public CLValueFixedList(final List<? extends AbstractCLValue<?, ?>> value) {
         this.setValue(value);
         setListType();
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setListType();
 
         setBytes("");
@@ -56,15 +56,15 @@ public class CLValueFixedList extends AbstractCLValue<List<? extends AbstractCLV
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLTypeData childrenType = getClType().getListType().getClTypeData();
+        final CLTypeData childrenType = getClType().getListType().getClTypeData();
 
-        List<AbstractCLValue<?, ?>> list = new LinkedList<>();
+        final List<AbstractCLValue<?, ?>> list = new LinkedList<>();
 
         boolean hasMoreItems = true;
         do {
-            AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childrenType);
+            final AbstractCLValue<?, ?> child = CLTypeData.createCLValueFromCLTypeData(childrenType);
             if (child.getClType() instanceof AbstractCLTypeWithChildren) {
                 ((AbstractCLTypeWithChildren) child.getClType())
                         .setChildTypes(((AbstractCLTypeWithChildren) clType.getListType()).getChildTypes());

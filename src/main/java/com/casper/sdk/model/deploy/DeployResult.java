@@ -32,5 +32,4 @@ public class DeployResult {
      */
     @JsonProperty("deploy_hash")
     private String deployHash;
-
 }

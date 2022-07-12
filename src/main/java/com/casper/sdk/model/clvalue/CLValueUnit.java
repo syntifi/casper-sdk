@@ -36,7 +36,7 @@ public class CLValueUnit extends AbstractCLValue<Object, CLTypeUnit> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeUnit clType) {
+    protected void setJsonClType(final CLTypeUnit clType) {
         this.clType = clType;
     }
 
@@ -51,7 +51,7 @@ public class CLValueUnit extends AbstractCLValue<Object, CLTypeUnit> {
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setBytes(UNITY_EMPTY_VALUE);
         if (encodeType) {
             this.encodeType(clve);
@@ -59,7 +59,7 @@ public class CLValueUnit extends AbstractCLValue<Object, CLTypeUnit> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         setBytes(UNITY_EMPTY_VALUE);
     }
 }

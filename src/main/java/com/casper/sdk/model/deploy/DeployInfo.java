@@ -64,7 +64,7 @@ public class DeployInfo {
 
     @JsonProperty("gas")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonGas(String value) {
+    protected void setJsonGas(final String value) {
         this.gas = new BigInteger(value, 10);
     }
 }

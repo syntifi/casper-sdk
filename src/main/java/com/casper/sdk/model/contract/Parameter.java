@@ -41,7 +41,7 @@ public class Parameter {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(AbstractCLType clType) {
+    protected void setJsonClType(final AbstractCLType clType) {
         this.clType = clType;
     }
 

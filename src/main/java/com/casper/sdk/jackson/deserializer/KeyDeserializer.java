@@ -21,7 +21,7 @@ public class KeyDeserializer extends AbstractSerializedKeyTaggedHexDeserializer<
     }
 
     @Override
-    protected void loadKey(Key key, byte[] bytes) throws NoSuchKeyTagException {
+    protected void loadKey(final Key key, final byte[] bytes) throws NoSuchKeyTagException {
         key.setTag(KeyTag.getByTag(bytes[0]));
         key.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));
     }

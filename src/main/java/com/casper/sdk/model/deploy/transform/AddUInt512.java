@@ -52,7 +52,7 @@ public class AddUInt512 implements Transform {
      */
     @JsonProperty("AddUInt512")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonU512(String value) {
+    protected void setJsonU512(final String value) {
         this.u512 = new BigInteger(value, 10);
     }
 }

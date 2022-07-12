@@ -36,13 +36,13 @@ public class CLValueTuple3 extends
     @JsonProperty("cl_type")
     private CLTypeTuple3 clType = new CLTypeTuple3();
 
-    public CLValueTuple3(Triplet<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> value) {
+    public CLValueTuple3(final Triplet<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> value) {
         this.setValue(value);
         setChildTypes();
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setChildTypes();
 
         getValue().getValue0().encode(clve, false);
@@ -57,27 +57,27 @@ public class CLValueTuple3 extends
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLTypeData childTypeData1 = clType.getChildClTypeData(0);
-        CLTypeData childTypeData2 = clType.getChildClTypeData(1);
-        CLTypeData childTypeData3 = clType.getChildClTypeData(2);
+        final CLTypeData childTypeData1 = clType.getChildClTypeData(0);
+        final CLTypeData childTypeData2 = clType.getChildClTypeData(1);
+        final CLTypeData childTypeData3 = clType.getChildClTypeData(2);
 
-        AbstractCLValue<?, ?> child1 = CLTypeData.createCLValueFromCLTypeData(childTypeData1);
+        final AbstractCLValue<?, ?> child1 = CLTypeData.createCLValueFromCLTypeData(childTypeData1);
         if (child1.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child1.getClType())
                     .setChildTypes(((AbstractCLTypeWithChildren) clType.getChildTypes().get(0)).getChildTypes());
         }
         child1.decode(clvd);
 
-        AbstractCLValue<?, ?> child2 = CLTypeData.createCLValueFromCLTypeData(childTypeData2);
+        final AbstractCLValue<?, ?> child2 = CLTypeData.createCLValueFromCLTypeData(childTypeData2);
         if (child2.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child2.getClType())
                     .setChildTypes(((AbstractCLTypeWithChildren) clType.getChildTypes().get(1)).getChildTypes());
         }
         child2.decode(clvd);
 
-        AbstractCLValue<?, ?> child3 = CLTypeData.createCLValueFromCLTypeData(childTypeData3);
+        final AbstractCLValue<?, ?> child3 = CLTypeData.createCLValueFromCLTypeData(childTypeData3);
         if (child3.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child3.getClType())
                     .setChildTypes(((AbstractCLTypeWithChildren) clType.getChildTypes().get(2)).getChildTypes());

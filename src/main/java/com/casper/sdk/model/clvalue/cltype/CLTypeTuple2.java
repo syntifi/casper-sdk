@@ -23,7 +23,7 @@ public class CLTypeTuple2 extends AbstractCLTypeWithChildren {
 
     @Override
     @JsonProperty(TUPLE2)
-    protected void setChildTypeObjects(List<Object> childTypeObjects)
+    protected void setChildTypeObjects(final List<Object> childTypeObjects)
             throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             NoSuchMethodException, SecurityException, NoSuchTypeException {
         super.setChildTypeObjects(childTypeObjects);

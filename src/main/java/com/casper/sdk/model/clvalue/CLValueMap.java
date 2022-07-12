@@ -37,16 +37,16 @@ public class CLValueMap extends
     @JsonProperty("cl_type")
     private CLTypeMap clType = new CLTypeMap();
 
-    public CLValueMap(Map<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> value) {
+    public CLValueMap(final Map<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> value) {
         this.setValue(value);
         setChildTypes();
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setChildTypes();
 
-        CLValueI32 mapLength = new CLValueI32(getValue().size());
+        final CLValueI32 mapLength = new CLValueI32(getValue().size());
         mapLength.encode(clve, false);
         setBytes(mapLength.getBytes());
 
@@ -61,17 +61,17 @@ public class CLValueMap extends
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLTypeData keyType = clType.getKeyValueTypes().getKeyType().getClTypeData();
-        CLTypeData valType = clType.getKeyValueTypes().getValueType().getClTypeData();
+        final CLTypeData keyType = clType.getKeyValueTypes().getKeyType().getClTypeData();
+        final CLTypeData valType = clType.getKeyValueTypes().getValueType().getClTypeData();
 
-        Map<AbstractCLValue<?, ?>, AbstractCLValue<?, ?>> map = new LinkedHashMap<>();
-        CLValueI32 mapLength = new CLValueI32(0);
+        final Map<AbstractCLValue<?, ?>, AbstractCLValue<?, ?>> map = new LinkedHashMap<>();
+        final CLValueI32 mapLength = new CLValueI32(0);
         mapLength.decode(clvd);
 
         for (int i = 0; i < mapLength.getValue(); i++) {
-            AbstractCLValue<?, ?> key = CLTypeData.createCLValueFromCLTypeData(keyType);
+            final AbstractCLValue<?, ?> key = CLTypeData.createCLValueFromCLTypeData(keyType);
             if (key.getClType() instanceof AbstractCLTypeWithChildren) {
                 ((AbstractCLTypeWithChildren) key.getClType())
                         .setChildTypes(
@@ -79,7 +79,7 @@ public class CLValueMap extends
             }
             key.decode(clvd);
 
-            AbstractCLValue<?, ?> val = CLTypeData.createCLValueFromCLTypeData(valType);
+            final AbstractCLValue<?, ?> val = CLTypeData.createCLValueFromCLTypeData(valType);
             if (val.getClType() instanceof AbstractCLTypeWithChildren) {
                 ((AbstractCLTypeWithChildren) val.getClType())
                         .setChildTypes(((AbstractCLTypeWithChildren) clType.getKeyValueTypes().getValueType())
@@ -95,10 +95,13 @@ public class CLValueMap extends
 
     @Override
     protected void setChildTypes() {
-        Entry<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> entry = getValue().entrySet().iterator()
+        final Entry<? extends AbstractCLValue<?, ?>, ? extends AbstractCLValue<?, ?>> entry = getValue()
+                .entrySet()
+                .iterator()
                 .next();
 
         clType.setKeyValueTypes(
-                new CLTypeMap.CLTypeMapEntryType(entry.getKey().getClType(), entry.getValue().getClType()));
+                new CLTypeMap.CLTypeMapEntryType(entry.getKey().getClType(), entry.getValue().getClType())
+        );
     }
 }

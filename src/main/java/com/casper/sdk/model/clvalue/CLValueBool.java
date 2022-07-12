@@ -32,7 +32,7 @@ public class CLValueBool extends AbstractCLValue<Boolean, CLTypeBool> {
 
     @JsonSetter("cl_type")
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(CLTypeBool clType) {
+    protected void setJsonClType(final CLTypeBool clType) {
         this.clType = clType;
     }
 
@@ -42,12 +42,12 @@ public class CLValueBool extends AbstractCLValue<Boolean, CLTypeBool> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueBool(Boolean value) {
+    public CLValueBool(final Boolean value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeBool(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -55,7 +55,7 @@ public class CLValueBool extends AbstractCLValue<Boolean, CLTypeBool> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readBool(this);
     }
 }

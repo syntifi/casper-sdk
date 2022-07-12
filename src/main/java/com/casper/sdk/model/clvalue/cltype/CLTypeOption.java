@@ -29,7 +29,7 @@ public class CLTypeOption extends AbstractCLType {
 
     @JsonSetter(OPTION)
     @ExcludeFromJacocoGeneratedReport
-    protected void setJsonClType(AbstractCLType clType) {
+    protected void setJsonClType(final AbstractCLType clType) {
         this.childType = clType;
     }
 

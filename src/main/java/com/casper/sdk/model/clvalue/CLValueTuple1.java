@@ -36,13 +36,13 @@ public class CLValueTuple1 extends AbstractCLValueWithChildren<Unit<? extends Ab
     @JsonProperty("cl_type")
     private CLTypeTuple1 clType = new CLTypeTuple1();
 
-    public CLValueTuple1(Unit<? extends AbstractCLValue<?, ?>> value) {
+    public CLValueTuple1(final Unit<? extends AbstractCLValue<?, ?>> value) {
         this.setValue(value);
         setChildTypes();
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setChildTypes();
         getValue().getValue0().encode(clve, false);
         setBytes(getValue().getValue0().getBytes());
@@ -52,11 +52,11 @@ public class CLValueTuple1 extends AbstractCLValueWithChildren<Unit<? extends Ab
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        CLTypeData childTypeData1 = clType.getChildClTypeData(0);
+        final CLTypeData childTypeData1 = clType.getChildClTypeData(0);
 
-        AbstractCLValue<?, ?> child1 = CLTypeData.createCLValueFromCLTypeData(childTypeData1);
+        final AbstractCLValue<?, ?> child1 = CLTypeData.createCLValueFromCLTypeData(childTypeData1);
         if (child1.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) child1.getClType())
                     .setChildTypes(((AbstractCLTypeWithChildren) clType.getChildTypes().get(0)).getChildTypes());

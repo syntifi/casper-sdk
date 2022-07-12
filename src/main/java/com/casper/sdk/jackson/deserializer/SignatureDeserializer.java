@@ -21,7 +21,7 @@ public class SignatureDeserializer extends AbstractSerializedKeyTaggedHexDeseria
     }
 
     @Override
-    protected void loadKey(Signature key, byte[] bytes) throws NoSuchAlgorithmException {
+    protected void loadKey(final Signature key, final byte[] bytes) throws NoSuchAlgorithmException {
         key.setTag(AlgorithmTag.getByTag(bytes[0]));
         key.setKey(Arrays.copyOfRange(bytes, 1, bytes.length));
     }

@@ -22,8 +22,11 @@ import com.casper.sdk.model.storedvalue.StoredValueTypeData;
  */
 public class StoredValueDeserializer extends AbstractAnyOfDeserializer {
 
-    public StoredValueDeserializer(final JavaType bt, final TypeIdResolver idRes, final String typePropertyName,
-                                   final boolean typeIdVisible, JavaType defaultImpl) {
+    public StoredValueDeserializer(final JavaType bt,
+                                   final TypeIdResolver idRes,
+                                   final String typePropertyName,
+                                   final boolean typeIdVisible,
+                                   final JavaType defaultImpl) {
         super(bt, idRes, typePropertyName, typeIdVisible, defaultImpl);
     }
 
@@ -37,7 +40,7 @@ public class StoredValueDeserializer extends AbstractAnyOfDeserializer {
     }
 
     @Override
-    protected Class<?> getClassByName(String anyOfType) throws NoSuchTypeException {
+    protected Class<?> getClassByName(final String anyOfType) throws NoSuchTypeException {
         return StoredValueTypeData.getClassByName(anyOfType);
     }
 }

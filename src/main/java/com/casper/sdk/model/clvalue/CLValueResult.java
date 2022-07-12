@@ -54,7 +54,7 @@ public class CLValueResult extends AbstractCLValue<CLValueResult.Result, CLTypeR
     @JsonProperty("cl_type")
     private CLTypeResult clType = new CLTypeResult();
 
-    public CLValueResult(AbstractCLValue<?, ?> ok, AbstractCLValue<?, ?> err) {
+    public CLValueResult(final AbstractCLValue<?, ?> ok, final AbstractCLValue<?, ?> err) {
         this.setValue(new Result(ok, err));
         setChildTypes();
     }
@@ -63,12 +63,12 @@ public class CLValueResult extends AbstractCLValue<CLValueResult.Result, CLTypeR
     public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException, CLValueEncodeException {
         setChildTypes();
 
-        CLValueBool clValueTrue = new CLValueBool(true);
+        final CLValueBool clValueTrue = new CLValueBool(true);
         clValueTrue.encode(clve, false);
 
         getValue().getOk().encode(clve, false);
 
-        CLValueBool clValueFalse = new CLValueBool(false);
+        final CLValueBool clValueFalse = new CLValueBool(false);
         clValueFalse.encode(clve, false);
 
         getValue().getErr().encode(clve, false);
@@ -81,13 +81,13 @@ public class CLValueResult extends AbstractCLValue<CLValueResult.Result, CLTypeR
     }
 
     @Override
-    public void decode(CLValueDecoder clvd)
+    public void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException {
-        Result result = new Result();
+        final Result result = new Result();
         CLValueBool bool = new CLValueBool();
         bool.decode(clvd);
-        CLTypeData typeOk = clType.getOkErrTypes().getOkClType().getClTypeData();
-        AbstractCLValue<?, ?> clValueOk = CLTypeData.createCLValueFromCLTypeData(typeOk);
+        final CLTypeData typeOk = clType.getOkErrTypes().getOkClType().getClTypeData();
+        final AbstractCLValue<?, ?> clValueOk = CLTypeData.createCLValueFromCLTypeData(typeOk);
         if (clValueOk.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) clValueOk.getClType()).getChildTypes()
                     .addAll(((AbstractCLTypeWithChildren) clType.getOkErrTypes().getOkClType()).getChildTypes());
@@ -97,8 +97,8 @@ public class CLValueResult extends AbstractCLValue<CLValueResult.Result, CLTypeR
 
         bool = new CLValueBool();
         bool.decode(clvd);
-        CLTypeData typeErr = clType.getOkErrTypes().getErrClType().getClTypeData();
-        AbstractCLValue<?, ?> clValueErr = CLTypeData.createCLValueFromCLTypeData(typeErr);
+        final CLTypeData typeErr = clType.getOkErrTypes().getErrClType().getClTypeData();
+        final AbstractCLValue<?, ?> clValueErr = CLTypeData.createCLValueFromCLTypeData(typeErr);
         if (clValueErr.getClType() instanceof AbstractCLTypeWithChildren) {
             ((AbstractCLTypeWithChildren) clValueErr.getClType()).getChildTypes()
                     .addAll(((AbstractCLTypeWithChildren) clType.getOkErrTypes().getErrClType()).getChildTypes());

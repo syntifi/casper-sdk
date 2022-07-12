@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 public class NoSuchTypeException extends Exception {
-    public NoSuchTypeException(String message) {
+    public NoSuchTypeException(final String message) {
         super(message);
     }
 
-    public NoSuchTypeException(String message, Throwable cause) {
+    public NoSuchTypeException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

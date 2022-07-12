@@ -84,7 +84,7 @@ public enum CLTypeData {
      * @return the requested {@link CLTypeData}
      * @throws NoSuchTypeException raised when the clType is not valid/found
      */
-    public static CLTypeData getTypeBySerializationTag(byte serializationTag) throws NoSuchTypeException {
+    public static CLTypeData getTypeBySerializationTag(final byte serializationTag) throws NoSuchTypeException {
         for (CLTypeData clType : values()) {
             if (clType.serializationTag == serializationTag) {
                 return clType;
@@ -101,7 +101,7 @@ public enum CLTypeData {
      * {@link AbstractCLValue}
      * @throws NoSuchTypeException raised when the clType is not valid/found
      */
-    public static Class<?> getClassByName(String name) throws NoSuchTypeException {
+    public static Class<?> getClassByName(final String name) throws NoSuchTypeException {
         for (CLTypeData clType : values()) {
             if (clType.clTypeName.equals(name)) {
                 return clType.getClazz();
@@ -117,7 +117,7 @@ public enum CLTypeData {
      * @return the {@link Class} object holding the requested {@link AbstractCLType}
      * @throws NoSuchTypeException raised when the clType is not valid/found
      */
-    public static Class<?> getCLTypeClassByName(String name) throws NoSuchTypeException {
+    public static Class<?> getCLTypeClassByName(final String name) throws NoSuchTypeException {
         for (CLTypeData clType : values()) {
             if (clType.clTypeName.equals(name)) {
                 return clType.getClTypeClass();
@@ -133,7 +133,7 @@ public enum CLTypeData {
      * @return the requested {@link CLTypeData}
      * @throws NoSuchTypeException raised when the clType is not valid/found
      */
-    public static CLTypeData getTypeByName(String name) throws NoSuchTypeException {
+    public static CLTypeData getTypeByName(final String name) throws NoSuchTypeException {
         for (CLTypeData clType : values()) {
             if (clType.clTypeName.equals(name)) {
                 return clType;
@@ -151,7 +151,7 @@ public enum CLTypeData {
      *                                  clValue
      * @throws NoSuchTypeException      raised when the clType is not valid/found
      */
-    public static AbstractCLValue<?, ?> createCLValueFromCLTypeName(String clValueName)
+    public static AbstractCLValue<?, ?> createCLValueFromCLTypeName(final String clValueName)
             throws DynamicInstanceException, NoSuchTypeException {
         return CLTypeData.createCLValueFromCLTypeData(CLTypeData.getTypeByName(clValueName));
     }
@@ -164,7 +164,7 @@ public enum CLTypeData {
      * @throws DynamicInstanceException error while dynamically instantiating the
      *                                  clValue
      */
-    public static AbstractCLValue<?, ?> createCLValueFromCLTypeData(CLTypeData clTypeData)
+    public static AbstractCLValue<?, ?> createCLValueFromCLTypeData(final CLTypeData clTypeData)
             throws DynamicInstanceException {
         Class<?> clazz = clTypeData.getClazz();
 
@@ -185,7 +185,7 @@ public enum CLTypeData {
      *                                  clValue
      * @throws NoSuchTypeException      raised when the clType is not valid/found
      */
-    public static AbstractCLType createCLTypeFromCLTypeName(String clTypeName)
+    public static AbstractCLType createCLTypeFromCLTypeName(final String clTypeName)
             throws DynamicInstanceException, NoSuchTypeException {
         return CLTypeData.createCLTypeFromCLTypeData(CLTypeData.getTypeByName(clTypeName));
     }
@@ -198,7 +198,7 @@ public enum CLTypeData {
      * @throws DynamicInstanceException error while dynamically instantiating the
      *                                  clValue
      */
-    public static AbstractCLType createCLTypeFromCLTypeData(CLTypeData clTypeData) throws DynamicInstanceException {
+    public static AbstractCLType createCLTypeFromCLTypeData(final CLTypeData clTypeData) throws DynamicInstanceException {
         Class<?> clazz = clTypeData.getClTypeClass();
 
         try {

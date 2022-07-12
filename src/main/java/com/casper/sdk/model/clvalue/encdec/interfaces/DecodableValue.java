@@ -24,6 +24,6 @@ public interface DecodableValue {
      * @throws CLValueDecodeException   thrown if failed to decode a cl value
      * @throws IOException              thrown if an IO error occurs
      */
-    void decode(CLValueDecoder clvd)
+    void decode(final CLValueDecoder clvd)
             throws IOException, CLValueDecodeException, DynamicInstanceException, NoSuchTypeException;
 }

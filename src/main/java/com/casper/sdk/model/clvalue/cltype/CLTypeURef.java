@@ -21,7 +21,7 @@ public class CLTypeURef extends AbstractCLTypeBasic {
     private final String typeName = UREF;
 
     @JsonCreator
-    protected CLTypeURef(String typeName) {
+    protected CLTypeURef(final String typeName) {
         super(typeName);
     }
 }

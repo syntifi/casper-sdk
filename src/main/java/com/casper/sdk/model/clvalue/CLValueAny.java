@@ -42,12 +42,12 @@ public class CLValueAny extends AbstractCLValue<Object, CLTypeAny> {
         return this.getClType().getTypeName();
     }
 
-    public CLValueAny(Object value) {
+    public CLValueAny(final Object value) {
         this.setValue(value);
     }
 
     @Override
-    public void encode(CLValueEncoder clve, boolean encodeType) throws IOException, NoSuchTypeException {
+    public void encode(final CLValueEncoder clve, final boolean encodeType) throws IOException, NoSuchTypeException {
         clve.writeAny(this);
         if (encodeType) {
             this.encodeType(clve);
@@ -55,7 +55,7 @@ public class CLValueAny extends AbstractCLValue<Object, CLTypeAny> {
     }
 
     @Override
-    public void decode(CLValueDecoder clvd) throws IOException, CLValueDecodeException {
+    public void decode(final CLValueDecoder clvd) throws IOException, CLValueDecodeException {
         clvd.readAny(this);
     }
 }
